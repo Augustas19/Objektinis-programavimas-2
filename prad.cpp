@@ -7,7 +7,7 @@ using namespace std;
 struct studentas{
 string vard, pav;
 int nd[10], egz;
-int suma;
+int suma=0;
 double vid;    
 };
 
@@ -25,6 +25,12 @@ int main(){
         }
         cout<<"Iveskite pazymi gauta uz egzamina"<<endl;
         cin>>A[i].egz;
+       
     }
 
+    for(int i=0; i<2; i++){
+        A[i].vid=(float)A[i].suma/2;
+    }
+    
+    
 }
