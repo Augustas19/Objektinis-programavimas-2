@@ -36,13 +36,12 @@ int main(){
         cout<<"Iveskite pazymi gauta uz egzamina"<<endl;
         cin>>A[i].egz;
 
-       
+
+        A[i].gal=A[i].vid*0.4+A[i].egz*0.6; // su vidurkiu
+
+        A[i].gal2=A[i].med*0.4+A[i].egz*0.6; // su mediana
     }
 
-
-    
-
-   
-      // cout<<tmp[0]<<" "<<tmp[1]<<tmp
+ 
     
 }
