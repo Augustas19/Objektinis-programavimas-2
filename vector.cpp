@@ -2,7 +2,6 @@
 #include <iomanip>
 #include <iostream>
 #include <algorithm>
-#include <map>
 #include <random>
 #include <chrono>
 
@@ -11,9 +10,9 @@ using std::cin;
 using std::endl;
 using std::setw;
 using std::left;
-using std::map;
 using std::mt19937;
-
+using std::setprecision;
+using std::fixed;
 
 using laik = std::chrono::high_resolution_clock;
 typedef std::uniform_int_distribution<int> int_dis;
@@ -53,50 +52,36 @@ studentas gen_vrd(){
     return A;
 };
 
-/*std::vector<double> gen_paz(int n){
-    std::vector<double> nd;
-    mt19937 rnd(static_cast<long unsigned int>(laik::now().time_since_epoch().count()));
-    int_dis paskirst(0,9);  
-
-    for(int i=0; i<n; i++){
-        nd.push_back(paskirst(rnd)); 
-    }
-    return nd;
-};
-int gen_egz(){
-    mt19937 rnd(static_cast<long unsigned int>(laik::now().time_since_epoch().count()));
-    int_dis paskirst(0,9);  
-
-    return paskirst(rnd); 
-};*/
 int gen_pazym(){
     mt19937 rnd(static_cast<long unsigned int>(laik::now().time_since_epoch().count()));
     int_dis paskirst(0,9);  
 
     return paskirst(rnd); 
 };
-int main(){
 
-    int x;
-
-    int n;  // nd sk
-    int m;  //studentu sk
-    int meniu; 
-
-    std::vector<studentas> A;
-    studentas tmp;
-
-    A.reserve(10);
-
-    cout<<"1 - ranka, 2 - generuoti pazymius, 3 - generuoti pazymius, vardus, pavardes, 4 - baigti darba";
-    cin>> meniu;
-
+void skaiciai(int &n, int &m){
     cout<<"Ivesk kiek pazymiu gavo uz namu darbus"<<endl;
     cin>>n;
     cout<<"Ivesk studentu skaiciu"<<endl;
     cin>>m;
+}
 
+int main(){
+
+    int x;
+    int n;  // nd sk
+    int m;  //studentu sk
+    int meniu; 
+    std::vector<studentas> A;
+    studentas tmp;
+    
+
+    cout<<"1 - ranka, 2 - generuoti pazymius, 3 - generuoti pazymius, vardus, pavardes, 4 - baigti darba"<<endl;
+    cin>> meniu;
+    
     if(meniu==1){
+        skaiciai(n,m);
+        A.reserve(m);
         for(int i=0; i<m; i++){
             cout<<"Ivesk studento varda"<<endl;
             cin>>tmp.vard;
@@ -113,60 +98,86 @@ int main(){
             cin>>tmp.egz;
             A.push_back(tmp);
             tmp.nd.clear();
+            tmp.suma=0;
         }
     }
 
 
     else if(meniu==2){
+        skaiciai(n,m);
+        A.reserve(m);
         for(int i=0; i<m; i++){
             cout<<"Ivesk studento varda"<<endl;
             cin>>tmp.vard;
             cout<<"Ivesk studento pavarde"<<endl;
             cin>>tmp.pav;
             for(int j=0; j<n; j++){
-                tmp.nd[i]=gen_pazym();
-                tmp.suma+=tmp.nd[i];
+                int pazymys = gen_pazym();
+                tmp.nd.push_back(pazymys);
+                //tmp.nd[i]=gen_pazym();
+                tmp.suma+=pazymys;
             }
             tmp.egz=gen_pazym();
             A.push_back(tmp);
             tmp.nd.clear();
+            tmp.suma=0;
         }
     }
 
 
     else if(meniu==3){
+        skaiciai(n,m);
+        A.reserve(m);
         for(int i=0; i<m; i++){
             studentas temp = gen_vrd();
             for(int j=0; j<n; j++){
-                temp.nd[i]=gen_pazym();
-                temp.suma+=temp.nd[i];
+                int pazymys = gen_pazym();
+                temp.nd.push_back(pazymys);
+                //temp.nd[i]=gen_pazym();
+                temp.suma+=pazymys; 
             }
             temp.egz = gen_pazym();
             A.push_back(temp);
+            temp.nd.clear();
         }
     }
 
     else if(meniu==4){
-
+        exit(EXIT_SUCCESS);
     }
-
 
     for(int i=0; i<m; i++){
         A[i].vid=(float)A[i].suma/n;
 
-        sort(A[i].nd.begin(), A[i].nd.begin());
+        sort(A[i].nd.begin(), A[i].nd.end());
 
         if(n%2==1){
             A[i].med=A[i].nd[n/2];
         }
-
         else{
-            A[i].med=(A[i].nd[n+1/2] + A[i].nd[n/2])/2.0;
+            A[i].med=(A[i].nd[n/2-1] + A[i].nd[n/2])/2.0;
         }
 
         A[i].gal=A[i].vid*0.4+A[i].egz*0.6; 
         A[i].gal2=A[i].med*0.4+A[i].egz*0.6;
     }
    
-    //cout<<A[0].vard<<A[0].nd[1];
+
+    int is;
+    cout<<"1 - Isvesti su vidurkiu, 2 - Isvesti su mediana"<<endl;
+    cin>>is;
+    if(is==1){
+         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
+        cout<<"----------------------------------"<<endl;
+        for(int i=0; i<m; i++){
+            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal<<endl;
+        }
+    }
+    if(is==2){
+        cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
+        cout<<"----------------------------------"<<endl;
+        for(int i=0; i<m; i++){
+            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal2<<endl;
+        }
+    }
 }
