@@ -77,8 +77,6 @@ int main(){
         exit(EXIT_SUCCESS);
     }
     skaiciai(n,m);
-
-
     studentas* A = new studentas[m];
 
     if(meniu==1){
@@ -124,6 +122,42 @@ int main(){
                 A[i].suma+=pazymys;
             }
             A[i].egz=gen_pazym();
+        }
+    }
+
+     for(int i=0; i<m; i++){
+
+        A[i].vid=(float)A[i].suma/n;
+
+        std::sort(A[i].nd, A[i].nd + n);
+
+        if(n%2==1){
+            A[i].med=A[i].nd[n/2];
+        }
+        else{
+            A[i].med=(A[i].nd[n/2-1] + A[i].nd[n/2])/2.0;
+        }
+
+        A[i].gal=A[i].vid*0.4+A[i].egz*0.6; 
+        A[i].gal2=A[i].med*0.4+A[i].egz*0.6;
+    }
+
+
+    int is;
+    cout<<"1 - Isvesti su vidurkiu, 2 - Isvesti su mediana"<<endl;
+    cin>>is;
+    if(is==1){
+         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
+        cout<<"----------------------------------"<<endl;
+        for(int i=0; i<m; i++){
+            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal<<endl;
+        }
+    }
+    if(is==2){
+        cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
+        cout<<"----------------------------------"<<endl;
+        for(int i=0; i<m; i++){
+            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal2<<endl;
         }
     }
 

@@ -149,7 +149,7 @@ int main(){
     for(int i=0; i<m; i++){
         A[i].vid=(float)A[i].suma/n;
 
-        sort(A[i].nd.begin(), A[i].nd.end());
+        std::sort(A[i].nd.begin(), A[i].nd.end());
 
         if(n%2==1){
             A[i].med=A[i].nd[n/2];
@@ -167,7 +167,7 @@ int main(){
     cout<<"1 - Isvesti su vidurkiu, 2 - Isvesti su mediana"<<endl;
     cin>>is;
     if(is==1){
-         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
+         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
         cout<<"----------------------------------"<<endl;
         for(int i=0; i<m; i++){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal<<endl;
