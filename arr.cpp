@@ -20,7 +20,7 @@ struct studentas{
     std::string vard;
     std::string pav;
     int egz;
-    double* nd=nullptr;
+    int* nd=nullptr;
     double vid;
     double med;
     double suma=0;
@@ -37,9 +37,33 @@ int gen_pazym(){
 
 void skaiciai(int &n, int &m){
     cout<<"Ivesk kiek pazymiu gavo uz namu darbus"<<endl;
-    cin>>n;
+     while(true){
+            cin>>n;
+                if(cin.fail()||n<=0){
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout<<"Ivesti galima tik sveikuosius teigiamus skaicius"<<endl;
+                }
+                else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                         cin.ignore(10000, '\n');
+                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;
+                    }
+                else{break;}
+        }
     cout<<"Ivesk studentu skaiciu"<<endl;
-    cin>>m;
+    while(true){
+            cin>>m;
+                if(cin.fail()|| m<=0){
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout<<"Ivesti galima tik sveikuosius teigiamus skaicius"<<endl;
+                }
+                else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                         cin.ignore(10000, '\n');
+                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;
+                    }
+                else{break;}
+        }
 }
 
 studentas gen_vrd(){
@@ -72,9 +96,21 @@ int main(){
     int meniu; 
     
     cout<<"1 - ranka, 2 - generuoti pazymius, 3 - generuoti pazymius, vardus, pavardes, 4 - baigti darba"<<endl;
-    cin>> meniu;
+    while(true){
+            cin>>meniu;
+                if(cin.fail() ||meniu<1 || meniu>4){
+                cin.clear();
+                cin.ignore(10000, '\n' );
+                    cout<<"Ivesti galima tik 1, 2, 3 arba 4"<<endl;
+                }
+                else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                         cin.ignore(10000, '\n');
+                         cout<<"Ivesti galima tik sveikuosius skaicius 1, 2, 3 arba 4"<<endl;
+                    }
+                else{break;}
+        }
     if(meniu==4){
-        exit(EXIT_SUCCESS);
+        return 0;
     }
     skaiciai(n,m);
     studentas* A = new studentas[m];
@@ -87,22 +123,47 @@ int main(){
             cin>>A[i].pav;
             cout<<"Ivesk "<<n<<" gautus namu darbu pazymius"<<endl;
 
-            A[i].nd= new double[n];
+            A[i].nd= new int[n];
             for(int j=0; j<n; j++){
-                cin>>A[i].nd[j];
+                while(true){
+                    cin>>A[i].nd[j];
+                    if(cin.fail()|| A[i].nd[j]<1 || A[i].nd[j]>10){
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                    }
+                    else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                         cin.ignore(10000, '\n');
+                         cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                    }
+                    else{break;}
+                } 
             }
             cout<<"Ivesk pazymi gauta uz egzamina"<<endl;
-            cin>>A[i].egz;
+                while(true){
+                    cin>>A[i].egz;
+                    if(cin.fail()|| A[i].egz<1 || A[i].egz>10){
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                    }
+                    else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                         cin.ignore(10000, '\n');
+                         cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                    }
+                    else{break;}
+                }
+                
+            }
 
         }
-    }
     else if(meniu==2){
         for(int i=0; i<m; i++){
         cout<<"Ivesk studento varda"<<endl;
             cin>>A[i].vard;
             cout<<"Ivesk studento pavarde"<<endl;
             cin>>A[i].pav;
-            A[i].nd = new double[n];
+            A[i].nd = new int[n];
             for(int j=0; j<n; j++){
                 int pazymys=gen_pazym();
                 A[i].nd[j]=pazymys;
@@ -115,7 +176,7 @@ int main(){
     else if(meniu==3){
         for(int i=0; i<m; i++){
             A[i] = gen_vrd();
-            A[i].nd= new double[n];
+            A[i].nd= new int[n];
             for(int j=0; j<n; j++){
                 int pazymys=gen_pazym();
                 A[i].nd[j] = pazymys;
@@ -145,7 +206,19 @@ int main(){
 
     int is;
     cout<<"1 - Isvesti su vidurkiu, 2 - Isvesti su mediana"<<endl;
-    cin>>is;
+    while(true){
+            cin>>is;
+                if(cin.fail() ||is<1 || is>2){
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout<<"Ivesti galima tik skaicius 1 arba 2"<<endl;
+                }
+                else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                         cin.ignore(10000, '\n');
+                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;
+                }
+                else{break;}
+    }
     if(is==1){
          cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
         cout<<"----------------------------------"<<endl;
