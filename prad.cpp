@@ -5,8 +5,8 @@ using namespace std;
 
 struct studentas{
 string vard, pav;
-int nd[10], egz;
-int suma=0;
+double nd[10], egz;
+double suma=0;
 double vid;  
 double med;  
 double gal;
@@ -24,17 +24,43 @@ int main(){
         cout<<"Iveskite 3 gautus namu darbu pazymius"<<endl;
 
         for(int j=0; j<3; j++){
-            cin>>A[i].nd[j];
+            while(true){
+                cin>>A[i].nd[j];
+                if(!cin){
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout<<"Ivesti galima tik skaicius";
+                }
+                else if(A[i].nd[j]<1 || A[i].nd[j]>10){
+                    cout<<"Skaicius turi buti nuo 1 iki 10";
+                }
+                else{
+                    break;
+                }
+            }
             A[i].suma+=A[i].nd[j];
         }
 
         A[i].vid=(float)A[i].suma/3;
 
-        sort(A[i].nd, A[i].nd+3);
+        std::sort(A[i].nd, A[i].nd+3);
         A[i].med=A[i].nd[3/2];
 
         cout<<"Iveskite pazymi gauta uz egzamina"<<endl;
-        cin>>A[i].egz;
+        while(true){
+            cin>>A[i].egz;
+                if(!cin){
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout<<"Ivesti galima tik skaicius"<<endl;
+                }
+                else if(A[i].egz<1 || A[i].egz>10){
+                    cout<<"Skaicius turi buti nuo 1 iki 10"<<endl;
+                }
+                else{
+                    break;
+                }
+        }
 
         A[i].gal=A[i].vid*0.4+A[i].egz*0.6; // su vidurkiu
 
@@ -42,9 +68,22 @@ int main(){
     }
 
     cout<<"1 - Isvesti su vidurkiu, 2 - Isvesti su mediana"<<endl;
-    cin>>is;
+    while(true){
+            cin>>is;
+                if(!cin){
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout<<"Ivesti galima tik skaicius 1 arba 1"<<endl;
+                }
+                else if(is<1 || is>2){
+                    cout<<"Skaicius turi buti nuo 1 arba 2"<<endl;
+                }
+                else{
+                    break;
+                }
+    }
     if(is==1){
-         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
+         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
         cout<<"----------------------------------"<<endl;
         for(int i=0; i<2; i++){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal<<endl;
