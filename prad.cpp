@@ -5,7 +5,7 @@ using namespace std;
 
 struct studentas{
 string vard, pav;
-double nd[10], egz;
+int nd[10], egz;
 double suma=0;
 double vid;  
 double med;  
