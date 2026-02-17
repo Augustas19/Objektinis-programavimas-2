@@ -26,17 +26,16 @@ int main(){
         for(int j=0; j<3; j++){
             while(true){
                 cin>>A[i].nd[j];
-                if(!cin){
+                if(cin.fail() || A[i].nd[j]<1 || A[i].nd[j]>10){
                 cin.clear();
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik skaicius";
+                cout<<"Ivesti galima tik skaicius nuo 1 iki 10";
                 }
-                else if(A[i].nd[j]<1 || A[i].nd[j]>10){
-                    cout<<"Skaicius turi buti nuo 1 iki 10";
-                }
-                else{
-                    break;
-                }
+                else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                        cin.ignore(10000, '\n');
+                        cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                    }
+                else{break;}
             }
             A[i].suma+=A[i].nd[j];
         }
@@ -49,14 +48,15 @@ int main(){
         cout<<"Iveskite pazymi gauta uz egzamina"<<endl;
         while(true){
             cin>>A[i].egz;
-                if(!cin){
+                if(cin.fail() ||A[i].egz<1 || A[i].egz>10){
                 cin.clear();
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik skaicius"<<endl;
+                cout<<"Ivesti galima tik skaicius nuo 1 iki 10"<<endl;
                 }
-                else if(A[i].egz<1 || A[i].egz>10){
-                    cout<<"Skaicius turi buti nuo 1 iki 10"<<endl;
-                }
+                else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                         cin.ignore(10000, '\n');
+                         cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                    }
                 else{
                     break;
                 }
@@ -70,14 +70,15 @@ int main(){
     cout<<"1 - Isvesti su vidurkiu, 2 - Isvesti su mediana"<<endl;
     while(true){
             cin>>is;
-                if(!cin){
+                if(cin.fail()||is<1 || is>2){
                 cin.clear();
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik skaicius 1 arba 1"<<endl;
+                cout<<"Ivesti galima tik skaicius 1 arba 2"<<endl;
                 }
-                else if(is<1 || is>2){
-                    cout<<"Skaicius turi buti nuo 1 arba 2"<<endl;
-                }
+                    else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                         cin.ignore(10000, '\n');
+                         cout<<"Ivesti galima tik sveikuosius skaicius 1 arba 2"<<endl;
+                    }
                 else{
                     break;
                 }
