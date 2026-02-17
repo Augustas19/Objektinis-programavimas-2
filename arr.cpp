@@ -30,7 +30,7 @@ struct studentas{
 
 int gen_pazym(){
     mt19937 rnd(static_cast<long unsigned int>(laik::now().time_since_epoch().count()));
-    int_dis paskirst(0,9);  
+    int_dis paskirst(1,10);  
 
     return paskirst(rnd); 
 };
@@ -41,7 +41,7 @@ void skaiciai(int &n, int &m){
     cout<<"Ivesk studentu skaiciu"<<endl;
     cin>>m;
 }
-/*
+
 studentas gen_vrd(){
     studentas A;
     mt19937 rnd(static_cast<long unsigned int>(laik::now().time_since_epoch().count()));
@@ -49,6 +49,7 @@ studentas gen_vrd(){
     std::string v[10] = {"Jonas", "Paulius", "Saulius", "Matas", "Egle", "Ruta", "Rima", "Lukas", "Juste", "Laura"};
     std::string p_v[10] = {"Pavardenis1", "Pavardenis2", "Pavardenis3", "Pavardenis4", "Pavardenis5", "Pavardenis6", "Pavardenis7", "Pavardenis8", "Pavardenis9", "Pavardenis10"};
     std::string p_m[10] = {"Pavardaite1", "Pavardaite2", "Pavardaite3", "Pavardaite4", "Pavardaite5", "Pavardaite6", "Pavardaite7", "Pavardaite8", "Pavardaite9", "Pavardaite10"};
+  
     A.vard=v[paskirst(rnd)];
     switch (*A.vard.rbegin())
     {
@@ -61,7 +62,7 @@ studentas gen_vrd(){
         
     };
     return A;
-};*/
+};
 
 int main(){
 
@@ -98,10 +99,32 @@ int main(){
         }
     }
     else if(meniu==2){
+        for(int i=0; i<m; i++){
+        cout<<"Ivesk studento varda"<<endl;
+            cin>>A[i].vard;
+            cout<<"Ivesk studento pavarde"<<endl;
+            cin>>A[i].pav;
+            A[i].nd = new double[n];
+            for(int j=0; j<n; j++){
+                int pazymys=gen_pazym();
+                A[i].nd[j]=pazymys;
+                A[i].suma+=pazymys;
+            }
+            A[i].egz = gen_pazym();
+        }
 
     }
     else if(meniu==3){
-
+        for(int i=0; i<m; i++){
+            A[i] = gen_vrd();
+            A[i].nd= new double[n];
+            for(int j=0; j<n; j++){
+                int pazymys=gen_pazym();
+                A[i].nd[j] = pazymys;
+                A[i].suma+=pazymys;
+            }
+            A[i].egz=gen_pazym();
+        }
     }
 
 

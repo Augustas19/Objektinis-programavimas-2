@@ -54,7 +54,7 @@ studentas gen_vrd(){
 
 int gen_pazym(){
     mt19937 rnd(static_cast<long unsigned int>(laik::now().time_since_epoch().count()));
-    int_dis paskirst(0,9);  
+    int_dis paskirst(1,10);  
 
     return paskirst(rnd); 
 };
