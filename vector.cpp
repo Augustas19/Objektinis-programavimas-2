@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <random>
 #include <chrono>
+#include <limits>
 
 using std::cout;
 using std::cin;
@@ -13,16 +14,17 @@ using std::left;
 using std::mt19937;
 using std::setprecision;
 using std::fixed;
+using std::string;
 
 using laik = std::chrono::high_resolution_clock;
 typedef std::uniform_int_distribution<int> int_dis;
 
 
 struct studentas{
-    std::string vard;
-    std::string pav;
+    string vard;
+    string pav;
     int egz;
-    std::vector<int> nd;
+    std::vector<int> nd;    
     double vid;
     double med;
     double suma=0;
@@ -59,7 +61,7 @@ int gen_pazym(){
     return paskirst(rnd); 
 };
 
-void skaiciai(int &n, int &m){
+void skaiciai(long &n, long &m){
     cout<<"Ivesk kiek pazymiu gavo uz namu darbus"<<endl;
      while(true){
             cin>>n;
@@ -93,8 +95,8 @@ void skaiciai(int &n, int &m){
 int main(){
 
     int x;
-    int n;  // nd sk
-    int m;  //studentu sk
+    long n;  // nd sk
+    long m;  //studentu sk
     int meniu; 
     std::vector<studentas> A;
     studentas tmp;
@@ -116,72 +118,92 @@ int main(){
         }
     
     if(meniu==1){
-        skaiciai(n,m);
-        A.reserve(m);
-        for(int i=0; i<m; i++){
-            cout<<"Ivesk studento varda"<<endl;
-            cin>>tmp.vard;
-            cout<<"Ivesk studento pavarde"<<endl;
-            cin>>tmp.pav;
-            cout<<"Ivesk "<<n<<" gautus namu darbu pazymius"<<endl;
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        while(true){
+            tmp.nd.clear();
+            tmp.suma=0;
+            cout<<"Ivesk studento varda arba paspausk ENTER jei nebenori ivesti daugiau studentu"<<endl;
+            getline(cin, tmp.vard);
+            if(tmp.vard.empty()){break;}
 
-            for(int j=0; j<n; j++){
-                while(true){
-                    cin>>x;
-                    if(cin.fail()|| x<1 || x>10){
+            cout<<"Ivesk studento pavarde"<<endl;
+            getline(cin, tmp.pav);
+
+            cout<<"Ivesk pazymi nuo 1 iki 10 arba 0 jei nori baigti ivedima"<<endl;
+            while(true){
+                cin>>x;
+                if(cin.fail()){
                     cin.clear();
                     cin.ignore(10000, '\n');
-                    cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                    cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10 arba 0"<<endl;
                     }
                     else if(cin.peek() !=' ' && cin.peek() != '\n'){
-                         cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                        cin.ignore(10000, '\n');
+                        cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
                     }
-                    else{break;}
-                }
-                tmp.nd.push_back(x);
-                tmp.suma+=x;
+                    else if(x==0){break;}
+
+                    else if(x<1 || x>10){
+                        cin.clear();
+                        cin.ignore(10000, '\n');
+                        cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                    }
             }
-            cout<<"Ivesk pazymi gauta uz egzamina"<<endl;
-            while(true){
+            cout<<"Ivesk egzamino pazymi nuo 1 iki 10"<<endl;
+            while (true){
             cin>>tmp.egz;
-                if(cin.fail()|| tmp.egz<1 || tmp.egz>10){
+            if(cin.fail()|| tmp.egz<1 || tmp.egz>10){
                 cin.clear();
                 cin.ignore(10000, '\n');
                 cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
-                }
-                else if(cin.peek() !=' ' && cin.peek() != '\n'){
-                         cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
-                    }
-                else{break;}
             }
-            A.push_back(tmp);
-            tmp.nd.clear();
-            tmp.suma=0;
+            else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                cin.ignore(10000, '\n');
+                cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+            }
+            else{break;}
+        }
+        A.push_back(tmp);
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
 
-
     else if(meniu==2){
-        skaiciai(n,m);
-        A.reserve(m);
-        for(int i=0; i<m; i++){
-            cout<<"Ivesk studento varda"<<endl;
-            cin>>tmp.vard;
+       cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+       while(true){
+            tmp.nd.clear();
+            tmp.suma=0;
+            cout<<"Ivesk studento varda arba paspausk ENTER jei nebenori ivesti daugiau studentu"<<endl;
+            getline(cin, tmp.vard);
+            if(tmp.vard.empty()){break;}
+
             cout<<"Ivesk studento pavarde"<<endl;
-            cin>>tmp.pav;
-            for(int j=0; j<n; j++){
+            getline(cin, tmp.pav);
+
+            cout<<"Ivesk kiek pazymiu gavo uz namu darbus"<<endl;
+            while(true){
+            cin>>n;
+                if(cin.fail()||n<=0){
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout<<"Ivesti galima tik sveikuosius teigiamus skaicius"<<endl;
+                }
+                else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                         cin.ignore(10000, '\n');
+                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;    
+                        }
+                else{break;}
+            }
+
+            for(long j=0; j<n; j++){
                 int pazymys = gen_pazym();
                 tmp.nd.push_back(pazymys);
-                //tmp.nd[i]=gen_pazym();
                 tmp.suma+=pazymys;
             }
             tmp.egz=gen_pazym();
             A.push_back(tmp);
-            tmp.nd.clear();
-            tmp.suma=0;
-        }
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+       }
     }
 
 
@@ -193,7 +215,6 @@ int main(){
             for(int j=0; j<n; j++){
                 int pazymys = gen_pazym();
                 temp.nd.push_back(pazymys);
-                //temp.nd[i]=gen_pazym();
                 temp.suma+=pazymys; 
             }
             temp.egz = gen_pazym();
@@ -206,18 +227,26 @@ int main(){
         return 0;
     }
 
-    for(int i=0; i<m; i++){
-        A[i].vid=(float)A[i].suma/n;
 
-        std::sort(A[i].nd.begin(), A[i].nd.end());
+    for(size_t i=0; i<A.size(); i++){
+        size_t sk =A[i].nd.size();
 
-        if(n%2==1){
-            A[i].med=A[i].nd[n/2];
+        if(sk == 0){
+            A[i].vid=0;
+            A[i].med=0;
         }
         else{
-            A[i].med=(A[i].nd[n/2-1] + A[i].nd[n/2])/2.0;
-        }
+            A[i].vid=(float)A[i].suma/sk;
+            std::sort(A[i].nd.begin(), A[i].nd.end());
 
+            if(sk%2==1){
+                A[i].med=A[i].nd[sk/2];
+            }
+            else if(sk>=2){
+                A[i].med=(A[i].nd[sk/2-1] + A[i].nd[sk/2])/2.0;
+            }
+            else {A[i].med=A[i].nd[0];}
+        }
         A[i].gal=A[i].vid*0.4+A[i].egz*0.6; 
         A[i].gal2=A[i].med*0.4+A[i].egz*0.6;
     }
@@ -241,14 +270,14 @@ int main(){
     if(is==1){
          cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
         cout<<"----------------------------------"<<endl;
-        for(int i=0; i<m; i++){
+        for(int i=0; i<A.size(); i++){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal<<endl;
         }
     }
     if(is==2){
         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
         cout<<"----------------------------------"<<endl;
-        for(int i=0; i<m; i++){
+        for(int i=0; i<A.size(); i++){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal2<<endl;
         }
     }
