@@ -195,48 +195,6 @@ int main(){
 
         }
     }
-        /*
-        for(int i=0; i<m; i++){
-        cout<<"Ivesk studento varda"<<endl;
-            cin>>A[i].vard;
-            cout<<"Ivesk studento pavarde"<<endl;
-            cin>>A[i].pav;
-            cout<<"Ivesk "<<n<<" gautus namu darbu pazymius"<<endl;
-
-            A[i].nd= new int[n];
-            for(int j=0; j<n; j++){
-                while(true){
-                    cin>>A[i].nd[j];
-                    if(cin.fail()|| A[i].nd[j]<1 || A[i].nd[j]>10){
-                    cin.clear();
-                    cin.ignore(10000, '\n');
-                    cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
-                    }
-                    else if(cin.peek() !=' ' && cin.peek() != '\n'){
-                         cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
-                    }
-                    else{break;}
-                } 
-            }
-            cout<<"Ivesk pazymi gauta uz egzamina"<<endl;
-                while(true){
-                    cin>>A[i].egz;
-                    if(cin.fail()|| A[i].egz<1 || A[i].egz>10){
-                    cin.clear();
-                    cin.ignore(10000, '\n');
-                    cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
-                    }
-                    else if(cin.peek() !=' ' && cin.peek() != '\n'){
-                         cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
-                    }
-                    else{break;}
-                }
-                
-            }
-
-        }*/
     else if(meniu==2){
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         while(true){
@@ -279,29 +237,10 @@ int main(){
             st[stud_sk]=tmp;
             delete[] A;
             A=st;
-            stud_sk++;
-
-            
+            stud_sk++;   
         }
-
-       /*for(int i=0; i<m; i++){
-        cout<<"Ivesk studento varda"<<endl;
-            cin>>A[i].vard;
-            cout<<"Ivesk studento pavarde"<<endl;
-            cin>>A[i].pav;
-
-            A[i].nd = new int[n];
-            for(int j=0; j<n; j++){
-                int pazymys=gen_pazym();
-                A[i].nd[j]=pazymys;
-                A[i].suma+=pazymys;
-            }
-            A[i].egz = gen_pazym();
-
-            
-        }*/ 
-
     }
+    
     else if(meniu==3){
         skaiciai(n,m);
         A=new studentas[m];
