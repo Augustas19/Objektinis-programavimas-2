@@ -15,6 +15,7 @@ using std::mt19937;
 using std::setprecision;
 using std::fixed;
 using std::string;
+using std::getline;
 
 using laik = std::chrono::high_resolution_clock;
 typedef std::uniform_int_distribution<int> int_dis;
@@ -134,7 +135,7 @@ int main(){
                 cin>>x;
                 if(cin.fail()){
                     cin.clear();
-                    cin.ignore(10000, '\n');
+                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10 arba 0"<<endl;
                     }
                     else if(cin.peek() !=' ' && cin.peek() != '\n'){
@@ -148,6 +149,8 @@ int main(){
                         cin.ignore(10000, '\n');
                         cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
                     }
+                    tmp.nd.push_back(x);
+                    tmp.suma+=x;
             }
             cout<<"Ivesk egzamino pazymi nuo 1 iki 10"<<endl;
             while (true){
