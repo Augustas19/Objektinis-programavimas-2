@@ -94,6 +94,109 @@ void skaiciai(long &n, long &m){
         }
 }
 
+
+void skt(std::vector<studentas>& A){
+std::stringstream buf;
+string eilut;
+std::vector<string> skaid;
+
+std::ifstream f("kursiokai.txt");
+buf << f.rdbuf();
+f.close();
+
+getline(buf, eilut); // pirma eil
+while(buf){
+    if(!buf.eof()){
+        getline(buf, eilut);
+        skaid.push_back(eilut);
+
+    }
+    else break;
+}
+for(const auto& line : skaid){
+    std::stringstream t(line);
+
+    studentas temp;
+    temp.nd.clear();
+    temp.suma=0;
+
+    t>>temp.vard>>temp.pav;
+    int paz;
+    std::vector<int> sk;
+    while(t>>paz){
+        sk.push_back(paz);
+    }
+
+    if(sk.size()>1){continue;}
+
+    temp.egz=sk.back();
+    sk.pop_back();
+    temp.nd=sk;
+    for(int i:temp.nd){
+        temp.suma+=i;
+    }
+    A.push_back(temp);
+}
+
+}
+
+void skaiciavimai(std::vector<studentas>& A){
+    for(size_t i=0; i<A.size(); i++){
+            size_t sk =A[i].nd.size();
+
+            if(sk == 0){
+                A[i].vid=0;
+                A[i].med=0;
+            }
+            else{
+                A[i].vid=(float)A[i].suma/sk;
+                std::sort(A[i].nd.begin(), A[i].nd.end());
+
+                if(sk%2==1){
+                    A[i].med=A[i].nd[sk/2];
+                }
+                else if(sk>=2){
+                    A[i].med=(A[i].nd[sk/2-1] + A[i].nd[sk/2])/2.0;
+                }
+                else {A[i].med=A[i].nd[0];}
+            }
+            A[i].gal=A[i].vid*0.4+A[i].egz*0.6; 
+            A[i].gal2=A[i].med*0.4+A[i].egz*0.6;
+        }
+}
+
+void isved(std::vector<studentas>& A){
+    int is;
+    cout<<"1 - Isvesti su vidurkiu, 2 - Isvesti su mediana"<<endl;
+    while(true){
+            cin>>is;
+                if(cin.fail() ||is<1 || is>2){
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout<<"Ivesti galima tik skaicius 1 arba 2"<<endl;
+                }
+                else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                         cin.ignore(10000, '\n');
+                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;
+                }
+                else{break;}
+    }
+    if(is==1){
+         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
+        cout<<"----------------------------------"<<endl;
+        for(int i=0; i<A.size(); i++){
+            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal<<endl;
+        }
+    }
+    if(is==2){
+        cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
+        cout<<"----------------------------------"<<endl;
+        for(int i=0; i<A.size(); i++){
+            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal2<<endl;
+        }
+    }
+}
+
 int main(){
 
     int x;
@@ -170,6 +273,8 @@ int main(){
         A.push_back(tmp);
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
+        skaiciavimai(A);
+        isved(A);
     }
 
     else if(meniu==2){
@@ -207,7 +312,9 @@ int main(){
             tmp.egz=gen_pazym();
             A.push_back(tmp);
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-       }
+        }
+        skaiciavimai(A);
+        isved(A);
     }
 
 
@@ -225,9 +332,41 @@ int main(){
             A.push_back(temp);
             temp.nd.clear();
         }
+        skaiciavimai(A);
+        isved(A);
+
     }
 
     else if (meniu == 4){
+        /*std::vector<string> nusk;
+        string eil;
+        std::stringstream buff;
+        */
+        skt(A);
+        int m2;
+        cout<<"1 - Isvesti i ekrana, 2 - Isvesti i faila"<<endl;
+        while(true){
+            cin>>m2;
+                if(cin.fail() ||m2<1 || m2>5){
+                cin.clear();
+                cin.ignore(10000, '\n' );
+                    cout<<"Ivesti galima tik 1, arba 2"<<endl;
+                }
+                else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                    cin.ignore(10000, '\n');
+                    cout<<"Ivesti galima tik sveikuosius skaicius 1, arba 2"<<endl;
+                }
+                else{break;}
+        }
+        skaiciavimai(A);
+        
+        
+        if(m2==1){
+            isved(A);
+        }
+        else if(m2==2){
+            // ofstream
+        }
 
     }
     
@@ -236,7 +375,7 @@ int main(){
     }
 
 
-    for(size_t i=0; i<A.size(); i++){
+    /*for(size_t i=0; i<A.size(); i++){
         size_t sk =A[i].nd.size();
 
         if(sk == 0){
@@ -258,9 +397,9 @@ int main(){
         A[i].gal=A[i].vid*0.4+A[i].egz*0.6; 
         A[i].gal2=A[i].med*0.4+A[i].egz*0.6;
     }
-   
+*/   
 
-    int is;
+    /*int is;
     cout<<"1 - Isvesti su vidurkiu, 2 - Isvesti su mediana"<<endl;
     while(true){
             cin>>is;
@@ -288,5 +427,5 @@ int main(){
         for(int i=0; i<A.size(); i++){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal2<<endl;
         }
-    }
+    }*/
 }
