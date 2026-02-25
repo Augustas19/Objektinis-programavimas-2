@@ -341,13 +341,51 @@ int main(){
         /*std::vector<string> nusk;
         string eil;
         std::stringstream buff;
-        */
+        */ 
         skt(A);
+        skaiciavimai(A);
+        int rik;
+        cout<<"1 - Rikiuosti pagal varda mazejanciai , 2 - pagal varda didejanciai, 3 - pagal pavarde mazejanciai, 4 - pagal pavarde didejanciai, 5 - pagal vidurki mazejanciai, 6 - pagal vidurki didejanciai, 7 - pagal mediana mazejanciai, 8 - pagal mediana didejanciai"<<endl;
+        while(true){
+            cin>>rik;
+                if(cin.fail() ||rik<1 || rik>8){
+                cin.clear();
+                cin.ignore(10000, '\n' );
+                    cout<<"Ivesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
+                }
+                else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                    cin.ignore(10000, '\n');
+                    cout<<"Ivesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
+                }
+                else{break;}
+        }
+        std::sort(A.begin(), A.end(), [rik](const studentas& A, const studentas& B){
+            switch (rik)
+            {
+            case 1:
+                return A.vard > B.vard;
+            case 2:
+                return A.vard < B.vard;
+            case 3:
+                return A.pav > B.pav;
+            case 4:
+                return A.pav < B.pav;
+            case 5:
+                return A.gal > B.gal;
+            case 6:
+                return A.gal < B.gal;
+            case 7:
+                return A.gal2> B.gal2;
+            case 8:
+                return A.gal2 < B.gal2;
+            }
+        });
+       
         int m2;
         cout<<"1 - Isvesti i ekrana, 2 - Isvesti i faila"<<endl;
         while(true){
             cin>>m2;
-                if(cin.fail() ||m2<1 || m2>5){
+                if(cin.fail() ||m2<1 || m2>2){
                 cin.clear();
                 cin.ignore(10000, '\n' );
                     cout<<"Ivesti galima tik 1, arba 2"<<endl;
@@ -358,11 +396,11 @@ int main(){
                 }
                 else{break;}
         }
-        skaiciavimai(A);
-        
         
         if(m2==1){
-            isved(A);
+            //isved(A);
+
+            
         }
         else if(m2==2){
             // ofstream
