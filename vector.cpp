@@ -96,11 +96,13 @@ void skaiciai(long &n, long &m){
 
 
 void skt(std::vector<studentas>& A){
+auto pradz = std::chrono::high_resolution_clock::now();
+//auto p2= pradz;
 std::stringstream buf;
 string eilut;
 std::vector<string> skaid;
 
-std::ifstream f("kursiokai.txt");
+std::ifstream f("studentai10000.txt");
 buf << f.rdbuf();
 f.close();
 
@@ -127,7 +129,7 @@ for(const auto& line : skaid){
         sk.push_back(paz);
     }
 
-    if(sk.size()>1){continue;}
+    if(sk.size()<1){continue;}
 
     temp.egz=sk.back();
     sk.pop_back();
@@ -137,7 +139,7 @@ for(const auto& line : skaid){
     }
     A.push_back(temp);
 }
-
+//std::chrono::duration<double> skirt1 = std::chrono::high_resolution_clock::now() - pradz;
 }
 
 void skaiciavimai(std::vector<studentas>& A){
@@ -205,7 +207,6 @@ int main(){
     int meniu; 
     std::vector<studentas> A;
     studentas tmp;
-    
 
     cout<<"1 - ranka, 2 - generuoti pazymius, 3 - generuoti pazymius, vardus, pavardes, 4 - nuskaityti is failo, 5 - baigti darba"<<endl;
     while(true){
@@ -323,6 +324,7 @@ int main(){
         A.reserve(m);
         for(int i=0; i<m; i++){
             studentas temp = gen_vrd();
+            temp.suma = 0;  
             for(int j=0; j<n; j++){
                 int pazymys = gen_pazym();
                 temp.nd.push_back(pazymys);
@@ -338,10 +340,6 @@ int main(){
     }
 
     else if (meniu == 4){
-        /*std::vector<string> nusk;
-        string eil;
-        std::stringstream buff;
-        */ 
         skt(A);
         skaiciavimai(A);
         int rik;
@@ -378,7 +376,9 @@ int main(){
                 return A.gal2> B.gal2;
             case 8:
                 return A.gal2 < B.gal2;
+            default: return false;
             }
+
         });
        
         int m2;
@@ -398,12 +398,21 @@ int main(){
         }
         
         if(m2==1){
-            //isved(A);
-
             
+            //isved(A);
+            cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(8)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
+            cout<<"-----------------------------------------------------------"<<endl;
+            for(int i=0; i<A.size(); i++){
+            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(8)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
+        }   
         }
         else if(m2==2){
             // ofstream
+            std::ofstream r("rezultatai.txt");
+            r<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(8)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
+            r<<"-----------------------------------------------------------"<<endl;
+            for(int i=0; i<A.size(); i++){
+            r<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(8)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
         }
 
     }
@@ -452,18 +461,7 @@ int main(){
                 }
                 else{break;}
     }
-    if(is==1){
-         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
-        cout<<"----------------------------------"<<endl;
-        for(int i=0; i<A.size(); i++){
-            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal<<endl;
-        }
-    }
-    if(is==2){
-        cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
-        cout<<"----------------------------------"<<endl;
-        for(int i=0; i<A.size(); i++){
-            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal2<<endl;
-        }
+  
     }*/
+}
 }
