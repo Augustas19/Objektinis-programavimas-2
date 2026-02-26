@@ -96,17 +96,15 @@ void skaiciai(long &n, long &m){
 
 
 void skt(std::vector<studentas>& A){
-auto pradz = std::chrono::high_resolution_clock::now();
-//auto p2= pradz;
 std::stringstream buf;
 string eilut;
 std::vector<string> skaid;
 
-std::ifstream f("studentai10000.txt");
+std::ifstream f("studentai1000000.txt");
 buf << f.rdbuf();
 f.close();
 
-getline(buf, eilut); // pirma eil
+getline(buf, eilut);
 while(buf){
     if(!buf.eof()){
         getline(buf, eilut);
@@ -139,7 +137,6 @@ for(const auto& line : skaid){
     }
     A.push_back(temp);
 }
-//std::chrono::duration<double> skirt1 = std::chrono::high_resolution_clock::now() - pradz;
 }
 
 void skaiciavimai(std::vector<studentas>& A){
@@ -200,13 +197,17 @@ void isved(std::vector<studentas>& A){
 }
 
 int main(){
-
+auto pradz = std::chrono::high_resolution_clock::now();
     int x;
     long n;  // nd sk
     long m;  //studentu sk
     int meniu; 
     std::vector<studentas> A;
     studentas tmp;
+
+    double l1;
+    double l2;
+    double l3;
 
     cout<<"1 - ranka, 2 - generuoti pazymius, 3 - generuoti pazymius, vardus, pavardes, 4 - nuskaityti is failo, 5 - baigti darba"<<endl;
     while(true){
@@ -400,19 +401,19 @@ int main(){
         if(m2==1){
             
             //isved(A);
-            cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(8)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
+            cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
             cout<<"-----------------------------------------------------------"<<endl;
             for(int i=0; i<A.size(); i++){
-            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(8)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
+            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
         }   
         }
         else if(m2==2){
             // ofstream
             std::ofstream r("rezultatai.txt");
-            r<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(8)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
+            r<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
             r<<"-----------------------------------------------------------"<<endl;
             for(int i=0; i<A.size(); i++){
-            r<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(8)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
+            r<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
         }
 
     }
@@ -421,47 +422,7 @@ int main(){
         return 0;
     }
 
-
-    /*for(size_t i=0; i<A.size(); i++){
-        size_t sk =A[i].nd.size();
-
-        if(sk == 0){
-            A[i].vid=0;
-            A[i].med=0;
-        }
-        else{
-            A[i].vid=(float)A[i].suma/sk;
-            std::sort(A[i].nd.begin(), A[i].nd.end());
-
-            if(sk%2==1){
-                A[i].med=A[i].nd[sk/2];
-            }
-            else if(sk>=2){
-                A[i].med=(A[i].nd[sk/2-1] + A[i].nd[sk/2])/2.0;
-            }
-            else {A[i].med=A[i].nd[0];}
-        }
-        A[i].gal=A[i].vid*0.4+A[i].egz*0.6; 
-        A[i].gal2=A[i].med*0.4+A[i].egz*0.6;
-    }
-*/   
-
-    /*int is;
-    cout<<"1 - Isvesti su vidurkiu, 2 - Isvesti su mediana"<<endl;
-    while(true){
-            cin>>is;
-                if(cin.fail() ||is<1 || is>2){
-                cin.clear();
-                cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik skaicius 1 arba 2"<<endl;
-                }
-                else if(cin.peek() !=' ' && cin.peek() != '\n'){
-                         cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;
-                }
-                else{break;}
-    }
-  
-    }*/
+    std::chrono::duration<double> skirt1 = std::chrono::high_resolution_clock::now() - pradz;
+    cout<<"Programos vykdymas uztruko "<<skirt1.count()<<endl;
 }
 }
