@@ -7,6 +7,7 @@
 #include <limits>
 #include <fstream>
 #include <windows.h>
+#include "funkcijos.h"
 
 
 using std::cout;
@@ -23,7 +24,7 @@ using std::getline;
 using laik = std::chrono::high_resolution_clock;
 typedef std::uniform_int_distribution<int> int_dis;
 
-
+/*
 struct studentas{
     string vard;
     string pav;
@@ -199,7 +200,7 @@ void isved(std::vector<studentas>& A){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal2<<endl;
         }
     }
-}
+}*/
 
 int main(){
     SetConsoleOutputCP(CP_UTF8);

@@ -52,31 +52,31 @@ int gen_pazym(){
 };
 
 void skaiciai(long &n, long &m){
-    cout<<"Ivesk kiek pazymiu gavo uz namu darbus"<<endl;
+    cout<<"Įvesk kiek pažymių gavo už namų darbus"<<endl;
      while(true){
             cin>>n;
                 if(cin.fail()||n<=0){
                 cin.clear();
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik sveikuosius teigiamus skaicius"<<endl;
+                cout<<"Įvesti galima tik sveikuosius teigiamus skaičius"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                          cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;    
+                         cout<<"Įvesti galima tik sveikuosius skaičius"<<endl;    
                         }
                 else{break;}
         }
-    cout<<"Ivesk studentu skaiciu"<<endl;
+    cout<<"Įvesk studentų skaičių"<<endl;
     while(true){
             cin>>m;
                 if(cin.fail()|| m<=0){
                 cin.clear();
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik sveikuosius teigiamus skaicius"<<endl;
+                cout<<"Įvesti galima tik sveikuosius teigiamus skaičius"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                          cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;
+                         cout<<"Įvesti galima tik sveikuosius skaičius"<<endl;
                     }
                 else{break;}
         }
@@ -89,6 +89,9 @@ string eilut;
 std::vector<string> skaid;
 
 std::ifstream f("studentai1000000.txt");
+
+if(!f.is_open()){throw std::runtime_error("Nepavyko atidaryti failo");
+}
 buf << f.rdbuf();
 f.close();
 
@@ -154,32 +157,31 @@ void skaiciavimai(std::vector<studentas>& A){
 
 void isved(std::vector<studentas>& A){
     int is;
-    cout<<"1 - Isvesti su vidurkiu, 2 - Isvesti su mediana"<<endl;
+    cout<<"1 - Išvesti su vidurkiu, 2 - Išvesti su mediana"<<endl;
     while(true){
             cin>>is;
                 if(cin.fail() ||is<1 || is>2){
                 cin.clear();
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik skaicius 1 arba 2"<<endl;
+                cout<<"Įvesti galima tik skaičius 1 arba 2"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                          cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;
+                         cout<<"Įvesti galima tik sveikuosius skaičius"<<endl;
                 }
                 else{break;}
     }
     if(is==1){
-         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
+         cout<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
         cout<<"----------------------------------"<<endl;
         for(int i=0; i<A.size(); i++){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal<<endl;
         }
     }
     if(is==2){
-        cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
+        cout<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
         cout<<"----------------------------------"<<endl;
         for(int i=0; i<A.size(); i++){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal2<<endl;
         }
     }
-}
