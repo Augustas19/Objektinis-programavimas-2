@@ -6,6 +6,7 @@
 #include <chrono>
 #include <limits>
 #include <fstream>
+#include <windows.h>
 
 
 using std::cout;
@@ -65,31 +66,31 @@ int gen_pazym(){
 };
 
 void skaiciai(long &n, long &m){
-    cout<<"Ivesk kiek pazymiu gavo uz namu darbus"<<endl;
+    cout<<"Įvesk kiek pažymių gavo už namų darbus"<<endl;
      while(true){
             cin>>n;
                 if(cin.fail()||n<=0){
                 cin.clear();
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik sveikuosius teigiamus skaicius"<<endl;
+                cout<<"Įvesti galima tik sveikuosius teigiamus skaičius"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                          cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;    
+                         cout<<"Įvesti galima tik sveikuosius skaičius"<<endl;    
                         }
                 else{break;}
         }
-    cout<<"Ivesk studentu skaiciu"<<endl;
+    cout<<"Įvesk studentų skaičių"<<endl;
     while(true){
             cin>>m;
                 if(cin.fail()|| m<=0){
                 cin.clear();
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik sveikuosius teigiamus skaicius"<<endl;
+                cout<<"Įvesti galima tik sveikuosius teigiamus skaičius"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                          cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;
+                         cout<<"Įvesti galima tik sveikuosius skaičius"<<endl;
                     }
                 else{break;}
         }
@@ -167,29 +168,29 @@ void skaiciavimai(std::vector<studentas>& A){
 
 void isved(std::vector<studentas>& A){
     int is;
-    cout<<"1 - Isvesti su vidurkiu, 2 - Isvesti su mediana"<<endl;
+    cout<<"1 - Išvesti su vidurkiu, 2 - Išvesti su mediana"<<endl;
     while(true){
             cin>>is;
                 if(cin.fail() ||is<1 || is>2){
                 cin.clear();
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik skaicius 1 arba 2"<<endl;
+                cout<<"Įvesti galima tik skaičius 1 arba 2"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                          cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;
+                         cout<<"Įvesti galima tik sveikuosius skaičius"<<endl;
                 }
                 else{break;}
     }
     if(is==1){
-         cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
+         cout<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
         cout<<"----------------------------------"<<endl;
         for(int i=0; i<A.size(); i++){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal<<endl;
         }
     }
     if(is==2){
-        cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
+        cout<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
         cout<<"----------------------------------"<<endl;
         for(int i=0; i<A.size(); i++){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal2<<endl;
@@ -198,7 +199,10 @@ void isved(std::vector<studentas>& A){
 }
 
 int main(){
-auto pradz = std::chrono::high_resolution_clock::now();
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
+    auto pradz = std::chrono::high_resolution_clock::now();
     int x;
     long n;  // nd sk
     long m;  //studentu sk
@@ -206,17 +210,17 @@ auto pradz = std::chrono::high_resolution_clock::now();
     std::vector<studentas> A;
     studentas tmp;
 
-    cout<<"1 - ranka, 2 - generuoti pazymius, 3 - generuoti pazymius, vardus, pavardes, 4 - nuskaityti is failo, 5 - baigti darba"<<endl;
+    cout<<"1 - ranka, 2 - generuoti payžmius, 3 - generuoti pažymius, vardus, pavardes, 4 - nuskaityti iš failo, 5 - baigti darbą"<<endl;
     while(true){
             cin>>meniu;
                 if(cin.fail() ||meniu<1 || meniu>5){
                 cin.clear();
                 cin.ignore(10000, '\n' );
-                    cout<<"Ivesti galima tik 1, 2, 3, 4 arba 5"<<endl;
+                    cout<<"Įvesti galima tik 1, 2, 3, 4 arba 5"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                     cin.ignore(10000, '\n');
-                    cout<<"Ivesti galima tik sveikuosius skaicius 1, 2, 3, 4 arba 5"<<endl;
+                    cout<<"Įvesti galima tik sveikuosius skaičius 1, 2, 3, 4 arba 5"<<endl;
                 }
                 else{break;}
         }
@@ -226,46 +230,46 @@ auto pradz = std::chrono::high_resolution_clock::now();
         while(true){
             tmp.nd.clear();
             tmp.suma=0;
-            cout<<"Ivesk studento varda arba paspausk ENTER jei nebenori ivesti daugiau studentu"<<endl;
+            cout<<"Įvesk studento vardą arba paspausk ENTER, jei nebenori įvesti daugiau studentų"<<endl;
             getline(cin, tmp.vard);
             if(tmp.vard.empty()){break;}
 
-            cout<<"Ivesk studento pavarde"<<endl;
+            cout<<"Įvesk studento pavardę"<<endl;
             getline(cin, tmp.pav);
 
-            cout<<"Ivesk pazymi nuo 1 iki 10 arba 0 jei nori baigti ivedima"<<endl;
+            cout<<"Įvesk pažymį nuo 1 iki 10 arba 0, jei nori baigti įvedimą"<<endl;
             while(true){
                 cin>>x;
                 if(cin.fail()){
                     cin.clear();
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10 arba 0"<<endl;
+                    cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10 arba 0"<<endl;
                     }
                     else if(cin.peek() !=' ' && cin.peek() != '\n'){
                         cin.ignore(10000, '\n');
-                        cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                        cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
                     }
                     else if(x==0){break;}
 
                     else if(x<1 || x>10){
                         cin.clear();
                         cin.ignore(10000, '\n');
-                        cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                        cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
                     }
                     tmp.nd.push_back(x);
                     tmp.suma+=x;
             }
-            cout<<"Ivesk egzamino pazymi nuo 1 iki 10"<<endl;
+            cout<<"Įvesk egzamino pažymį nuo 1 iki 10"<<endl;
             while (true){
             cin>>tmp.egz;
             if(cin.fail()|| tmp.egz<1 || tmp.egz>10){
                 cin.clear();
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
             }
             else if(cin.peek() !=' ' && cin.peek() != '\n'){
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik sveikuosius skaicius nuo 1 iki 10"<<endl;
+                cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
             }
             else{break;}
         }
@@ -281,24 +285,24 @@ auto pradz = std::chrono::high_resolution_clock::now();
        while(true){
             tmp.nd.clear();
             tmp.suma=0;
-            cout<<"Ivesk studento varda arba paspausk ENTER jei nebenori ivesti daugiau studentu"<<endl;
+            cout<<"Įvesk studento vardą arba paspausk ENTER, jei nebenori įvesti daugiau studentų"<<endl;
             getline(cin, tmp.vard);
             if(tmp.vard.empty()){break;}
 
-            cout<<"Ivesk studento pavarde"<<endl;
+            cout<<"Įvesk studento pavardę"<<endl;
             getline(cin, tmp.pav);
 
-            cout<<"Ivesk kiek pazymiu gavo uz namu darbus"<<endl;
+            cout<<"Įvesk kiek pažymių gavo už namų darbus"<<endl;
             while(true){
             cin>>n;
                 if(cin.fail()||n<=0){
                 cin.clear();
                 cin.ignore(10000, '\n');
-                cout<<"Ivesti galima tik sveikuosius teigiamus skaicius"<<endl;
+                cout<<"Įvesti galima tik sveikuosius teigiamus skaičius"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                          cin.ignore(10000, '\n');
-                         cout<<"Ivesti galima tik sveikuosius skaicius"<<endl;    
+                         cout<<"Įvesti galima tik sveikuosius skaičius"<<endl;    
                         }
                 else{break;}
             }
@@ -341,17 +345,17 @@ auto pradz = std::chrono::high_resolution_clock::now();
         skt(A);
         skaiciavimai(A);
         int rik;
-        cout<<"1 - Rikiuosti pagal varda mazejanciai , 2 - pagal varda didejanciai, 3 - pagal pavarde mazejanciai, 4 - pagal pavarde didejanciai, 5 - pagal vidurki mazejanciai, 6 - pagal vidurki didejanciai, 7 - pagal mediana mazejanciai, 8 - pagal mediana didejanciai"<<endl;
+        cout<<"1 - Rikiuosti pagal vardą mažėjančiai , 2 - pagal vardą didėjančiai, 3 - pagal pavardę mažėjančiai, 4 - pagal pavardę didėjančiai, 5 - pagal vidurkį mažėjančiai, 6 - pagal vidurki didėjančiai, 7 - pagal mediana mažėjančiai, 8 - pagal mediana didėjančiai"<<endl;
         while(true){
             cin>>rik;
                 if(cin.fail() ||rik<1 || rik>8){
                 cin.clear();
                 cin.ignore(10000, '\n' );
-                    cout<<"Ivesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
+                    cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                     cin.ignore(10000, '\n');
-                    cout<<"Ivesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
+                    cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
                 }
                 else{break;}
         }
@@ -380,17 +384,17 @@ auto pradz = std::chrono::high_resolution_clock::now();
         });
        
         int m2;
-        cout<<"1 - Isvesti i ekrana, 2 - Isvesti i faila"<<endl;
+        cout<<"1 - Išvesti į ekraną, 2 - Išvesti į failą"<<endl;
         while(true){
             cin>>m2;
                 if(cin.fail() ||m2<1 || m2>2){
                 cin.clear();
                 cin.ignore(10000, '\n' );
-                    cout<<"Ivesti galima tik 1, arba 2"<<endl;
+                    cout<<"Įvesti galima tik 1, arba 2"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                     cin.ignore(10000, '\n');
-                    cout<<"Ivesti galima tik sveikuosius skaicius 1, arba 2"<<endl;
+                    cout<<"Įvesti galima tik sveikuosius skaičius 1, arba 2"<<endl;
                 }
                 else{break;}
         }
@@ -398,7 +402,7 @@ auto pradz = std::chrono::high_resolution_clock::now();
         if(m2==1){
             
             //isved(A);
-            cout<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
+            cout<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
             cout<<"-----------------------------------------------------------"<<endl;
             for(int i=0; i<A.size(); i++){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
@@ -407,7 +411,7 @@ auto pradz = std::chrono::high_resolution_clock::now();
         else if(m2==2){
             // ofstream
             std::ofstream r("rezultatai.txt");
-            r<<left<<setw(15)<<"Pavarde"<<setw(15)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
+            r<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
             r<<"-----------------------------------------------------------"<<endl;
             for(int i=0; i<A.size(); i++){
             r<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
@@ -420,6 +424,6 @@ auto pradz = std::chrono::high_resolution_clock::now();
     }
 
     std::chrono::duration<double> skirt1 = std::chrono::high_resolution_clock::now() - pradz;
-    cout<<"Programos vykdymas uztruko "<<skirt1.count()<<endl;
+    cout<<"Programos vykdymas užtruko "<<skirt1.count()<<endl;
 }
 }
