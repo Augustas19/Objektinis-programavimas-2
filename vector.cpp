@@ -103,6 +103,9 @@ string eilut;
 std::vector<string> skaid;
 
 std::ifstream f("studentai1000000.txt");
+
+if(!f.is_open()){throw std::runtime_error("Nepavyko atidaryti failo");
+}
 buf << f.rdbuf();
 f.close();
 
@@ -342,7 +345,13 @@ int main(){
     }
 
     else if (meniu == 4){
-        skt(A);
+        try{
+            skt(A);
+        }
+        catch(const std::exception& e){
+            std::cerr<<"Klaida : "<<e.what()<<endl;
+            return 1;
+        }
         skaiciavimai(A);
         int rik;
         cout<<"1 - Rikiuosti pagal vardą mažėjančiai , 2 - pagal vardą didėjančiai, 3 - pagal pavardę mažėjančiai, 4 - pagal pavardę didėjančiai, 5 - pagal vidurkį mažėjančiai, 6 - pagal vidurki didėjančiai, 7 - pagal mediana mažėjančiai, 8 - pagal mediana didėjančiai"<<endl;
