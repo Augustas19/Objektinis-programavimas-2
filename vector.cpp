@@ -7,6 +7,7 @@
 #include <limits>
 #include <fstream>
 
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -204,10 +205,6 @@ auto pradz = std::chrono::high_resolution_clock::now();
     int meniu; 
     std::vector<studentas> A;
     studentas tmp;
-
-    double l1;
-    double l2;
-    double l3;
 
     cout<<"1 - ranka, 2 - generuoti pazymius, 3 - generuoti pazymius, vardus, pavardes, 4 - nuskaityti is failo, 5 - baigti darba"<<endl;
     while(true){
