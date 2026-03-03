@@ -185,3 +185,4 @@ void isved(std::vector<studentas>& A){
             cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal2<<endl;
         }
     }
+}
