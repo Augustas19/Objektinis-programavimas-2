@@ -253,8 +253,5 @@ int main(){
     else if(meniu==5){
         return 0;
     }
-
-    std::chrono::duration<double> skirt1 = std::chrono::high_resolution_clock::now() - pradz;
-    cout<<"Programos vykdymas užtruko "<<skirt1.count()<<endl;
 }
 }
