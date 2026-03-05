@@ -78,8 +78,6 @@ int main(){
                     else if(x==0){break;}
 
                     else if(x<1 || x>10){
-                        /*cin.clear();
-                        cin.ignore(10000, '\n');*/
                         cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
                         continue;
                     }
