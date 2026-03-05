@@ -8,6 +8,7 @@
 #include <limits>
 #include <fstream>
 #include <windows.h>
+#include <sstream>
 
 using std::cout;
 using std::cin;

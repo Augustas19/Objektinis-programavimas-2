@@ -27,7 +27,6 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    auto pradz = std::chrono::high_resolution_clock::now();
     int x;
     long n;  // nd sk
     long m;  //studentu sk
@@ -39,8 +38,8 @@ int main(){
     while(true){
             cin>>meniu;
                 if(cin.fail() ||meniu<1 || meniu>5){
-                cin.clear();
-                cin.ignore(10000, '\n' );
+                    cin.clear();
+                    cin.ignore(10000, '\n' );
                     cout<<"Įvesti galima tik 1, 2, 3, 4 arba 5"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
@@ -69,17 +68,20 @@ int main(){
                     cin.clear();
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10 arba 0"<<endl;
+                    continue;
                     }
                     else if(cin.peek() !=' ' && cin.peek() != '\n'){
                         cin.ignore(10000, '\n');
                         cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
+                        continue;
                     }
                     else if(x==0){break;}
 
                     else if(x<1 || x>10){
-                        cin.clear();
-                        cin.ignore(10000, '\n');
+                        /*cin.clear();
+                        cin.ignore(10000, '\n');*/
                         cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
+                        continue;
                     }
                     tmp.nd.push_back(x);
                     tmp.suma+=x;
