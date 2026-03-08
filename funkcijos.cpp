@@ -187,3 +187,24 @@ void isved(std::vector<studentas>& A){
         }
     }
 }
+void failu_kurimas(long kiekis, string pavad){
+   std::ofstream f(pavad);
+
+   f<<left<<setw(25)<<"Vardas"<<setw(25)<<"Pavardė";
+   for(int i=0; i<15; i++){
+    f<<setw(10)<<("ND"+std::to_string(i));
+   }
+   f<<"Egz."<<endl;
+
+    mt19937 rnd(static_cast<long unsigned int>(laik::now().time_since_epoch().count()));
+    int_dis paskirst(1,10);
+
+    for(long i=1; i<=kiekis; i++){
+        f<<left<<setw(25)<<("VardasN"+std::to_string(i))<<setw(25)<<("PavardeN"+std::to_string(i));
+        for(int j=0; j<15; j++){
+            f<<setw(10)<<paskirst(rnd);
+        }
+        f<<paskirst(rnd)<<endl;
+    }
+f.close();
+}

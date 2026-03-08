@@ -34,17 +34,17 @@ int main(){
     std::vector<studentas> A;
     studentas tmp;
 
-    cout<<"1 - ranka, 2 - generuoti payžmius, 3 - generuoti pažymius, vardus, pavardes, 4 - nuskaityti iš failo, 5 - baigti darbą"<<endl;
+    cout<<"1 - ranka, 2 - generuoti payžmius, 3 - generuoti pažymius, vardus, pavardes, 4 - nuskaityti iš failo, 5 - generuoti failus, 6 - baigti darbą"<<endl;
     while(true){
             cin>>meniu;
                 if(cin.fail() ||meniu<1 || meniu>5){
                     cin.clear();
                     cin.ignore(10000, '\n' );
-                    cout<<"Įvesti galima tik 1, 2, 3, 4 arba 5"<<endl;
+                    cout<<"Įvesti galima tik 1, 2, 3, 4, 5 arba 6"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                     cin.ignore(10000, '\n');
-                    cout<<"Įvesti galima tik sveikuosius skaičius 1, 2, 3, 4 arba 5"<<endl;
+                    cout<<"Įvesti galima tik sveikuosius skaičius 1, 2, 3, 4, 5 arba 6"<<endl;
                 }
                 else{break;}
         }
@@ -249,8 +249,17 @@ int main(){
         }
 
     }
-    
     else if(meniu==5){
+
+        failu_kurimas(1000,"failas1k.txt");
+        failu_kurimas(10000,"failas10k.txt");
+        failu_kurimas(100000,"failas100k.txt");
+        failu_kurimas(1000000,"failas1M.txt");
+        failu_kurimas(10000000,"failas10M.txt");
+
+    }
+
+    else if(meniu==6){
         return 0;
     }
 }

@@ -10,5 +10,5 @@ void skaiciai(long &n, long &m);
 void skt(std::vector<studentas>& A);
 void skaiciavimai(std::vector<studentas>& A);
 void isved(std::vector<studentas>& A);
-
+void failu_kurimas(long kiekis, string pavad);
 #endif
