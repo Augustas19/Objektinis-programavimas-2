@@ -188,6 +188,7 @@ void isved(std::vector<studentas>& A){
     }
 }
 void failu_kurimas(long kiekis, string pavad){
+    auto startas = std::chrono::high_resolution_clock::now();
    std::ofstream f(pavad);
 
    f<<left<<setw(25)<<"Vardas"<<setw(25)<<"Pavardė";
@@ -207,4 +208,6 @@ void failu_kurimas(long kiekis, string pavad){
         f<<paskirst(rnd)<<endl;
     }
 f.close();
+std::chrono::duration<double> diff=laik::now()-startas;
+cout<<pavad<<" failo kurimas uztruko"<<diff.count()<<" s"<<endl;
 }
