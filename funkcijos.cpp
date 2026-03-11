@@ -247,14 +247,25 @@ void tyrimas2(std::vector<studentas> A){
 
     auto ti1= std::chrono::high_resolution_clock::now();    // nuskaitymas
     skt(A, "failas1000.txt");
-    std::chrono::duration<double> diff=laik::now()-ti1;
-    cout<<"Failo nuskaitymas užtruko"<<diff.count()<<" s"<<endl;
+    std::chrono::duration<double> diff1=laik::now()-ti1;
+    cout<<"Failo nuskaitymas užtruko"<<diff1.count()<<" s"<<endl;
 
-    auto ti1= std::chrono::high_resolution_clock::now(); 
-    std::vector<studentas> vargsai, kietekai;   // rusiavimas
+    auto ti2= std::chrono::high_resolution_clock::now();    // vidurkio radimas
+    skaiciavimai(A);
+    std::chrono::duration<double> diff2=laik::now()-ti2;
+    cout<<"Skaičiavimai užtruko"<<diff2.count()<<" s"<<endl;
+
+    auto ti3= std::chrono::high_resolution_clock::now();    // rusiavimas
+    std::vector<studentas> vargsai, kietekai;   
     rusiavimas(A,vargsai, kietekai);
+    std::chrono::duration<double> diff3=laik::now()-ti3;
+    cout<<"Studentų rūšiavimas užtruko"<<diff3.count()<<" s"<<endl;
 
-
+    auto ti4= std::chrono::high_resolution_clock::now();    // rasymas i failus
+    isvedimas_faila(vargsai, "vargsai.txt");
+    isvedimas_faila(kietekai,"kietekai.txt");
+    std::chrono::duration<double> diff4=laik::now()-ti4;
+    cout<<"Rašymas į failus užtruko"<<diff4.count()<<" s"<<endl;
 
     std::chrono::duration<double> diff=laik::now()-startas;
     cout<<"Visos programos veikimas užtruko"<<diff.count()<<" s"<<endl;
