@@ -31,7 +31,7 @@ int main(){
     long n;  // nd sk
     long m;  //studentu sk
     int meniu; 
-    std::vector<studentas> A, kietekai, vargsai;
+    std::vector<studentas> A;
     studentas tmp;
 
     cout<< "1 - ranka\n"
@@ -175,7 +175,7 @@ int main(){
 
     else if (meniu == 4){
         try{
-            skt(A);
+            skt(A, "studentai10000.txt");
         }
         catch(const std::exception& e){
             std::cerr<<"Klaida : "<<e.what()<<endl;

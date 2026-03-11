@@ -7,10 +7,12 @@
 studentas gen_vrd();
 int gen_pazym();
 void skaiciai(long &n, long &m);
-void skt(std::vector<studentas>& A);
+void skt(std::vector<studentas>& A, string failopav);
 void skaiciavimai(std::vector<studentas>& A);
 void isved(std::vector<studentas>& A);
 void failu_kurimas();
-void rusiavimas(std::vector<studentas> A, std::vector<studentas> vargsai, std::vector<studentas> kietekai);
+void rusiavimas(std::vector<studentas> A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
 void isvedimas_faila(std::vector<studentas> A, string pav);
+void tyrimas1();
+
 #endif

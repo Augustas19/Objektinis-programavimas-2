@@ -84,12 +84,12 @@ void skaiciai(long &n, long &m){
 }
 
 
-void skt(std::vector<studentas>& A){
+void skt(std::vector<studentas>& A, string failopav){
 std::stringstream buf;
 string eilut;
 std::vector<string> skaid;
 
-std::ifstream f("studentai1000000.txt");
+std::ifstream f(failopav);
 
 if(!f.is_open()){throw std::runtime_error("Nepavyko atidaryti failo");
 }
@@ -226,7 +226,7 @@ void isvedimas_faila(std::vector<studentas>A, string pav){
 }
 
 
-void rusiavimas(std::vector<studentas> A, std::vector<studentas> vargsai, std::vector<studentas> kietekai){
+void rusiavimas(std::vector<studentas> A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai){
 for(const auto& s: A){
     if(s.gal<5.0){
         vargsai.push_back(s);
@@ -242,10 +242,19 @@ void tyrimas1(){
     cout<<"Visų failų kūrimas užtruko"<<diff.count()<<" s"<<endl;
 }
 
-void tyrimas2(){
+void tyrimas2(std::vector<studentas> A){
     auto startas = std::chrono::high_resolution_clock::now();
 
-    
+    auto ti1= std::chrono::high_resolution_clock::now();    // nuskaitymas
+    skt(A, "failas1000.txt");
+    std::chrono::duration<double> diff=laik::now()-ti1;
+    cout<<"Failo nuskaitymas užtruko"<<diff.count()<<" s"<<endl;
+
+    auto ti1= std::chrono::high_resolution_clock::now(); 
+    std::vector<studentas> vargsai, kietekai;   // rusiavimas
+    rusiavimas(A,vargsai, kietekai);
+
+
 
     std::chrono::duration<double> diff=laik::now()-startas;
     cout<<"Visos programos veikimas užtruko"<<diff.count()<<" s"<<endl;
