@@ -31,10 +31,16 @@ int main(){
     long n;  // nd sk
     long m;  //studentu sk
     int meniu; 
-    std::vector<studentas> A;
+    std::vector<studentas> A, kietekai, vargsai;
     studentas tmp;
 
-    cout<<"1 - ranka, 2 - generuoti payžmius, 3 - generuoti pažymius, vardus, pavardes, 4 - nuskaityti iš failo, 5 - generuoti failus, 6 - rusiuoti failus, 7 - baigti darbą"<<endl;
+    cout<< "1 - ranka\n"
+        << "2 - generuoti payžmius\n"
+        << "3 - generuoti pažymius, vardus, pavardes\n"
+        << "4 - nuskaityti iš failo\n"
+        << "5 - generuoti failus\n" 
+        << "6 - rusiuoti failus\n"
+        << "7 - baigti darbą"<<endl;
     while(true){
             cin>>meniu;
                 if(cin.fail() ||meniu<1 || meniu>5){

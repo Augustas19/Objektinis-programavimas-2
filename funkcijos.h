@@ -11,4 +11,5 @@ void skt(std::vector<studentas>& A);
 void skaiciavimai(std::vector<studentas>& A);
 void isved(std::vector<studentas>& A);
 void failu_kurimas(long kiekis, string pavad);
+void rusiavimas(std::vector<studentas> A, std::vector<studentas> vargsai, std::vector<studentas> kietekai);
 #endif

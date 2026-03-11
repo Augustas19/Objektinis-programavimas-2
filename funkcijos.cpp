@@ -211,3 +211,16 @@ f.close();
 std::chrono::duration<double> diff=laik::now()-startas;
 cout<<pavad<<" failo kurimas uztruko"<<diff.count()<<" s"<<endl;
 }
+
+void rusiavimas(std::vector<studentas> A, std::vector<studentas> vargsai, std::vector<studentas> kietekai){
+for(const auto& s: A){
+    if(s.gal<5.0){
+        vargsai.push_back(s);
+    }
+    else{kietekai.push_back(s);}
+}
+}
+
+void tyrimas2(){
+    
+}
