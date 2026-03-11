@@ -216,7 +216,7 @@ void failu_kurimas(){
 }
 }
 
-void isvedimas_faila(std::vector<studentas>A, string pav){
+void isvedimas_faila(std::vector<studentas>& A, string pav){
     std::ofstream r(pav);
     r<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
     r<<"-----------------------------------------------------------"<<endl;
@@ -226,7 +226,7 @@ void isvedimas_faila(std::vector<studentas>A, string pav){
 }
 
 
-void rusiavimas(std::vector<studentas> A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai){
+void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai){
 for(const auto& s: A){
     if(s.gal<5.0){
         vargsai.push_back(s);
@@ -237,23 +237,30 @@ for(const auto& s: A){
 
 void tyrimas1(){
     auto startas = std::chrono::high_resolution_clock::now();
-    failu_kurimas();
+    failu_kurimas();    
     std::chrono::duration<double> diff=laik::now()-startas;
     cout<<"Visų failų kūrimas užtruko "<<diff.count()<<" s"<<endl;
 }
 
-void tyrimas2(std::vector<studentas> A){
+void tyrimas2(std::vector<studentas>& A){
+    std::vector<long> kiekiai = {1000, 10000, 100000, 1000000, 10000000};
     auto startas = std::chrono::high_resolution_clock::now();
 
+    for(long y: kiekiai){
+    A.clear();
+    A.reserve(y);
+    string pavad = "failas"+std::to_string(y)+".txt";
+
+    cout<<y<<" failas :"<<endl;
     auto ti1= std::chrono::high_resolution_clock::now();    // nuskaitymas
     try{
-        skt(A, "failas1000.txt");
+        skt(A, pavad);
         }
         catch(const std::exception& e){
         std::cerr<<"Klaida : "<<e.what()<<endl;
         return void();
     }
-    //skt(A, "failas1000.txt");
+    
     std::chrono::duration<double> diff1=laik::now()-ti1;
     cout<<"Failo nuskaitymas užtruko "<<diff1.count()<<" s"<<endl;
 
@@ -272,8 +279,12 @@ void tyrimas2(std::vector<studentas> A){
     isvedimas_faila(vargsai, "vargsai.txt");
     isvedimas_faila(kietekai,"kietekai.txt");
     std::chrono::duration<double> diff4=laik::now()-ti4;
-    cout<<"Rašymas į failus užtruko "<<diff4.count()<<" s"<<endl;
-
+    cout<<"Rašymas į failus užtruko "<<diff4.count()<<" s\n";
+    cout<<"\n";
+}
+    
     std::chrono::duration<double> diff=laik::now()-startas;
     cout<<"Visos programos veikimas užtruko "<<diff.count()<<" s"<<endl;
+    
+
 }

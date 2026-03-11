@@ -12,9 +12,9 @@ void skt(std::vector<studentas>& A, std::string failopav);
 void skaiciavimai(std::vector<studentas>& A);
 void isved(std::vector<studentas>& A);
 void failu_kurimas();
-void rusiavimas(std::vector<studentas> A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
-void isvedimas_faila(std::vector<studentas> A, std::string pav);
+void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
+void isvedimas_faila(std::vector<studentas>& A, std::string pav);
 void tyrimas1();
-void tyrimas2(std::vector<studentas> A);
+void tyrimas2(std::vector<studentas>& A);
 
 #endif
