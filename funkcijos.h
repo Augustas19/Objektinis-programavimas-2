@@ -10,6 +10,6 @@ void skaiciai(long &n, long &m);
 void skt(std::vector<studentas>& A);
 void skaiciavimai(std::vector<studentas>& A);
 void isved(std::vector<studentas>& A);
-void failu_kurimas(long kiekis, string pavad);
+void failu_kurimas();
 void rusiavimas(std::vector<studentas> A, std::vector<studentas> vargsai, std::vector<studentas> kietekai);
 #endif

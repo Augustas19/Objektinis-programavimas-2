@@ -187,29 +187,34 @@ void isved(std::vector<studentas>& A){
         }
     }
 }
-void failu_kurimas(long kiekis, string pavad){
-    auto startas = std::chrono::high_resolution_clock::now();
-   std::ofstream f(pavad);
-
-   f<<left<<setw(25)<<"Vardas"<<setw(25)<<"Pavardė";
-   for(int i=0; i<15; i++){
-    f<<setw(10)<<("ND"+std::to_string(i));
-   }
-   f<<"Egz."<<endl;
-
-    mt19937 rnd(static_cast<long unsigned int>(laik::now().time_since_epoch().count()));
-    int_dis paskirst(1,10);
-
-    for(long i=1; i<=kiekis; i++){
-        f<<left<<setw(25)<<("VardasN"+std::to_string(i))<<setw(25)<<("PavardeN"+std::to_string(i));
-        for(int j=0; j<15; j++){
-            f<<setw(10)<<paskirst(rnd);
+void failu_kurimas(){
+    std::vector<long> kiekiai = {1000, 10000, 100000, 1000000, 10000000};
+   
+    for(long y: kiekiai){ 
+        auto startas = std::chrono::high_resolution_clock::now();
+        string pavad = "failas"+std::to_string(y)+".txt";
+        std::ofstream f(pavad);
+        f<<left<<setw(25)<<"Vardas"<<setw(25)<<"Pavardė";
+        for(int i=0; i<15; i++){
+            f<<setw(10)<<("ND"+std::to_string(i));
         }
-        f<<paskirst(rnd)<<endl;
-    }
-f.close();
-std::chrono::duration<double> diff=laik::now()-startas;
-cout<<pavad<<" failo kurimas uztruko"<<diff.count()<<" s"<<endl;
+        f<<"Egz."<<endl;  // pirma eil
+
+            mt19937 rnd(static_cast<long unsigned int>(laik::now().time_since_epoch().count()));
+            int_dis paskirst(1,10);
+
+            for(long i=1; i<=y; i++){
+                f<<left<<setw(25)<<("VardasN"+std::to_string(i))<<setw(25)<<("PavardeN"+std::to_string(i));
+                for(int j=0; j<15; j++){
+                    f<<setw(10)<<paskirst(rnd);
+                }
+                f<<paskirst(rnd)<<endl;
+            }
+        f.close();
+        std::chrono::duration<double> diff=laik::now()-startas;
+        cout<<pavad<<" failo kurimas uztruko"<<diff.count()<<" s"<<endl;
+}
+    
 }
 
 void rusiavimas(std::vector<studentas> A, std::vector<studentas> vargsai, std::vector<studentas> kietekai){
@@ -220,7 +225,10 @@ for(const auto& s: A){
     else{kietekai.push_back(s);}
 }
 }
+void tyrimas1(){
+
+}
 
 void tyrimas2(){
-    
+
 }

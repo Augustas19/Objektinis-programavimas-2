@@ -257,11 +257,7 @@ int main(){
     }
     else if(meniu==5){
 
-        failu_kurimas(1000,"failas1k.txt");
-        failu_kurimas(10000,"failas10k.txt");
-        failu_kurimas(100000,"failas100k.txt");
-        failu_kurimas(1000000,"failas1M.txt");
-        failu_kurimas(10000000,"failas10M.txt");
+      failu_kurimas();
 
     }
     else if(meniu==6){
