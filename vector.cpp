@@ -44,7 +44,7 @@ int main(){
         << "8 - baigti darbą"<<endl;
     while(true){
             cin>>meniu;
-                if(cin.fail() ||meniu<1 || meniu>5){
+                if(cin.fail() ||meniu<1 || meniu>8){
                     cin.clear();
                     cin.ignore(10000, '\n' );
                     cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
@@ -255,16 +255,18 @@ int main(){
             r<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
         }
 
+        }
     }
     else if(meniu==5){
       failu_kurimas();
     }
     else if(meniu==6){
-
-
+        tyrimas1();
     }
     else if(meniu==7){
+        tyrimas2(A);
+    }
+    else if(meniu==8){
         return 0;
     }
-}
 }
