@@ -214,8 +214,17 @@ void failu_kurimas(){
         std::chrono::duration<double> diff=laik::now()-startas;
         cout<<pavad<<" failo kūrimas užtruko"<<diff.count()<<" s"<<endl;
 }
-    
 }
+
+void isvedimas_faila(std::vector<studentas>A, string pav){
+    std::ofstream r(pav);
+    r<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
+    r<<"-----------------------------------------------------------"<<endl;
+    for(int i=0; i<A.size(); i++){
+    r<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
+    }
+}
+
 
 void rusiavimas(std::vector<studentas> A, std::vector<studentas> vargsai, std::vector<studentas> kietekai){
 for(const auto& s: A){
@@ -225,6 +234,7 @@ for(const auto& s: A){
     else{kietekai.push_back(s);}
 }
 }
+
 void tyrimas1(){
     auto startas = std::chrono::high_resolution_clock::now();
     failu_kurimas();
