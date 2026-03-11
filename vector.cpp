@@ -39,18 +39,19 @@ int main(){
         << "3 - generuoti pažymius, vardus, pavardes\n"
         << "4 - nuskaityti iš failo\n"
         << "5 - generuoti failus\n" 
-        << "6 - rusiuoti failus\n"
-        << "7 - baigti darbą"<<endl;
+        << "6 - testas 1 \n"
+        << "7 - testas 2 \n"
+        << "8 - baigti darbą"<<endl;
     while(true){
             cin>>meniu;
                 if(cin.fail() ||meniu<1 || meniu>5){
                     cin.clear();
                     cin.ignore(10000, '\n' );
-                    cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6 arba 7"<<endl;
+                    cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                     cin.ignore(10000, '\n');
-                    cout<<"Įvesti galima tik sveikuosius skaičius 1, 2, 3, 4, 5, 6 arba 7"<<endl;
+                    cout<<"Įvesti galima tik sveikuosius skaičius 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
                 }
                 else{break;}
         }
@@ -256,9 +257,7 @@ int main(){
 
     }
     else if(meniu==5){
-
       failu_kurimas();
-
     }
     else if(meniu==6){
 

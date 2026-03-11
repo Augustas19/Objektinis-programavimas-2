@@ -212,7 +212,7 @@ void failu_kurimas(){
             }
         f.close();
         std::chrono::duration<double> diff=laik::now()-startas;
-        cout<<pavad<<" failo kurimas uztruko"<<diff.count()<<" s"<<endl;
+        cout<<pavad<<" failo kūrimas užtruko"<<diff.count()<<" s"<<endl;
 }
     
 }
@@ -226,9 +226,17 @@ for(const auto& s: A){
 }
 }
 void tyrimas1(){
-
+    auto startas = std::chrono::high_resolution_clock::now();
+    failu_kurimas();
+    std::chrono::duration<double> diff=laik::now()-startas;
+    cout<<"Visų failų kūrimas užtruko"<<diff.count()<<" s"<<endl;
 }
 
 void tyrimas2(){
+    auto startas = std::chrono::high_resolution_clock::now();
 
+    
+
+    std::chrono::duration<double> diff=laik::now()-startas;
+    cout<<"Visos programos veikimas užtruko"<<diff.count()<<" s"<<endl;
 }
