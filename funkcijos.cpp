@@ -246,7 +246,14 @@ void tyrimas2(std::vector<studentas> A){
     auto startas = std::chrono::high_resolution_clock::now();
 
     auto ti1= std::chrono::high_resolution_clock::now();    // nuskaitymas
-    skt(A, "failas1000.txt");
+    try{
+        skt(A, "failas1000.txt");
+        }
+        catch(const std::exception& e){
+        std::cerr<<"Klaida : "<<e.what()<<endl;
+        return void();
+    }
+    //skt(A, "failas1000.txt");
     std::chrono::duration<double> diff1=laik::now()-ti1;
     cout<<"Failo nuskaitymas užtruko"<<diff1.count()<<" s"<<endl;
 

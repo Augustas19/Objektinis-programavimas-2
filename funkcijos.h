@@ -14,5 +14,6 @@ void failu_kurimas();
 void rusiavimas(std::vector<studentas> A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
 void isvedimas_faila(std::vector<studentas> A, string pav);
 void tyrimas1();
+void tyrimas2();
 
 #endif
