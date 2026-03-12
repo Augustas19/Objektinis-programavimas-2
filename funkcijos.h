@@ -16,5 +16,7 @@ void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std:
 void isvedimas_faila(std::vector<studentas>& A, std::string pav);
 void tyrimas1();
 void tyrimas2(std::vector<studentas>& A);
+void rikiav(std::vector<studentas>& A, int rik);
+int pasirink();
 
 #endif

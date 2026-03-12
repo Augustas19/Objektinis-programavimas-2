@@ -33,7 +33,7 @@ int main(){
     int meniu; 
     std::vector<studentas> A;
     studentas tmp;
-
+while(true){
     cout<< "1 - ranka\n"
         << "2 - generuoti payžmius\n"
         << "3 - generuoti pažymius, vardus, pavardes\n"
@@ -182,44 +182,8 @@ int main(){
             return 1;
         }
         skaiciavimai(A);
-        int rik;
-        cout<<"1 - Rikiuosti pagal vardą mažėjančiai , 2 - pagal vardą didėjančiai, 3 - pagal pavardę mažėjančiai, 4 - pagal pavardę didėjančiai, 5 - pagal vidurkį mažėjančiai, 6 - pagal vidurki didėjančiai, 7 - pagal mediana mažėjančiai, 8 - pagal mediana didėjančiai"<<endl;
-        while(true){
-            cin>>rik;
-                if(cin.fail() ||rik<1 || rik>8){
-                cin.clear();
-                cin.ignore(10000, '\n' );
-                    cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
-                }
-                else if(cin.peek() !=' ' && cin.peek() != '\n'){
-                    cin.ignore(10000, '\n');
-                    cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
-                }
-                else{break;}
-        }
-        std::sort(A.begin(), A.end(), [rik](const studentas& A, const studentas& B){
-            switch (rik)
-            {
-            case 1:
-                return A.vard > B.vard;
-            case 2:
-                return A.vard < B.vard;
-            case 3:
-                return A.pav > B.pav;
-            case 4:
-                return A.pav < B.pav;
-            case 5:
-                return A.gal > B.gal;
-            case 6:
-                return A.gal < B.gal;
-            case 7:
-                return A.gal2> B.gal2;
-            case 8:
-                return A.gal2 < B.gal2;
-            default: return false;
-            }
-
-        });
+        int rik = pasirink();
+        rikiav(A,rik);
        
         int m2;
         cout<<"1 - Išvesti į ekraną, 2 - Išvesti į failą"<<endl;
@@ -253,9 +217,9 @@ int main(){
             r<<"-----------------------------------------------------------"<<endl;
             for(int i=0; i<A.size(); i++){
             r<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
-            r.close();
+           
         }
-
+            r.close();
         }
     }
     else if(meniu==5){
@@ -270,4 +234,5 @@ int main(){
     else if(meniu==8){
         return 0;
     }
+}
 }

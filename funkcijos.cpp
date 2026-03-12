@@ -222,10 +222,60 @@ void isvedimas_faila(std::vector<studentas>& A, string pav){
     r<<"-----------------------------------------------------------"<<endl;
     for(int i=0; i<A.size(); i++){
     r<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
-    r.close();
     }
+    r.close();
+}
+int pasirink(){
+    int rik;
+        cout<<"1 - Rikiuosti pagal vardą mažėjančiai\n" 
+        <<"2 - pagal vardą didėjančiai\n"
+        <<"3 - pagal pavardę mažėjančiai\n" 
+        <<"4 - pagal pavardę didėjančiai\n" 
+        <<"5 - pagal vidurkį mažėjančiai\n"
+        <<"6 - pagal vidurki didėjančiai\n"
+        <<"7 - pagal mediana mažėjančiai\n"
+        <<"8 - pagal mediana didėjančiai"<<endl;
+        while(true){
+            cin>>rik;
+                if(cin.fail() ||rik<1 || rik>8){
+                cin.clear();
+                cin.ignore(10000, '\n' );
+                    cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
+                }
+                else if(cin.peek() !=' ' && cin.peek() != '\n'){
+                    cin.ignore(10000, '\n');
+                    cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
+                }
+                else{break;}
+        }
+        return rik;
 }
 
+void rikiav(std::vector<studentas>& A, int rik){
+        std::sort(A.begin(), A.end(), [rik](const studentas& A, const studentas& B){
+            switch (rik)
+            {
+            case 1:
+                return A.vard > B.vard;
+            case 2:
+                return A.vard < B.vard;
+            case 3:
+                return A.pav > B.pav;
+            case 4:
+                return A.pav < B.pav;
+            case 5:
+                return A.gal > B.gal;
+            case 6:
+                return A.gal < B.gal;
+            case 7:
+                return A.gal2> B.gal2;
+            case 8:
+                return A.gal2 < B.gal2;
+            default: return false;
+            }
+
+        });
+}
 
 void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai){
 for(const auto& s: A){
@@ -245,13 +295,14 @@ void tyrimas1(){
 
 void tyrimas2(std::vector<studentas>& A){
     std::vector<long> kiekiai = {1000, 10000, 100000, 1000000, 10000000};
+    int rik = pasirink(); 
     auto startas = std::chrono::high_resolution_clock::now();
 
     for(long y: kiekiai){
     A.clear();
     A.reserve(y);
     string pavad = "failas"+std::to_string(y)+".txt";
-
+    
     cout<<y<<" failas :"<<endl;
     auto ti1= std::chrono::high_resolution_clock::now();    // nuskaitymas
     try{
@@ -273,8 +324,12 @@ void tyrimas2(std::vector<studentas>& A){
     auto ti3= std::chrono::high_resolution_clock::now();    // rusiavimas
     std::vector<studentas> vargsai, kietekai;   
     rusiavimas(A,vargsai, kietekai);
+    rikiav(vargsai,rik);
+    rikiav(kietekai,rik);
     std::chrono::duration<double> diff3=laik::now()-ti3;
     cout<<"Studentų rūšiavimas užtruko "<<diff3.count()<<" s"<<endl;
+
+    
 
     auto ti4= std::chrono::high_resolution_clock::now();    // rasymas i failus
     isvedimas_faila(vargsai, "vargsai.txt");
