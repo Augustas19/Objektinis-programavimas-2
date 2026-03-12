@@ -222,6 +222,7 @@ void isvedimas_faila(std::vector<studentas>& A, string pav){
     r<<"-----------------------------------------------------------"<<endl;
     for(int i=0; i<A.size(); i++){
     r<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
+    r.close();
     }
 }
 
