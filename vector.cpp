@@ -46,14 +46,16 @@ while(true){
             cin>>meniu;
                 if(cin.fail() ||meniu<1 || meniu>8){
                     cin.clear();
-                    cin.ignore(10000, '\n' );
+                   cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
-                    cin.ignore(10000, '\n');
+                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     cout<<"Įvesti galima tik sveikuosius skaičius 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
                 }
-                else{break;}
+                else{
+                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    break;}
         }
     
     if(meniu==1){
@@ -230,6 +232,7 @@ while(true){
     }
     else if(meniu==7){
         tyrimas2(A);
+        cout<<"Testas baigtas\n";
     }
     else if(meniu==8){
         return 0;

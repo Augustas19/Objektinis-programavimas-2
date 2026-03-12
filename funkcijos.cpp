@@ -239,14 +239,16 @@ int pasirink(){
             cin>>rik;
                 if(cin.fail() ||rik<1 || rik>8){
                 cin.clear();
-                cin.ignore(10000, '\n' );
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
-                    cin.ignore(10000, '\n');
+                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
                 }
-                else{break;}
+                else{
+                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    break;}
         }
         return rik;
 }
@@ -314,12 +316,12 @@ void tyrimas2(std::vector<studentas>& A){
     }
     
     std::chrono::duration<double> diff1=laik::now()-ti1;
-    cout<<"Failo nuskaitymas užtruko "<<diff1.count()<<" s"<<endl;
+    cout<<"Failo nuskaitymas užtruko "<<diff1.count()<<" s\n";
 
     auto ti2= std::chrono::high_resolution_clock::now();    // vidurkio radimas
     skaiciavimai(A);
     std::chrono::duration<double> diff2=laik::now()-ti2;
-    cout<<"Skaičiavimai užtruko "<<diff2.count()<<" s"<<endl;
+    cout<<"Skaičiavimai užtruko "<<diff2.count()<<" s\n";
 
     auto ti3= std::chrono::high_resolution_clock::now();    // rusiavimas
     std::vector<studentas> vargsai, kietekai;   
@@ -327,9 +329,7 @@ void tyrimas2(std::vector<studentas>& A){
     rikiav(vargsai,rik);
     rikiav(kietekai,rik);
     std::chrono::duration<double> diff3=laik::now()-ti3;
-    cout<<"Studentų rūšiavimas užtruko "<<diff3.count()<<" s"<<endl;
-
-    
+    cout<<"Studentų rūšiavimas užtruko "<<diff3.count()<<" s\n";
 
     auto ti4= std::chrono::high_resolution_clock::now();    // rasymas i failus
     isvedimas_faila(vargsai, "vargsai.txt");
@@ -340,7 +340,7 @@ void tyrimas2(std::vector<studentas>& A){
 }
     
     std::chrono::duration<double> diff=laik::now()-startas;
-    cout<<"Visos programos veikimas užtruko "<<diff.count()<<" s"<<endl;
+    cout<<"Visos programos veikimas užtruko "<<diff.count()<<" s\n";
     
 
 }
