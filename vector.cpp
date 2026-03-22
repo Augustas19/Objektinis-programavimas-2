@@ -7,6 +7,8 @@
 #include <limits>
 #include <fstream>
 #include <windows.h>
+#include <list>
+#include <deque>
 #include "funkcijos.h"
 
 using std::cout;
@@ -32,6 +34,9 @@ int main(){
     long m;  //studentu sk
     int meniu; 
     std::vector<studentas> A;
+    std::list<studentas> L;
+    std::deque<studentas> D;
+  
     studentas tmp;
 while(true){
     cout<< "1 - ranka\n"
@@ -235,7 +240,7 @@ while(true){
         cout<<"Testas baigtas\n";
     }
     else if(meniu==8){
-        return 0;
+        break;
     }
 }
 }

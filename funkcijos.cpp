@@ -316,12 +316,12 @@ void tyrimas2(std::vector<studentas>& A){
     }
     
     std::chrono::duration<double> diff1=laik::now()-ti1;
-    cout<<"Failo nuskaitymas užtruko "<<diff1.count()<<" s\n";
+    cout<<"Failo nuskaitymas užtruko "<<diff1.count()<<" s\n"<<std::flush;
 
     auto ti2= std::chrono::high_resolution_clock::now();    // vidurkio radimas
     skaiciavimai(A);
     std::chrono::duration<double> diff2=laik::now()-ti2;
-    cout<<"Skaičiavimai užtruko "<<diff2.count()<<" s\n";
+    cout<<"Skaičiavimai užtruko "<<diff2.count()<<" s\n"<<std::flush;
 
     auto ti3= std::chrono::high_resolution_clock::now();    // rusiavimas
     std::vector<studentas> vargsai, kietekai;   
@@ -329,18 +329,18 @@ void tyrimas2(std::vector<studentas>& A){
     rikiav(vargsai,rik);
     rikiav(kietekai,rik);
     std::chrono::duration<double> diff3=laik::now()-ti3;
-    cout<<"Studentų rūšiavimas užtruko "<<diff3.count()<<" s\n";
+    cout<<"Studentų rūšiavimas užtruko "<<diff3.count()<<" s\n"<<std::flush;
 
     auto ti4= std::chrono::high_resolution_clock::now();    // rasymas i failus
     isvedimas_faila(vargsai, "vargsai.txt");
     isvedimas_faila(kietekai,"kietekai.txt");
     std::chrono::duration<double> diff4=laik::now()-ti4;
-    cout<<"Rašymas į failus užtruko "<<diff4.count()<<" s\n";
+    cout<<"Rašymas į failus užtruko "<<diff4.count()<<" s\n"<<std::flush;
     cout<<"\n";
 }
     
     std::chrono::duration<double> diff=laik::now()-startas;
-    cout<<"Visos programos veikimas užtruko "<<diff.count()<<" s\n";
+    cout<<"Visos programos veikimas užtruko "<<diff.count()<<" s\n"<<std::flush;
     
 
 }
