@@ -270,8 +270,8 @@ int pasirink(){
         return rik;
 }
 
-void rikiav(std::vector<studentas>& A, int rik){
-        std::sort(A.begin(), A.end(), [rik](const studentas& A, const studentas& B){
+auto rikiav_visi(int rik){
+        return [rik](const studentas& A, const studentas& B){
             switch (rik)
             {
             case 1:
@@ -293,8 +293,11 @@ void rikiav(std::vector<studentas>& A, int rik){
             default: return false;
             }
 
-        });
+        };
 }
+void rikiav(std::vector<studentas>& A, int rik){std::sort(A.begin(), A.end(), rikiav_visi(rik));}
+void rikiav(std::list<studentas>& A, int rik){A.sort(rikiav_visi(rik));}
+void rikiav(std::deque<studentas>& A, int rik){std::sort(A.begin(), A.end(), rikiav_visi(rik));}
 
 void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai){
 for(const auto& s: A){
