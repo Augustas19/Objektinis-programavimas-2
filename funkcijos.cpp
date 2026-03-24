@@ -132,34 +132,40 @@ void skt_visi(Konteineris& A, const string& failopav){
         A.push_back(temp);
     }
 }
+
 void skt(std::vector<studentas>& A, string failopav){skt_visi(A,failopav);}
 void skt(std::list<studentas>& A, string failopav){skt_visi(A,failopav);}
 void skt(std::deque<studentas>& A, string failopav){skt_visi(A,failopav);}
 
-void skaiciavimai(std::vector<studentas>& A){
-    for(size_t i=0; i<A.size(); i++){
-            size_t sk =A[i].nd.size();
+template <typename Konteineris>
+void skaiciavimai_visi(Konteineris& A){
+    for(auto& s : A){
+    //for(size_t i=0; i<A.size(); i++){
+            size_t sk =s.nd.size();
 
             if(sk == 0){
-                A[i].vid=0;
-                A[i].med=0;
+                s.vid=0;
+                s.med=0;
             }
             else{
-                A[i].vid=(float)A[i].suma/sk;
-                std::sort(A[i].nd.begin(), A[i].nd.end());
+                s.vid=(float)s.suma/sk;
+                std::sort(s.nd.begin(), s.nd.end());
 
                 if(sk%2==1){
-                    A[i].med=A[i].nd[sk/2];
+                    s.med=s.nd[sk/2];
                 }
                 else if(sk>=2){
-                    A[i].med=(A[i].nd[sk/2-1] + A[i].nd[sk/2])/2.0;
+                    s.med=(s.nd[sk/2-1] + s.nd[sk/2])/2.0;
                 }
-                else {A[i].med=A[i].nd[0];}
+                else {s.med=s.nd[0];}
             }
-            A[i].gal=A[i].vid*0.4+A[i].egz*0.6; 
-            A[i].gal2=A[i].med*0.4+A[i].egz*0.6;
+            s.gal=s.vid*0.4+s.egz*0.6; 
+            s.gal2=s.med*0.4+s.egz*0.6;
         }
 }
+void skaiciavimai(std::vector<studentas>& A){skaiciavimai_visi(A);}
+void skaiciavimai(std::list<studentas>& A){skaiciavimai_visi(A);}
+void skaiciavimai(std::deque<studentas>& A){skaiciavimai_visi(A);}
 
 void isved(std::vector<studentas>& A){
     int is;
