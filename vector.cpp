@@ -45,18 +45,20 @@ while(true){
         << "4 - nuskaityti iš failo\n"
         << "5 - generuoti failus\n" 
         << "6 - testas 1 \n"
-        << "7 - testas 2 \n"
-        << "8 - baigti darbą"<<endl;
+        << "7 - testas 2 su vector\n"
+        << "8 - testas 2 su list\n"
+        << "9 - testas 2 su deque\n"
+        << "10 - baigti darbą"<<endl;
     while(true){
             cin>>meniu;
                 if(cin.fail() ||meniu<1 || meniu>8){
                     cin.clear();
                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    cout<<"Įvesti galima tik 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
+                    cout<<"Įvesti galima tik skaičius nuo 1 iki 10"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    cout<<"Įvesti galima tik sveikuosius skaičius 1, 2, 3, 4, 5, 6, 7 arba 8"<<endl;
+                    cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
                 }
                 else{
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -236,10 +238,21 @@ while(true){
         tyrimas1();
     }
     else if(meniu==7){
+        // su vektoriais
         tyrimas2(A);
         cout<<"Testas baigtas\n";
     }
     else if(meniu==8){
+        // su list
+        //tyrimas2(A);
+        cout<<"Testas baigtas\n";
+    }
+    else if(meniu==9){
+        // su deque
+       // tyrimas2(A);
+        cout<<"Testas baigtas\n";
+    }
+    else if(meniu==10){
         break;
     }
 }

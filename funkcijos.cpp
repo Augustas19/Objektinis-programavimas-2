@@ -9,6 +9,8 @@
 #include <fstream>
 #include <windows.h>
 #include <sstream>
+#include <list>
+#include <deque>
 
 using std::cout;
 using std::cin;
@@ -83,53 +85,56 @@ void skaiciai(long &n, long &m){
         }
 }
 
+template <typename Konteineris>
+void skt_visi(Konteineris& A, const string& failopav){
+    std::stringstream buf;
+    string eilut;
+    std::vector<string> skaid;
 
-void skt(std::vector<studentas>& A, string failopav){
-std::stringstream buf;
-string eilut;
-std::vector<string> skaid;
+    std::ifstream f(failopav);
 
-std::ifstream f(failopav);
-
-if(!f.is_open()){throw std::runtime_error("Nepavyko atidaryti failo");
-}
-buf << f.rdbuf();
-f.close();
-
-getline(buf, eilut);
-while(buf){
-    if(!buf.eof()){
-        getline(buf, eilut);
-        skaid.push_back(eilut);
-
+    if(!f.is_open()){throw std::runtime_error("Nepavyko atidaryti failo");
     }
-    else break;
-}
-for(const auto& line : skaid){
-    std::stringstream t(line);
+    buf << f.rdbuf();
+    f.close();
 
-    studentas temp;
-    temp.nd.clear();
-    temp.suma=0;
+    getline(buf, eilut);
+    while(buf){
+        if(!buf.eof()){
+            getline(buf, eilut);
+            skaid.push_back(eilut);
 
-    t>>temp.vard>>temp.pav;
-    int paz;
-    std::vector<int> sk;
-    while(t>>paz){
-        sk.push_back(paz);
+        }
+        else break;
     }
+    for(const auto& line : skaid){
+        std::stringstream t(line);
 
-    if(sk.size()<1){continue;}
+        studentas temp;
+        temp.nd.clear();
+        temp.suma=0;
 
-    temp.egz=sk.back();
-    sk.pop_back();
-    temp.nd=sk;
-    for(int i:temp.nd){
-        temp.suma+=i;
+        t>>temp.vard>>temp.pav;
+        int paz;
+        std::vector<int> sk;
+        while(t>>paz){
+            sk.push_back(paz);
+        }
+
+        if(sk.size()<1){continue;}
+
+        temp.egz=sk.back();
+        sk.pop_back();
+        temp.nd=sk;
+        for(int i:temp.nd){
+            temp.suma+=i;
+        }
+        A.push_back(temp);
     }
-    A.push_back(temp);
 }
-}
+void skt(std::vector<studentas>& A, string failopav){skt_visi(A,failopav);}
+void skt(std::list<studentas>& A, string failopav){skt_visi(A,failopav);}
+void skt(std::deque<studentas>& A, string failopav){skt_visi(A,failopav);}
 
 void skaiciavimai(std::vector<studentas>& A){
     for(size_t i=0; i<A.size(); i++){
@@ -294,6 +299,7 @@ void tyrimas1(){
     std::chrono::duration<double> diff=laik::now()-startas;
     cout<<"Visų failų kūrimas užtruko "<<diff.count()<<" s"<<endl;
 }
+
 
 void tyrimas2(std::vector<studentas>& A){
     std::vector<long> kiekiai = {1000, 10000, 100000, 1000000, 10000000};
