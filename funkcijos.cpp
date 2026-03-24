@@ -198,6 +198,7 @@ void isved(std::vector<studentas>& A){
         }
     }
 }
+
 void failu_kurimas(){
     std::vector<long> kiekiai = {1000, 10000, 100000, 1000000, 10000000};
    
@@ -227,15 +228,20 @@ void failu_kurimas(){
 }
 }
 
-void isvedimas_faila(std::vector<studentas>& A, string pav){
+template <typename Konteineris>
+void isvedimas_faila_visi(Konteineris& A, string pav){
     std::ofstream r(pav);
-    r<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
+    r<<left<<setw(20)<<"Pavardė"<<setw(20)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
     r<<"-----------------------------------------------------------"<<endl;
-    for(int i=0; i<A.size(); i++){
-    r<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
+    for(auto& s : A){
+    r<<left<<setw(20)<<s.pav<<setw(20)<<s.vard<<setw(17)<<fixed<<setprecision(2)<<s.gal<<fixed<<setprecision(2)<<s.gal2<<endl;
     }
     r.close();
 }
+void isvedimas_faila(std::vector<studentas>& A, string pav){isvedimas_faila_visi(A, pav);}
+void isvedimas_faila(std::list<studentas>& A, string pav){isvedimas_faila_visi(A, pav);}
+void isvedimas_faila(std::deque<studentas>& A, string pav){isvedimas_faila_visi(A, pav);}
+
 int pasirink(){
     int rik;
         cout<<"1 - Rikiuosti pagal vardą mažėjančiai\n" 

@@ -28,4 +28,8 @@ void skt(std::deque<studentas>& A, std::string failopav);
 void skaiciavimai(std::vector<studentas>& A);
 void skaiciavimai(std::list<studentas>& A);
 void skaiciavimai(std::deque<studentas>& A);
+
+void isvedimas_faila(std::vector<studentas>& A, std::string pav);
+void isvedimas_faila(std::list<studentas>& A, std::string pav);
+void isvedimas_faila(std::deque<studentas>& A, std::string pav);
 #endif
