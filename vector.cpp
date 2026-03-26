@@ -30,8 +30,8 @@ int main(){
     SetConsoleCP(CP_UTF8);
 
     int x;
-    long n;  // nd sk
-    long m;  //studentu sk
+    long n; 
+    long m; 
     int meniu; 
     std::vector<studentas> A;
     std::list<studentas> L;

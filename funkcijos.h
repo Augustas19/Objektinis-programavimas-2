@@ -36,4 +36,8 @@ void isvedimas_faila(std::deque<studentas>& A, std::string pav);
 void rikiav(std::vector<studentas>& A, int rik);
 void rikiav(std::list<studentas>& A, int rik);
 void rikiav(std::deque<studentas>& A, int rik);
+
+void rusiavimas_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
+void rusiavimas_li(std::list<studentas>& A, std::list<studentas>& vargsai, std::list<studentas>& kietekai);
+void rusiavimas_de(std::deque<studentas>& A, std::deque<studentas>& vargsai, std::deque<studentas>& kietekai);
 #endif

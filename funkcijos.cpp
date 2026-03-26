@@ -299,7 +299,10 @@ void rikiav(std::vector<studentas>& A, int rik){std::sort(A.begin(), A.end(), ri
 void rikiav(std::list<studentas>& A, int rik){A.sort(rikiav_visi(rik));}
 void rikiav(std::deque<studentas>& A, int rik){std::sort(A.begin(), A.end(), rikiav_visi(rik));}
 
-void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai){
+// 1 strategija
+/*
+template <typename Konteineris>
+void rusiavimas(Konteineris& A, Konteineris& vargsai, Konteineris& kietekai){
 for(const auto& s: A){
     if(s.gal<5.0){
         vargsai.push_back(s);
@@ -307,6 +310,60 @@ for(const auto& s: A){
     else{kietekai.push_back(s);}
 }
 }
+*/
+// 1 STRATEGIJA
+void rusiavimas_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai){
+for(const auto& s: A){
+    if(s.gal<5.0){
+        vargsai.push_back(s);
+    }
+    else{kietekai.push_back(s);}
+}
+}
+
+void rusiavimas_li(std::list<studentas>& A, std::list<studentas>& vargsai, std::list<studentas>& kietekai){
+for(const auto& s: A){
+    if(s.gal<5.0){
+        vargsai.push_back(s);
+    }
+    else{kietekai.push_back(s);}
+}
+}
+
+void rusiavimas_de(std::deque<studentas>& A, std::deque<studentas>& vargsai, std::deque<studentas>& kietekai){
+for(const auto& s: A){
+    if(s.gal<5.0){
+        vargsai.push_back(s);
+    }
+    else{kietekai.push_back(s);}
+}
+}
+
+// 2 STRATEGIJA 
+
+void strat2_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai){
+vargsai.clear();
+    for(auto i= A.begin(); i != A.end( );){
+        if(i->gal <5.0){
+            vargsai.push_back(*i);
+            i = A.erase(i);            
+        }
+        else{i++;}
+    }
+}
+
+/*
+template <typename Konteineris>
+void strat2(Konteineris& A, Konteineris& vargsai){
+vargsai.clear();
+    for(const auto& s: A){
+        if(s.gal <5.0){
+            vargsai.push_back(s);
+            A.erase(s);
+        }
+
+    }
+}*/
 
 void tyrimas1(){
     auto startas = std::chrono::high_resolution_clock::now();
