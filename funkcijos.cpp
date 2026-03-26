@@ -370,18 +370,30 @@ void strat2_de(std::deque<studentas>& A, std::deque<studentas>& vargsai){
     }
 }
 
-/*
-template <typename Konteineris>
-void strat2(Konteineris& A, Konteineris& vargsai){
-vargsai.clear();
-    for(const auto& s: A){
-        if(s.gal <5.0){
-            vargsai.push_back(s);
-            A.erase(s);
-        }
+void strat3_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai){
+    auto i = std::partition(A.begin(), A.end(), [](const studentas& s){
+        return s.gal >=5.0;
+    });
+    vargsai.insert(vargsai.end(), i, A.end());
+    A.erase(i, A.end());
+}
 
-    }
-}*/
+void strat3_li(std::list<studentas>& A, std::list<studentas>& vargsai){
+    std::remove_copy_if(A.begin(), A.end(), std::back_inserter(vargsai), [](const studentas& s){
+        return s.gal >=5.0;
+    });
+    A.remove_if([](const studentas& s){
+        return s.gal < 5.0;
+    });
+}
+
+void strat3_de(std::deque<studentas>& A, std::deque<studentas>& vargsai){
+    auto i = std::partition(A.begin(), A.end(), [](const studentas& s){
+        return s.gal >=5.0;
+    });
+    vargsai.insert(vargsai.end(), i, A.end());
+    A.erase(i, A.end());
+}
 
 void tyrimas1(){
     auto startas = std::chrono::high_resolution_clock::now();

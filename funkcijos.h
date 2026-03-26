@@ -44,4 +44,8 @@ void rusiavimas_de(std::deque<studentas>& A, std::deque<studentas>& vargsai, std
 void strat2_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai);
 void strat2_li(std::list<studentas>& A, std::list<studentas>& vargsai);
 void strat2_de(std::deque<studentas>& A, std::deque<studentas>& vargsai);
+
+void strat3_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai);
+void strat3_li(std::list<studentas>& A, std::list<studentas>& vargsai);
+void strat3_de(std::deque<studentas>& A, std::deque<studentas>& vargsai);
 #endif
