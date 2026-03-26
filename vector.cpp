@@ -52,7 +52,7 @@ while(true){
         << "11 - baigti darbą"<<endl;
     while(true){
             cin>>meniu;
-                if(cin.fail() ||meniu<1 || meniu>8){
+                if(cin.fail() ||meniu<1 || meniu>11){
                     cin.clear();
                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     cout<<"Įvesti galima tik skaičius nuo 1 iki 11"<<endl;
@@ -244,15 +244,16 @@ while(true){
     else if(meniu==8){
         // su vektoriais
         tyrimas2_ve(A);
-
     }
     else if(meniu==9){
         // su list
-        //tyrimas2(A);
+        std::list<studentas> A;
+        tyrimas2_li(A);
     }
     else if(meniu==10){
-        // su deque
-       // tyrimas2(A);
+       // su deque
+       std::deque<studentas> A;
+       tyrimas2_de(A);
     }
     else if(meniu==11){
         break;

@@ -301,8 +301,8 @@ void rikiav(std::deque<studentas>& A, int rik){std::sort(A.begin(), A.end(), rik
 
 
 // 1 STRATEGIJA
-
-void rusiavimas_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai){
+template <typename Konteineris>
+void rusiavimas_visi(Konteineris& A, Konteineris& vargsai, Konteineris& kietekai){
 for(const auto& s: A){
     if(s.gal<5.0){
         vargsai.push_back(s);
@@ -310,28 +310,13 @@ for(const auto& s: A){
     else{kietekai.push_back(s);}
 }
 }
-
-void rusiavimas_li(std::list<studentas>& A, std::list<studentas>& vargsai, std::list<studentas>& kietekai){
-for(const auto& s: A){
-    if(s.gal<5.0){
-        vargsai.push_back(s);
-    }
-    else{kietekai.push_back(s);}
-}
-}
-
-void rusiavimas_de(std::deque<studentas>& A, std::deque<studentas>& vargsai, std::deque<studentas>& kietekai){
-for(const auto& s: A){
-    if(s.gal<5.0){
-        vargsai.push_back(s);
-    }
-    else{kietekai.push_back(s);}
-}
-}
+void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai){rusiavimas_visi(A,vargsai,kietekai);}
+void rusiavimas(std::list<studentas>& A, std::list<studentas>& vargsai, std::list<studentas>& kietekai){rusiavimas_visi(A,vargsai,kietekai);}
+void rusiavimas(std::deque<studentas>& A, std::deque<studentas>& vargsai, std::deque<studentas>& kietekai){rusiavimas_visi(A,vargsai,kietekai);}
 
 // 2 STRATEGIJA 
-
-void strat2_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai){
+template <typename Konteineris>
+void strat2_visi(Konteineris& A, Konteineris& vargsai){
   for(const auto& s: A){
     if(s.gal<5.0){
         vargsai.push_back(s);
@@ -343,75 +328,31 @@ void strat2_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai){
    A.end()
 );
 }
-
-void strat2_li(std::list<studentas>& A, std::list<studentas>& vargsai){
-    for(const auto& s: A){
-    if(s.gal<5.0){
-        vargsai.push_back(s);
-    }
-}
-   A.erase(std::remove_if(A.begin(), A.end(), [](const studentas& s){
-    return s.gal < 5.0;
-   }),
-   A.end()
-);
-/*
-    for(auto i= A.begin(); i != A.end( );){
-        if(i->gal <5.0){
-            vargsai.push_back(*i);
-            i = A.erase(i);            
-        }
-        else{i++;}
-    }*/
-}
-void strat2_de(std::deque<studentas>& A, std::deque<studentas>& vargsai){
-for(const auto& s: A){
-    if(s.gal<5.0){
-        vargsai.push_back(s);
-    }
-}
-   A.erase(std::remove_if(A.begin(), A.end(), [](const studentas& s){
-    return s.gal < 5.0;
-   }),
-   A.end()
-);
-
-  /*  for(auto i= A.begin(); i != A.end( );){
-        if(i->gal <5.0){
-            vargsai.push_back(*i);
-            i = A.erase(i);            
-        }
-        else{i++;}
-    }*/
-}
+void strat2(std::vector<studentas>& A, std::vector<studentas>& vargsai){strat2_visi(A,vargsai);}
+void strat2(std::list<studentas>& A, std::list<studentas>& vargsai){strat2_visi(A,vargsai);}
+void strat2(std::deque<studentas>& A, std::deque<studentas>& vargsai){strat2_visi(A,vargsai);}
 
 // 3 STRATEGIJA
-
-void strat3_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai){
-    auto i = std::partition(A.begin(), A.end(), [](const studentas& s){
-        return s.gal >=5.0;
-    });
-    vargsai.insert(vargsai.end(), i, A.end());
-    A.erase(i, A.end());
-}
-
-void strat3_li(std::list<studentas>& A, std::list<studentas>& vargsai){
-    std::remove_copy_if(A.begin(), A.end(), std::back_inserter(vargsai), [](const studentas& s){
-        return s.gal >=5.0;
-    });
+template <typename Konteineris>
+void strat3_visi(Konteineris& A, Konteineris& vargsai){
+    vargsai.clear();
+    if constexpr(std::is_same_v<Konteineris, std::list<studentas>>){
+        std::remove_copy_if(A.begin(), A.end(), std::back_inserter(vargsai), [](const studentas& s){
+        return s.gal >=5.0;});
     A.remove_if([](const studentas& s){
-        return s.gal < 5.0;
-    });
-}
+        return s.gal < 5.0;});
+    }
 
-void strat3_de(std::deque<studentas>& A, std::deque<studentas>& vargsai){
-    auto i = std::partition(A.begin(), A.end(), [](const studentas& s){
+    else {auto i = std::partition(A.begin(), A.end(), [](const studentas& s){
         return s.gal >=5.0;
     });
     vargsai.insert(vargsai.end(), i, A.end());
     A.erase(i, A.end());
+    }   
 }
-
+void strat3(std::vector<studentas>& A, std::vector<studentas>& vargsai){strat3_visi(A,vargsai);}
+void strat3(std::list<studentas>& A, std::list<studentas>& vargsai){strat3_visi(A,vargsai);}
+void strat3(std::deque<studentas>& A, std::deque<studentas>& vargsai){strat3_visi(A,vargsai);}
 
 void tyrimas1(){
     auto startas = std::chrono::high_resolution_clock::now();
@@ -451,7 +392,7 @@ void tyrimas2(std::vector<studentas>& A){
 
     auto ti3= std::chrono::high_resolution_clock::now();    // rusiavimas
     std::vector<studentas> vargsai, kietekai;   
-    rusiavimas_ve(A,vargsai, kietekai);
+    rusiavimas(A,vargsai, kietekai);
     rikiav(vargsai,rik);
     rikiav(kietekai,rik);
     std::chrono::duration<double> diff3=laik::now()-ti3;
@@ -478,7 +419,6 @@ void tyrimas2_visi(Konteineris& A){
 
     for(long y: kiekiai){
     A.clear();
-    A.reserve(y);
     string pavad = "failas"+std::to_string(y)+".txt";
     
     cout<<y<<" failas :"<<endl;
@@ -502,21 +442,21 @@ void tyrimas2_visi(Konteineris& A){
     Konteineris vargsai, kietekai, cop(A), c1(A), c2(A);  
     vargsai.clear();
     auto ti3= std::chrono::high_resolution_clock::now();    
-    rusiavimas_ve(cop,vargsai, kietekai);
+    rusiavimas(cop,vargsai, kietekai);
     std::chrono::duration<double> diff3=laik::now()-ti3;
     cout<<"1 Strategija studentų rūšiavimas užtruko "<<diff3.count()<<" s\n";
 
     // 2 STRATEGIJA 
     vargsai.clear();
     auto st2= std::chrono::high_resolution_clock::now();       
-    strat2_ve(c1,vargsai);
+    strat2(c1,vargsai);
     std::chrono::duration<double> stdif2=laik::now()-st2;
     cout<<"2 Strategija studentų rūšiavimas užtruko "<<stdif2.count()<<" s\n";
 
     // 3 STRATEGIJA 
     vargsai.clear();
     auto st3= std::chrono::high_resolution_clock::now();    
-    strat3_ve(c2,vargsai);
+    strat3(c2,vargsai);
     std::chrono::duration<double> stdif3=laik::now()-st3;
     cout<<"3 Strategija studentų rūšiavimas užtruko "<<stdif3.count()<<" s\n";
 

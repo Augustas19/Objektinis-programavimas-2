@@ -10,15 +10,10 @@
 studentas gen_vrd();
 int gen_pazym();
 void skaiciai(long &n, long &m);
-//void skt(std::vector<studentas>& A, std::string failopav);
-void skaiciavimai(std::vector<studentas>& A);
 void isved(std::vector<studentas>& A);
 void failu_kurimas();
-//void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
-void isvedimas_faila(std::vector<studentas>& A, std::string pav);
 void tyrimas1();
 void tyrimas2(std::vector<studentas>& A);
-void rikiav(std::vector<studentas>& A, int rik);
 int pasirink();
 
 void skt(std::vector<studentas>& A, std::string failopav);
@@ -37,17 +32,17 @@ void rikiav(std::vector<studentas>& A, int rik);
 void rikiav(std::list<studentas>& A, int rik);
 void rikiav(std::deque<studentas>& A, int rik);
 
-void rusiavimas_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
-void rusiavimas_li(std::list<studentas>& A, std::list<studentas>& vargsai, std::list<studentas>& kietekai);
-void rusiavimas_de(std::deque<studentas>& A, std::deque<studentas>& vargsai, std::deque<studentas>& kietekai);
+void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
+void rusiavimas(std::list<studentas>& A, std::list<studentas>& vargsai, std::list<studentas>& kietekai);
+void rusiavimas(std::deque<studentas>& A, std::deque<studentas>& vargsai, std::deque<studentas>& kietekai);
 
-void strat2_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai);
-void strat2_li(std::list<studentas>& A, std::list<studentas>& vargsai);
-void strat2_de(std::deque<studentas>& A, std::deque<studentas>& vargsai);
+void strat2(std::vector<studentas>& A, std::vector<studentas>& vargsai);
+void strat2(std::list<studentas>& A, std::list<studentas>& vargsai);
+void strat2(std::deque<studentas>& A, std::deque<studentas>& vargsai);
 
-void strat3_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai);
-void strat3_li(std::list<studentas>& A, std::list<studentas>& vargsai);
-void strat3_de(std::deque<studentas>& A, std::deque<studentas>& vargsai);
+void strat3(std::vector<studentas>& A, std::vector<studentas>& vargsai);
+void strat3(std::list<studentas>& A, std::list<studentas>& vargsai);
+void strat3(std::deque<studentas>& A, std::deque<studentas>& vargsai);
 
 void tyrimas2_ve(std::vector<studentas>& A);
 void tyrimas2_li(std::list<studentas>& A);
