@@ -342,7 +342,25 @@ for(const auto& s: A){
 // 2 STRATEGIJA 
 
 void strat2_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai){
-vargsai.clear();
+    for(auto i= A.begin(); i != A.end( );){
+        if(i->gal <5.0){
+            vargsai.push_back(*i);
+            i = A.erase(i);            
+        }
+        else{i++;}
+    }
+}
+
+void strat2_li(std::list<studentas>& A, std::list<studentas>& vargsai){
+    for(auto i= A.begin(); i != A.end( );){
+        if(i->gal <5.0){
+            vargsai.push_back(*i);
+            i = A.erase(i);            
+        }
+        else{i++;}
+    }
+}
+void strat2_de(std::deque<studentas>& A, std::deque<studentas>& vargsai){
     for(auto i= A.begin(); i != A.end( );){
         if(i->gal <5.0){
             vargsai.push_back(*i);
@@ -403,7 +421,7 @@ void tyrimas2(std::vector<studentas>& A){
 
     auto ti3= std::chrono::high_resolution_clock::now();    // rusiavimas
     std::vector<studentas> vargsai, kietekai;   
-    rusiavimas(A,vargsai, kietekai);
+    //rusiavimas(A,vargsai, kietekai);
     rikiav(vargsai,rik);
     rikiav(kietekai,rik);
     std::chrono::duration<double> diff3=laik::now()-ti3;

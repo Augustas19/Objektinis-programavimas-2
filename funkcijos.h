@@ -14,7 +14,7 @@ void skaiciai(long &n, long &m);
 void skaiciavimai(std::vector<studentas>& A);
 void isved(std::vector<studentas>& A);
 void failu_kurimas();
-void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
+//void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
 void isvedimas_faila(std::vector<studentas>& A, std::string pav);
 void tyrimas1();
 void tyrimas2(std::vector<studentas>& A);
@@ -40,4 +40,8 @@ void rikiav(std::deque<studentas>& A, int rik);
 void rusiavimas_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
 void rusiavimas_li(std::list<studentas>& A, std::list<studentas>& vargsai, std::list<studentas>& kietekai);
 void rusiavimas_de(std::deque<studentas>& A, std::deque<studentas>& vargsai, std::deque<studentas>& kietekai);
+
+void strat2_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai);
+void strat2_li(std::list<studentas>& A, std::list<studentas>& vargsai);
+void strat2_de(std::deque<studentas>& A, std::deque<studentas>& vargsai);
 #endif
