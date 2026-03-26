@@ -48,4 +48,8 @@ void strat2_de(std::deque<studentas>& A, std::deque<studentas>& vargsai);
 void strat3_ve(std::vector<studentas>& A, std::vector<studentas>& vargsai);
 void strat3_li(std::list<studentas>& A, std::list<studentas>& vargsai);
 void strat3_de(std::deque<studentas>& A, std::deque<studentas>& vargsai);
+
+void tyrimas2_ve(std::vector<studentas>& A);
+void tyrimas2_li(std::list<studentas>& A);
+void tyrimas2_de(std::deque<studentas>& A);
 #endif
