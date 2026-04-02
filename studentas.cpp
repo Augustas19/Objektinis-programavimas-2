@@ -7,8 +7,8 @@ Studentas::Studentas(std::istream& is) {
 }
 
 // Studentas::galBalas realizacija
-double Studentas::galutBalas(double (*) (std::vector<double>) = mediana) const {
-  // ...
+double Studentas::galutBalas(double (*f) (std::vector<double>) = mediana) const {
+  return 0.4*f(nd_) + 0.6*egzaminas_;
 }
 
 // Studentas::readStudent realizacija

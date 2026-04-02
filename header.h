@@ -33,7 +33,7 @@ double vid() const {return vid_;}
 double med() const {return med_;}
 double vid() const {return vid_;}
 double vid() const {return vid_;}
-double galutBalas(double (*) (std::vector<double>) = mediana) const;
+double galutBalas(double (*f) (std::vector<double>) = mediana) const;
 std::istream& readStudent(std::istream& is); 
 };
 
@@ -41,16 +41,5 @@ bool compare(const Studentas&, const Studentas&);
 bool comparePagalPavarde(const Studentas&, const Studentas&);
 bool comparePagalEgza(const Studentas&, const Studentas&);
 
-struct studentas{
-    std::string vard;
-    std::string pav;
-    int egz;
-    std::vector<int> nd;    
-    double vid;
-    double med;
-    double suma=0;
-    double gal;
-    double gal2;
-};
 
 #endif

@@ -16,9 +16,9 @@ void tyrimas1();
 void tyrimas2(std::vector<studentas>& A);
 int pasirink();
 
-void skt(std::vector<studentas>& A, std::string failopav);
-void skt(std::list<studentas>& A, std::string failopav);
-void skt(std::deque<studentas>& A, std::string failopav);
+template <typename c>
+void skt(c& A, const std::string& failopav);
+
 
 void skaiciavimai(std::vector<studentas>& A);
 void skaiciavimai(std::list<studentas>& A);

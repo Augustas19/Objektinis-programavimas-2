@@ -26,7 +26,7 @@ using std::getline;
 using laik = std::chrono::high_resolution_clock;
 typedef std::uniform_int_distribution<int> int_dis;
 
-studentas gen_vrd(){
+Studentas gen_vrd(){
     studentas A;
     mt19937 rnd(static_cast<long unsigned int>(laik::now().time_since_epoch().count()));
     int_dis paskirst(0,9);
@@ -141,10 +141,10 @@ void skt_visi(Konteineris& A, const string& failopav){
     }*/
 }
 
-void skt(std::vector<studentas>& A, string failopav){skt_visi(A,failopav);}
-void skt(std::list<studentas>& A, string failopav){skt_visi(A,failopav);}
-void skt(std::deque<studentas>& A, string failopav){skt_visi(A,failopav);}
-
+void skt(std::vector<Studentas>& A, string failopav){skt_visi(A,failopav);}
+void skt(std::list<Studentas>& A, string failopav){skt_visi(A,failopav);}
+void skt(std::deque<Studentas>& A, string failopav){skt_visi(A,failopav);}
+/*
 template <typename Konteineris>
 void skaiciavimai_visi(Konteineris& A){
     for(auto& s : A){
@@ -174,8 +174,9 @@ void skaiciavimai_visi(Konteineris& A){
 void skaiciavimai(std::vector<studentas>& A){skaiciavimai_visi(A);}
 void skaiciavimai(std::list<studentas>& A){skaiciavimai_visi(A);}
 void skaiciavimai(std::deque<studentas>& A){skaiciavimai_visi(A);}
+*/
 
-void isved(std::vector<studentas>& A){
+void isved(std::vector<Studentas>& A){
     int is;
     cout<<"1 - Išvesti su vidurkiu, 2 - Išvesti su mediana"<<endl;
     while(true){
@@ -191,18 +192,19 @@ void isved(std::vector<studentas>& A){
                 }
                 else{break;}
     }
+
     if(is==1){
-         cout<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
+        cout<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<"Galutinis (Vid.)"<<endl;
         cout<<"----------------------------------"<<endl;
-        for(int i=0; i<A.size(); i++){
-            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal<<endl;
+        for(const auto& s: A){
+            cout<<left<<setw(15)<<s.pavarde()<<setw(15)<<s.vardas()<<fixed<<setprecision(2)<<s.galutBalas(vidurkis)<<endl;
         }
     }
     if(is==2){
         cout<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<"Galutinis (Med.)"<<endl;
         cout<<"----------------------------------"<<endl;
-        for(int i=0; i<A.size(); i++){
-            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<fixed<<setprecision(2)<<A[i].gal2<<endl;
+        for(const auto& s: A){
+            cout<<left<<setw(15)<<s.pavarde()<<setw(15)<<s.vardas()<<fixed<<setprecision(2)<<s.galutBalas()<<endl;
         }
     }
 }
