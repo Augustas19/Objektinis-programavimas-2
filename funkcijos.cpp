@@ -25,20 +25,37 @@ using std::getline;
 
 using laik = std::chrono::high_resolution_clock;
 typedef std::uniform_int_distribution<int> int_dis;
-/*
+
 // konstruktoriaus realizacija
 Studentas::Studentas(std::istream& is) { 
-  // kreipiasi į Studentas::readStudent;
-  skait(is);  
+  readStudent(is);  
 }
 
 // Studentas::galBalas realizacija
-double Studentas::galBalas(double (*) (std::vector<double>) = mediana) const {
+double Studentas::galutBalas(double (*) (std::vector<double>) = mediana) const {
   // ...
 }
 
+// Studentas::readStudent realizacija
+std::istream& Studentas::readStudent(std::istream& is) {
+    nd_.clear();
+
+    is>>vardas_>>pavarde_;
+    
+    double x;
+    std::vector<double> tmp;
+    while (is>>x) 
+    {tmp.push_back(x);}
+    
+    if(!tmp.empty()){
+        egzaminas_=tmp.back();
+        tmp.pop_back();
+        nd_ =tmp;
+    }
+    else {egzaminas_=0;}
+
+    return is;
 }
-*/
 
 double mediana(std::vector<double> v){
     std::sort(v.begin(), v.end());
@@ -51,6 +68,7 @@ double mediana(std::vector<double> v){
         return v[n/2];
     }
 }
+
 double vidurkis(std::vector<double> v){
     double s=0;
     for(auto x:v){
@@ -58,6 +76,7 @@ double vidurkis(std::vector<double> v){
     }
     return s / v.size();
 }
+
 
 studentas gen_vrd(){
     studentas A;
@@ -132,7 +151,15 @@ void skt_visi(Konteineris& A, const string& failopav){
     f.close();
 
     getline(buf, eilut);
-    while(buf){
+    while (getline(buf, eilut))
+    {
+        std::stringstream t(eilut);
+        Studentas laik;
+        laik.readStudent(t);
+        A.push_back(laik);
+    }
+    
+   /* while(buf){
         if(!buf.eof()){
             getline(buf, eilut);
             skaid.push_back(eilut);
@@ -140,7 +167,7 @@ void skt_visi(Konteineris& A, const string& failopav){
         }
         else break;
     }
-    for(const auto& line : skaid){
+    for(const auto& line : skaid){ 
         std::stringstream t(line);
 
         studentas temp;
@@ -163,7 +190,7 @@ void skt_visi(Konteineris& A, const string& failopav){
             temp.suma+=i;
         }
         A.push_back(temp);
-    }
+    }*/
 }
 
 void skt(std::vector<studentas>& A, string failopav){skt_visi(A,failopav);}

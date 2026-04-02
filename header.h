@@ -33,9 +33,13 @@ double vid() const {return vid_;}
 double med() const {return med_;}
 double vid() const {return vid_;}
 double vid() const {return vid_;}
-//double galutBalas(double (*) (std::vector<double>) = mediana) const;
-std::istream& skait(std::istream&); 
+double galutBalas(double (*) (std::vector<double>) = mediana) const;
+std::istream& readStudent(std::istream& is); 
 };
+
+bool compare(const Studentas&, const Studentas&);
+bool comparePagalPavarde(const Studentas&, const Studentas&);
+bool comparePagalEgza(const Studentas&, const Studentas&);
 
 struct studentas{
     std::string vard;
