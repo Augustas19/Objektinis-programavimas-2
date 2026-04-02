@@ -29,10 +29,6 @@ inline std::string pavarde() const {return pavarde_;}
 inline int egzaminas() const {return egzaminas_;}
 inline std::vector<double> nd() const {return nd_;}
 
-double vid() const {return vid_;}
-double med() const {return med_;}
-double vid() const {return vid_;}
-double vid() const {return vid_;}
 double galutBalas(double (*f) (std::vector<double>) = mediana) const;
 std::istream& readStudent(std::istream& is); 
 

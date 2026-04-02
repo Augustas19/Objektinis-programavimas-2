@@ -69,8 +69,8 @@ while(true){
     if(meniu==1){
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         while(true){
-            tmp.nd.clear();
-            tmp.suma=0;
+            tmp.nd().clear();
+           // tmp.suma=0;
             cout<<"Įvesk studento vardą arba paspausk ENTER, jei nebenori įvesti daugiau studentų"<<endl;
             getline(cin, tmp.vard);
             if(tmp.vard.empty()){break;}
@@ -98,13 +98,13 @@ while(true){
                         cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
                         continue;
                     }
-                    tmp.nd.push_back(x);
-                    tmp.suma+=x;
+                    tmp.nd().push_back(x);
+                    //tmp.suma+=x;
             }
             cout<<"Įvesk egzamino pažymį nuo 1 iki 10"<<endl;
             while (true){
-            cin>>tmp.egz;
-            if(cin.fail()|| tmp.egz<1 || tmp.egz>10){
+            cin>>tmp.egzaminas();
+            if(cin.fail()|| tmp.egzaminas()<1 || tmp.egzaminas()>10){
                 cin.clear();
                 cin.ignore(10000, '\n');
                 cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
@@ -118,7 +118,7 @@ while(true){
         A.push_back(tmp);
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        skaiciavimai(A);
+        //skaiciavimai(A);
         isved(A);
     }
 

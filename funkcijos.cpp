@@ -445,7 +445,7 @@ void tyrimas2_visi(Konteineris& A){
     cout<<"Failo nuskaitymas užtruko "<<diff1.count()<<" s\n";
 
     // vidurkio radimas
-    skaiciavimai(A);
+   // skaiciavimai(A);
     
     // rusiavimas
     // 1 STRATEGIJA

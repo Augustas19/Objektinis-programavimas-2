@@ -45,6 +45,7 @@ void strat3(std::deque<Studentas>& A, std::deque<Studentas>& vargsai);
 
 // tyrimai
 void tyrimas1();
+void tyrimas2(std::vector<Studentas>& A);
 void tyrimas2_ve(std::vector<Studentas>& A);
 void tyrimas2_li(std::list<Studentas>& A);
 void tyrimas2_de(std::deque<Studentas>& A);
