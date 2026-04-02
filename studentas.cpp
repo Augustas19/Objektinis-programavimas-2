@@ -1,4 +1,4 @@
-#include "header.h";
+#include "header.h"
 #include <algorithm>
 
 // konstruktoriaus realizacija
@@ -7,7 +7,7 @@ Studentas::Studentas(std::istream& is) {
 }
 
 // Studentas::galBalas realizacija
-double Studentas::galutBalas(double (*f) (std::vector<double>) = mediana) const {
+double Studentas::galutBalas(double (*f) (std::vector<double>)) const {
   return 0.4*f(nd_) + 0.6*egzaminas_;
 }
 

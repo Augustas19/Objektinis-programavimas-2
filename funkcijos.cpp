@@ -106,39 +106,6 @@ void skt_visi(Konteineris& A, const string& failopav){
         laik.readStudent(t);
         A.push_back(laik);
     }
-    
-   /* while(buf){
-        if(!buf.eof()){
-            getline(buf, eilut);
-            skaid.push_back(eilut);
-
-        }
-        else break;
-    }
-    for(const auto& line : skaid){ 
-        std::stringstream t(line);
-
-        studentas temp;
-        temp.nd.clear();
-        temp.suma=0;
-
-        t>>temp.vard>>temp.pav;
-        int paz;
-        std::vector<int> sk;
-        while(t>>paz){
-            sk.push_back(paz);
-        }
-
-        if(sk.size()<1){continue;}
-
-        temp.egz=sk.back();
-        sk.pop_back();
-        temp.nd=sk;
-        for(int i:temp.nd){
-            temp.suma+=i;
-        }
-        A.push_back(temp);
-    }*/
 }
 
 void skt(std::vector<Studentas>& A, string failopav){skt_visi(A,failopav);}
@@ -283,7 +250,7 @@ void rikiav(std::deque<Studentas>& A, int rik){std::sort(A.begin(), A.end(), rik
 template <typename Konteineris>
 void rusiavimas_visi(Konteineris& A, Konteineris& vargsai, Konteineris& kietekai){
 for(const auto& s: A){
-    if(s.gal<5.0){
+    if(s.galutBalas(vidurkis)<5.0){
         vargsai.push_back(s);
     }
     else{kietekai.push_back(s);}
@@ -297,12 +264,12 @@ void rusiavimas(std::deque<Studentas>& A, std::deque<Studentas>& vargsai, std::d
 template <typename Konteineris>
 void strat2_visi(Konteineris& A, Konteineris& vargsai){
   for(const auto& s: A){
-    if(s.gal<5.0){
+    if(s.galutBalas(vidurkis)<5.0){
         vargsai.push_back(s);
     }
 }
-   A.erase(std::remove_if(A.begin(), A.end(), [](const studentas& s){
-    return s.gal < 5.0;
+   A.erase(std::remove_if(A.begin(), A.end(), [](const Studentas& s){
+    return s.galutBalas(vidurkis) < 5.0;
    }),
    A.end()
 );
@@ -315,15 +282,15 @@ void strat2(std::deque<Studentas>& A, std::deque<Studentas>& vargsai){strat2_vis
 template <typename Konteineris>
 void strat3_visi(Konteineris& A, Konteineris& vargsai){
     vargsai.clear();
-    if constexpr(std::is_same_v<Konteineris, std::list<studentas>>){
-        std::remove_copy_if(A.begin(), A.end(), std::back_inserter(vargsai), [](const studentas& s){
-        return s.gal >=5.0;});
-    A.remove_if([](const studentas& s){
-        return s.gal < 5.0;});
+    if constexpr(std::is_same_v<Konteineris, std::list<Studentas>>){
+        std::remove_copy_if(A.begin(), A.end(), std::back_inserter(vargsai), [](const Studentas& s){
+        return s.galutBalas(vidurkis) >=5.0;});
+    A.remove_if([](const Studentas& s){
+        return s.galutBalas(vidurkis) < 5.0;});
     }
 
-    else {auto i = std::partition(A.begin(), A.end(), [](const studentas& s){
-        return s.gal >=5.0;
+    else {auto i = std::partition(A.begin(), A.end(), [](const Studentas& s){
+        return s.galutBalas(vidurkis) >=5.0;
     });
     vargsai.insert(vargsai.end(), i, A.end());
     A.erase(i, A.end());
@@ -408,9 +375,6 @@ void tyrimas2_visi(Konteineris& A){
     std::chrono::duration<double> diff1=laik::now()-ti1;
     cout<<"Failo nuskaitymas užtruko "<<diff1.count()<<" s\n";
 
-    // vidurkio radimas
-   // skaiciavimai(A);
-    
     // rusiavimas
     // 1 STRATEGIJA
     Konteineris vargsai, kietekai, cop(A), c1(A), c2(A);  

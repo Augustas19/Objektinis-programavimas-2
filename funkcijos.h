@@ -22,8 +22,10 @@ void isvedimas_faila(std::deque<Studentas>& A, std::string pav);
 
 void failu_kurimas();
 
-template <typename c>
-void skt(c& A, const std::string& failopav);
+// skaitymas
+void skt(std::vector<Studentas>& A, std::string failopav);
+void skt(std::list<Studentas>& A, std::string failopav);
+void skt(std::deque<Studentas>& A, std::string failopav);
 
 // rikiavimas
 void rikiav(std::vector<Studentas>& A, int rik);
