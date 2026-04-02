@@ -7,44 +7,45 @@
 #include <deque>
 #include "header.h"
 
-studentas gen_vrd();
+// generavimas
+Studentas gen_vrd();
 int gen_pazym();
+
 void skaiciai(long &n, long &m);
-void isved(std::vector<studentas>& A);
-void failu_kurimas();
-void tyrimas1();
-void tyrimas2(std::vector<studentas>& A);
 int pasirink();
+
+// isvedimai
+void isved(std::vector<Studentas>& A);
+void isvedimas_faila(std::vector<Studentas>& A, std::string pav);
+void isvedimas_faila(std::list<Studentas>& A, std::string pav);
+void isvedimas_faila(std::deque<Studentas>& A, std::string pav);
+
+void failu_kurimas();
 
 template <typename c>
 void skt(c& A, const std::string& failopav);
 
+// rikiavimas
+void rikiav(std::vector<Studentas>& A, int rik);
+void rikiav(std::list<Studentas>& A, int rik);
+void rikiav(std::deque<Studentas>& A, int rik);
 
-void skaiciavimai(std::vector<studentas>& A);
-void skaiciavimai(std::list<studentas>& A);
-void skaiciavimai(std::deque<studentas>& A);
+// 3 strategijos
+void rusiavimas(std::vector<Studentas>& A, std::vector<Studentas>& vargsai, std::vector<Studentas>& kietekai);
+void rusiavimas(std::list<Studentas>& A, std::list<Studentas>& vargsai, std::list<Studentas>& kietekai);
+void rusiavimas(std::deque<Studentas>& A, std::deque<Studentas>& vargsai, std::deque<Studentas>& kietekai);
 
-void isvedimas_faila(std::vector<studentas>& A, std::string pav);
-void isvedimas_faila(std::list<studentas>& A, std::string pav);
-void isvedimas_faila(std::deque<studentas>& A, std::string pav);
+void strat2(std::vector<Studentas>& A, std::vector<Studentas>& vargsai);
+void strat2(std::list<Studentas>& A, std::list<Studentas>& vargsai);
+void strat2(std::deque<Studentas>& A, std::deque<Studentas>& vargsai);
 
-void rikiav(std::vector<studentas>& A, int rik);
-void rikiav(std::list<studentas>& A, int rik);
-void rikiav(std::deque<studentas>& A, int rik);
+void strat3(std::vector<Studentas>& A, std::vector<Studentas>& vargsai);
+void strat3(std::list<Studentas>& A, std::list<Studentas>& vargsai);
+void strat3(std::deque<Studentas>& A, std::deque<Studentas>& vargsai);
 
-void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai);
-void rusiavimas(std::list<studentas>& A, std::list<studentas>& vargsai, std::list<studentas>& kietekai);
-void rusiavimas(std::deque<studentas>& A, std::deque<studentas>& vargsai, std::deque<studentas>& kietekai);
-
-void strat2(std::vector<studentas>& A, std::vector<studentas>& vargsai);
-void strat2(std::list<studentas>& A, std::list<studentas>& vargsai);
-void strat2(std::deque<studentas>& A, std::deque<studentas>& vargsai);
-
-void strat3(std::vector<studentas>& A, std::vector<studentas>& vargsai);
-void strat3(std::list<studentas>& A, std::list<studentas>& vargsai);
-void strat3(std::deque<studentas>& A, std::deque<studentas>& vargsai);
-
-void tyrimas2_ve(std::vector<studentas>& A);
-void tyrimas2_li(std::list<studentas>& A);
-void tyrimas2_de(std::deque<studentas>& A);
+// tyrimai
+void tyrimas1();
+void tyrimas2_ve(std::vector<Studentas>& A);
+void tyrimas2_li(std::list<Studentas>& A);
+void tyrimas2_de(std::deque<Studentas>& A);
 #endif

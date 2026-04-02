@@ -33,11 +33,11 @@ int main(){
     long n; 
     long m; 
     int meniu; 
-    std::vector<studentas> A;
-    std::list<studentas> L;
-    std::deque<studentas> D;
+    std::vector<Studentas> A;
+    std::list<Studentas> L;
+    std::deque<Studentas> D;
   
-    studentas tmp;
+    Studentas tmp;
 while(true){
     cout<< "1 - ranka\n"
         << "2 - generuoti payžmius\n"

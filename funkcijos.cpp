@@ -27,20 +27,20 @@ using laik = std::chrono::high_resolution_clock;
 typedef std::uniform_int_distribution<int> int_dis;
 
 Studentas gen_vrd(){
-    studentas A;
+    Studentas A;
     mt19937 rnd(static_cast<long unsigned int>(laik::now().time_since_epoch().count()));
     int_dis paskirst(0,9);
     std::string v[10] = {"Jonas", "Paulius", "Saulius", "Matas", "Egle", "Ruta", "Rima", "Lukas", "Juste", "Laura"};
     std::string p_v[10] = {"Jonaitis", "Saulenas", "Pavardaits", "Vardaitis", "Rimauskas", "Paulauskas", "Mataitis", "Saulaitis", "Jonauskas", "Jokubaitis"};
     std::string p_m[10] = {"Eglaite", "Rutaite", "Rimaite", "Justiene", "Lauraite", "Joniene", "Jonaite", "Mataite", "Paulaitiene", "Pavardiene"};
-    A.vard=v[paskirst(rnd)];
-    switch (*A.vard.rbegin())
+    A.setVardas(v[paskirst(rnd)]);
+    switch (*A.vardas().rbegin())
     {
     case 's' :
-        A.pav=p_v[paskirst(rnd)];
+        A.setPavarde(p_v[paskirst(rnd)]);
         break;
     default:
-        A.pav=p_m[paskirst(rnd)];
+        A.setPavarde(p_m[paskirst(rnd)]);
         break;
         
     };
@@ -243,14 +243,14 @@ void isvedimas_faila_visi(Konteineris& A, string pav){
     std::ofstream r(pav);
     r<<left<<setw(20)<<"Pavardė"<<setw(20)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
     r<<"-----------------------------------------------------------"<<endl;
-    for(auto& s : A){
-    r<<left<<setw(20)<<s.pav<<setw(20)<<s.vard<<setw(17)<<fixed<<setprecision(2)<<s.gal<<fixed<<setprecision(2)<<s.gal2<<endl;
+    for(const auto& s : A){
+    r<<left<<setw(20)<<s.pavarde()<<setw(20)<<s.vardas()<<setw(17)<<fixed<<setprecision(2)<<s.galutBalas(vidurkis)<<fixed<<setprecision(2)<<s.galutBalas()<<endl;
     }
     r.close();
 }
-void isvedimas_faila(std::vector<studentas>& A, string pav){isvedimas_faila_visi(A, pav);}
-void isvedimas_faila(std::list<studentas>& A, string pav){isvedimas_faila_visi(A, pav);}
-void isvedimas_faila(std::deque<studentas>& A, string pav){isvedimas_faila_visi(A, pav);}
+void isvedimas_faila(std::vector<Studentas>& A, string pav){isvedimas_faila_visi(A, pav);}
+void isvedimas_faila(std::list<Studentas>& A, string pav){isvedimas_faila_visi(A, pav);}
+void isvedimas_faila(std::deque<Studentas>& A, string pav){isvedimas_faila_visi(A, pav);}
 
 int pasirink(){
     int rik;
@@ -281,33 +281,33 @@ int pasirink(){
 }
 
 auto rikiav_visi(int rik){
-        return [rik](const studentas& A, const studentas& B){
+        return [rik](const Studentas& A, const Studentas& B){
             switch (rik)
             {
             case 1:
-                return A.vard > B.vard;
+                return A.vardas() > B.vardas();
             case 2:
-                return A.vard < B.vard;
+                return A.vardas() < B.vardas();
             case 3:
-                return A.pav > B.pav;
+                return A.pavarde() > B.pavarde() ;
             case 4:
-                return A.pav < B.pav;
+                return A.pavarde()  < B.pavarde() ;
             case 5:
-                return A.gal > B.gal;
+                return A.galutBalas(vidurkis) > B.galutBalas(vidurkis);
             case 6:
-                return A.gal < B.gal;
+                return A.galutBalas(vidurkis) < B.galutBalas(vidurkis);
             case 7:
-                return A.gal2> B.gal2;
+                return A.galutBalas()> B.galutBalas();
             case 8:
-                return A.gal2 < B.gal2;
+                return A.galutBalas() < B.galutBalas();
             default: return false;
             }
 
         };
 }
-void rikiav(std::vector<studentas>& A, int rik){std::sort(A.begin(), A.end(), rikiav_visi(rik));}
-void rikiav(std::list<studentas>& A, int rik){A.sort(rikiav_visi(rik));}
-void rikiav(std::deque<studentas>& A, int rik){std::sort(A.begin(), A.end(), rikiav_visi(rik));}
+void rikiav(std::vector<Studentas>& A, int rik){std::sort(A.begin(), A.end(), rikiav_visi(rik));}
+void rikiav(std::list<Studentas>& A, int rik){A.sort(rikiav_visi(rik));}
+void rikiav(std::deque<Studentas>& A, int rik){std::sort(A.begin(), A.end(), rikiav_visi(rik));}
 
 
 // 1 STRATEGIJA
@@ -320,9 +320,9 @@ for(const auto& s: A){
     else{kietekai.push_back(s);}
 }
 }
-void rusiavimas(std::vector<studentas>& A, std::vector<studentas>& vargsai, std::vector<studentas>& kietekai){rusiavimas_visi(A,vargsai,kietekai);}
-void rusiavimas(std::list<studentas>& A, std::list<studentas>& vargsai, std::list<studentas>& kietekai){rusiavimas_visi(A,vargsai,kietekai);}
-void rusiavimas(std::deque<studentas>& A, std::deque<studentas>& vargsai, std::deque<studentas>& kietekai){rusiavimas_visi(A,vargsai,kietekai);}
+void rusiavimas(std::vector<Studentas>& A, std::vector<Studentas>& vargsai, std::vector<Studentas>& kietekai){rusiavimas_visi(A,vargsai,kietekai);}
+void rusiavimas(std::list<Studentas>& A, std::list<Studentas>& vargsai, std::list<Studentas>& kietekai){rusiavimas_visi(A,vargsai,kietekai);}
+void rusiavimas(std::deque<Studentas>& A, std::deque<Studentas>& vargsai, std::deque<Studentas>& kietekai){rusiavimas_visi(A,vargsai,kietekai);}
 
 // 2 STRATEGIJA 
 template <typename Konteineris>
@@ -338,9 +338,9 @@ void strat2_visi(Konteineris& A, Konteineris& vargsai){
    A.end()
 );
 }
-void strat2(std::vector<studentas>& A, std::vector<studentas>& vargsai){strat2_visi(A,vargsai);}
-void strat2(std::list<studentas>& A, std::list<studentas>& vargsai){strat2_visi(A,vargsai);}
-void strat2(std::deque<studentas>& A, std::deque<studentas>& vargsai){strat2_visi(A,vargsai);}
+void strat2(std::vector<Studentas>& A, std::vector<Studentas>& vargsai){strat2_visi(A,vargsai);}
+void strat2(std::list<Studentas>& A, std::list<Studentas>& vargsai){strat2_visi(A,vargsai);}
+void strat2(std::deque<Studentas>& A, std::deque<Studentas>& vargsai){strat2_visi(A,vargsai);}
 
 // 3 STRATEGIJA
 template <typename Konteineris>
@@ -360,9 +360,9 @@ void strat3_visi(Konteineris& A, Konteineris& vargsai){
     A.erase(i, A.end());
     }   
 }
-void strat3(std::vector<studentas>& A, std::vector<studentas>& vargsai){strat3_visi(A,vargsai);}
-void strat3(std::list<studentas>& A, std::list<studentas>& vargsai){strat3_visi(A,vargsai);}
-void strat3(std::deque<studentas>& A, std::deque<studentas>& vargsai){strat3_visi(A,vargsai);}
+void strat3(std::vector<Studentas>& A, std::vector<Studentas>& vargsai){strat3_visi(A,vargsai);}
+void strat3(std::list<Studentas>& A, std::list<Studentas>& vargsai){strat3_visi(A,vargsai);}
+void strat3(std::deque<Studentas>& A, std::deque<Studentas>& vargsai){strat3_visi(A,vargsai);}
 
 void tyrimas1(){
     auto startas = std::chrono::high_resolution_clock::now();
@@ -372,7 +372,7 @@ void tyrimas1(){
 }
 
 
-void tyrimas2(std::vector<studentas>& A){
+void tyrimas2(std::vector<Studentas>& A){
     std::vector<long> kiekiai = {1000, 10000, 100000, 1000000, 10000000};
     int rik = pasirink(); 
     auto startas = std::chrono::high_resolution_clock::now();
@@ -396,12 +396,12 @@ void tyrimas2(std::vector<studentas>& A){
     cout<<"Failo nuskaitymas užtruko "<<diff1.count()<<" s\n";
 
     auto ti2= std::chrono::high_resolution_clock::now();    // vidurkio radimas
-    skaiciavimai(A);
+  //  skaiciavimai(A);
     std::chrono::duration<double> diff2=laik::now()-ti2;
     cout<<"Skaičiavimai užtruko "<<diff2.count()<<" s\n";
 
     auto ti3= std::chrono::high_resolution_clock::now();    // rusiavimas
-    std::vector<studentas> vargsai, kietekai;   
+    std::vector<Studentas> vargsai, kietekai;   
     rusiavimas(A,vargsai, kietekai);
     rikiav(vargsai,rik);
     rikiav(kietekai,rik);
@@ -479,6 +479,6 @@ void tyrimas2_visi(Konteineris& A){
 
 }
 }
-void tyrimas2_ve(std::vector<studentas>& A){tyrimas2_visi(A);}
-void tyrimas2_li(std::list<studentas>& A){tyrimas2_visi(A);}
-void tyrimas2_de(std::deque<studentas>& A){tyrimas2_visi(A);}
+void tyrimas2_ve(std::vector<Studentas>& A){tyrimas2_visi(A);}
+void tyrimas2_li(std::list<Studentas>& A){tyrimas2_visi(A);}
+void tyrimas2_de(std::deque<Studentas>& A){tyrimas2_visi(A);}

@@ -35,6 +35,9 @@ double vid() const {return vid_;}
 double vid() const {return vid_;}
 double galutBalas(double (*f) (std::vector<double>) = mediana) const;
 std::istream& readStudent(std::istream& is); 
+
+void setVardas(string v){vardas_ = v;}
+void setPavarde(string p){pavarde_ = p;}
 };
 
 bool compare(const Studentas&, const Studentas&);
