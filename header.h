@@ -34,6 +34,8 @@ std::istream& readStudent(std::istream& is);
 
 void setVardas(string v){vardas_ = v;}
 void setPavarde(string p){pavarde_ = p;}
+void setEgz(double egzam){pavarde_ = egzam;}
+void setNd(double x){pavarde_ = x;}
 };
 
 bool compare(const Studentas&, const Studentas&);

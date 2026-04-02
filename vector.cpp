@@ -69,14 +69,18 @@ while(true){
     if(meniu==1){
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         while(true){
-            tmp.nd().clear();
-           // tmp.suma=0;
+            tmp = Studentas();
+            string tvardas;
+            string tpavarde;
+
             cout<<"Įvesk studento vardą arba paspausk ENTER, jei nebenori įvesti daugiau studentų"<<endl;
-            getline(cin, tmp.vard);
-            if(tmp.vard.empty()){break;}
+            getline(cin, tvardas);
+            if(tvardas.empty()){break;}
+            tmp.setVardas(tvardas);
 
             cout<<"Įvesk studento pavardę"<<endl;
-            getline(cin, tmp.pav);
+            getline(cin, tpavarde);
+            tmp.setPavarde(tpavarde);
 
             cout<<"Įvesk pažymį nuo 1 iki 10 arba 0, jei nori baigti įvedimą"<<endl;
             while(true){
@@ -98,13 +102,13 @@ while(true){
                         cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
                         continue;
                     }
-                    tmp.nd().push_back(x);
-                    //tmp.suma+=x;
+                    tmp.setNd(x);
             }
             cout<<"Įvesk egzamino pažymį nuo 1 iki 10"<<endl;
             while (true){
-            cin>>tmp.egzaminas();
-            if(cin.fail()|| tmp.egzaminas()<1 || tmp.egzaminas()>10){
+                int tegz;
+            cin>>tegz;
+            if(cin.fail()|| tegz<1 || tegz>10){
                 cin.clear();
                 cin.ignore(10000, '\n');
                 cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
@@ -113,26 +117,31 @@ while(true){
                 cin.ignore(10000, '\n');
                 cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
             }
-            else{break;}
+            else{
+                tmp.setEgz(tegz);
+                break;}
         }
         A.push_back(tmp);
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        //skaiciavimai(A);
         isved(A);
     }
 
     else if(meniu==2){
        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
        while(true){
-            tmp.nd.clear();
-            tmp.suma=0;
-            cout<<"Įvesk studento vardą arba paspausk ENTER, jei nebenori įvesti daugiau studentų"<<endl;
-            getline(cin, tmp.vard);
-            if(tmp.vard.empty()){break;}
+            tmp = Studentas();
+            string tvardas;
+            string tpavarde;
 
+            cout<<"Įvesk studento vardą arba paspausk ENTER, jei nebenori įvesti daugiau studentų"<<endl;
+            getline(cin, tvardas);
+            if(tvardas.empty()){break;}
+            tmp.setVardas(tvardas);
+            
             cout<<"Įvesk studento pavardę"<<endl;
-            getline(cin, tmp.pav);
+            getline(cin, tpavarde);
+            tmp.setPavarde(tpavarde);
 
             cout<<"Įvesk kiek pažymių gavo už namų darbus"<<endl;
             while(true){
@@ -150,37 +159,27 @@ while(true){
             }
 
             for(long j=0; j<n; j++){
-                int pazymys = gen_pazym();
-                tmp.nd.push_back(pazymys);
-                tmp.suma+=pazymys;
+                tmp.setNd(gen_pazym());
             }
-            tmp.egz=gen_pazym();
+            tmp.setEgz(gen_pazym());
             A.push_back(tmp);
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        skaiciavimai(A);
         isved(A);
     }
-
 
     else if(meniu==3){
         skaiciai(n,m);
         A.reserve(m);
         for(int i=0; i<m; i++){
-            studentas temp = gen_vrd();
-            temp.suma = 0;  
+            Studentas temp = gen_vrd();
             for(int j=0; j<n; j++){
-                int pazymys = gen_pazym();
-                temp.nd.push_back(pazymys);
-                temp.suma+=pazymys; 
+                temp.setNd(gen_pazym());
             }
-            temp.egz = gen_pazym();
+            temp.setEgz(gen_pazym());
             A.push_back(temp);
-            temp.nd.clear();
         }
-        skaiciavimai(A);
         isved(A);
-
     }
 
     else if (meniu == 4){
