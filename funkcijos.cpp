@@ -144,37 +144,6 @@ void skt_visi(Konteineris& A, const string& failopav){
 void skt(std::vector<Studentas>& A, string failopav){skt_visi(A,failopav);}
 void skt(std::list<Studentas>& A, string failopav){skt_visi(A,failopav);}
 void skt(std::deque<Studentas>& A, string failopav){skt_visi(A,failopav);}
-/*
-template <typename Konteineris>
-void skaiciavimai_visi(Konteineris& A){
-    for(auto& s : A){
-    //for(size_t i=0; i<A.size(); i++){
-            size_t sk =s.nd.size();
-
-            if(sk == 0){
-                s.vid=0;
-                s.med=0;
-            }
-            else{
-                s.vid=(float)s.suma/sk;
-                std::sort(s.nd.begin(), s.nd.end());
-
-                if(sk%2==1){
-                    s.med=s.nd[sk/2];
-                }
-                else if(sk>=2){
-                    s.med=(s.nd[sk/2-1] + s.nd[sk/2])/2.0;
-                }
-                else {s.med=s.nd[0];}
-            }
-            s.gal=s.vid*0.4+s.egz*0.6; 
-            s.gal2=s.med*0.4+s.egz*0.6;
-        }
-}
-void skaiciavimai(std::vector<studentas>& A){skaiciavimai_visi(A);}
-void skaiciavimai(std::list<studentas>& A){skaiciavimai_visi(A);}
-void skaiciavimai(std::deque<studentas>& A){skaiciavimai_visi(A);}
-*/
 
 void isved(std::vector<Studentas>& A){
     int is;
@@ -394,11 +363,6 @@ void tyrimas2(std::vector<Studentas>& A){
     
     std::chrono::duration<double> diff1=laik::now()-ti1;
     cout<<"Failo nuskaitymas užtruko "<<diff1.count()<<" s\n";
-
-    auto ti2= std::chrono::high_resolution_clock::now();    // vidurkio radimas
-  //  skaiciavimai(A);
-    std::chrono::duration<double> diff2=laik::now()-ti2;
-    cout<<"Skaičiavimai užtruko "<<diff2.count()<<" s\n";
 
     auto ti3= std::chrono::high_resolution_clock::now();    // rusiavimas
     std::vector<Studentas> vargsai, kietekai;   

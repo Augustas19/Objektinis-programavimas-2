@@ -190,7 +190,6 @@ while(true){
             std::cerr<<"Klaida : "<<e.what()<<endl;
             return 1;
         }
-        skaiciavimai(A);
         int rik = pasirink();
         rikiav(A,rik);
        
@@ -215,8 +214,8 @@ while(true){
             //isved(A);
             cout<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
             cout<<"-----------------------------------------------------------"<<endl;
-            for(int i=0; i<A.size(); i++){
-            cout<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
+            for(const auto& s: A){
+            cout<<left<<setw(15)<<s.pavarde()<<setw(15)<<s.vardas()<<setw(17)<<fixed<<setprecision(2)<<s.galutBalas(vidurkis)<<fixed<<setprecision(2)<<s.galutBalas()<<endl;
         }   
         }
         else if(m2==2){
@@ -224,8 +223,8 @@ while(true){
             std::ofstream r("rezultatai.txt");
             r<<left<<setw(15)<<"Pavardė"<<setw(15)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
             r<<"-----------------------------------------------------------"<<endl;
-            for(int i=0; i<A.size(); i++){
-            r<<left<<setw(15)<<A[i].pav<<setw(15)<<A[i].vard<<setw(17)<<fixed<<setprecision(2)<<A[i].gal<<fixed<<setprecision(2)<<A[i].gal2<<endl;
+            for(const auto& s: A){
+            r<<left<<setw(15)<<s.pavarde()<<setw(15)<<s.vardas()<<setw(17)<<fixed<<setprecision(2)<<s.galutBalas(vidurkis)<<fixed<<setprecision(2)<<s.galutBalas()<<endl;
            
         }
             r.close();
@@ -246,13 +245,13 @@ while(true){
     }
     else if(meniu==9){
         // su list
-        std::list<studentas> A;
-        tyrimas2_li(A);
+        std::list<Studentas> AL;
+        tyrimas2_li(AL);
     }
     else if(meniu==10){
        // su deque
-       std::deque<studentas> A;
-       tyrimas2_de(A);
+       std::deque<Studentas> AD;
+       tyrimas2_de(AD);
     }
     else if(meniu==11){
         break;
