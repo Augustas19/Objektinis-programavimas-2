@@ -25,6 +25,39 @@ using std::getline;
 
 using laik = std::chrono::high_resolution_clock;
 typedef std::uniform_int_distribution<int> int_dis;
+/*
+// konstruktoriaus realizacija
+Studentas::Studentas(std::istream& is) { 
+  // kreipiasi į Studentas::readStudent;
+  skait(is);  
+}
+
+// Studentas::galBalas realizacija
+double Studentas::galBalas(double (*) (std::vector<double>) = mediana) const {
+  // ...
+}
+
+}
+*/
+
+double mediana(std::vector<double> v){
+    std::sort(v.begin(), v.end());
+    int n = v.size();
+
+    if(n%2){
+        return (v[n/2-1]+v[n/2]) /2.0;
+    }
+    else {
+        return v[n/2];
+    }
+}
+double vidurkis(std::vector<double> v){
+    double s=0;
+    for(auto x:v){
+        s+=x;
+    }
+    return s / v.size();
+}
 
 studentas gen_vrd(){
     studentas A;

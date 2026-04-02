@@ -3,6 +3,39 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
+
+double mediana(std::vector<double> v);
+double vidurkis(std::vector<double> v);
+
+
+class Studentas {
+private:
+std::string vardas_;
+std::string pavarde_;
+double egzaminas_;
+std::vector<double> nd_;
+
+double vid_=0.0;
+double med_=0.0;
+double galVid_=0.0;
+double galMed_=0.0;
+
+public:
+Studentas() : egzaminas_(0){ };
+Studentas(std::istream& is);
+inline std::string vardas() const {return vardas_;}
+inline std::string pavarde() const {return pavarde_;}
+inline int egzaminas() const {return egzaminas_;}
+inline std::vector<double> nd() const {return nd_;}
+
+double vid() const {return vid_;}
+double med() const {return med_;}
+double vid() const {return vid_;}
+double vid() const {return vid_;}
+//double galutBalas(double (*) (std::vector<double>) = mediana) const;
+std::istream& skait(std::istream&); 
+};
 
 struct studentas{
     std::string vard;
