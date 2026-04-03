@@ -36,11 +36,15 @@ void setVardas(std::string v){vardas_ = v;}
 void setPavarde(std::string p){pavarde_ = p;}
 void setEgz(double egzam){pavarde_ = egzam;}
 void setNd(double x){pavarde_ = x;}
-};
 
+friend std::istream& operator>>(std::istream& is, Studentas& s);
+
+~Studentas() {}
+};
+/*
 bool compare(const Studentas&, const Studentas&);
 bool comparePagalPavarde(const Studentas&, const Studentas&);
 bool comparePagalEgza(const Studentas&, const Studentas&);
 
-
+*/
 #endif

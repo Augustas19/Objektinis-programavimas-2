@@ -87,25 +87,24 @@ void skaiciai(long &n, long &m){
 
 template <typename Konteineris>
 void skt_visi(Konteineris& A, const string& failopav){
-    std::stringstream buf;
-    string eilut;
-    std::vector<string> skaid;
-
+    //std::stringstream buf;
+   
     std::ifstream f(failopav);
-
+    
+    string eilut;
     if(!f.is_open()){throw std::runtime_error("Nepavyko atidaryti failo");
     }
-    buf << f.rdbuf();
-    f.close();
 
-    getline(buf, eilut);
-    while (getline(buf, eilut))
+    std::string antr;
+    getline(f, antr); // antraste
+
+    Studentas tmp;
+    while (f>>tmp)
     {
-        std::stringstream t(eilut);
-        Studentas laik;
-        laik.readStudent(t);
-        A.push_back(laik);
+        A.push_back(tmp);
     }
+
+    f.close();
 }
 
 void skt(std::vector<Studentas>& A, string failopav){skt_visi(A,failopav);}

@@ -1,9 +1,10 @@
 #include "header.h"
 #include <algorithm>
+#include <sstream>
 
 // konstruktoriaus realizacija
 Studentas::Studentas(std::istream& is) { 
-  readStudent(is);  
+  readStudent(is);
 }
 
 // Studentas::galBalas realizacija
@@ -14,22 +15,25 @@ double Studentas::galutBalas(double (*f) (std::vector<double>)) const {
 // Studentas::readStudent realizacija
 std::istream& Studentas::readStudent(std::istream& is) {
     nd_.clear();
-
     is>>vardas_>>pavarde_;
-    
-    double x;
-    std::vector<double> tmp;
-    while (is>>x) 
-    {tmp.push_back(x);}
-    
-    if(!tmp.empty()){
-        egzaminas_=tmp.back();
-        tmp.pop_back();
-        nd_ =tmp;
-    }
-    else {egzaminas_=0;}
+ 
+    std::string eilute;
+    std::getline(is, eilute);
+    std::istringstream buf(eilute);
+    std::vector<double> sk;
+    int paz;
+    while(buf>>paz) sk.push_back(paz);
 
+    if(!sk.empty()){
+        egzaminas_=sk.back();
+        sk.pop_back();
+        nd_ = sk;
+    }
     return is;
+    
+}
+std::istream& operator>>(std::istream& is, Studentas& s) {
+    return s.readStudent(is);
 }
 
 double mediana(std::vector<double> v){
