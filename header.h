@@ -16,11 +16,6 @@ std::string pavarde_;
 double egzaminas_;
 std::vector<double> nd_;
 
-double vid_=0.0;
-double med_=0.0;
-double galVid_=0.0;
-double galMed_=0.0;
-
 public:
 Studentas() : egzaminas_(0){ };
 Studentas(std::istream& is);
@@ -34,17 +29,12 @@ std::istream& readStudent(std::istream& is);
 
 void setVardas(std::string v){vardas_ = v;}
 void setPavarde(std::string p){pavarde_ = p;}
-void setEgz(double egzam){pavarde_ = egzam;}
-void setNd(double x){pavarde_ = x;}
+void setEgz(double egzam){egzaminas_ = egzam;}
+void setNd(double x){ nd_.push_back(x);}
 
 friend std::istream& operator>>(std::istream& is, Studentas& s);
 
 ~Studentas() {}
 };
-/*
-bool compare(const Studentas&, const Studentas&);
-bool comparePagalPavarde(const Studentas&, const Studentas&);
-bool comparePagalEgza(const Studentas&, const Studentas&);
 
-*/
 #endif
