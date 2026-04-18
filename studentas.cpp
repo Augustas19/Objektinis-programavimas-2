@@ -41,10 +41,10 @@ double mediana(std::vector<double> v){
     int n = v.size();
 
     if(n%2){
-        return (v[n/2-1]+v[n/2]) /2.0;
+        return v[n/2];   
     }
     else {
-        return v[n/2];
+        return (v[n/2-1]+v[n/2]) /2.0;
     }
 }
 

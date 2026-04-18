@@ -176,10 +176,10 @@ void failu_kurimas(){
 template <typename Konteineris>
 void isvedimas_faila_visi(Konteineris& A, string pav){
     std::ofstream r(pav);
-    r<<left<<setw(20)<<"Pavardė"<<setw(20)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<endl;
-    r<<"-----------------------------------------------------------"<<endl;
+    r<<left<<setw(20)<<"Pavardė"<<setw(20)<<"Vardas"<<setw(17)<<"Galutinis (Vid.)"<<"Galutinis (Med.)"<<"\n";
+    r<<"-----------------------------------------------------------"<<"\n";
     for(const auto& s : A){
-    r<<left<<setw(20)<<s.pavarde()<<setw(20)<<s.vardas()<<setw(17)<<fixed<<setprecision(2)<<s.galutBalas(vidurkis)<<fixed<<setprecision(2)<<s.galutBalas()<<endl;
+    r<<left<<setw(20)<<s.pavarde()<<setw(20)<<s.vardas()<<setw(17)<<fixed<<setprecision(2)<<s.galutBalas(vidurkis)<<fixed<<setprecision(2)<<s.galutBalas()<<"\n";
     }
     r.close();
 }
