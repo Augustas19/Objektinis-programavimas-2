@@ -17,7 +17,7 @@ double egzaminas_;
 std::vector<double> nd_;
 
 public:
-Studentas() : egzaminas_(0){ };
+Studentas() : egzaminas_(0){ };  // konstr
 Studentas(std::istream& is);
 inline std::string vardas() const {return vardas_;}
 inline std::string pavarde() const {return pavarde_;}
@@ -34,7 +34,16 @@ void setNd(double x){nd_.push_back(x);}
 
 friend std::istream& operator>>(std::istream& is, Studentas& s);
 
-~Studentas() {}
+// five
+Studentas(const Studentas& other); // copy constructor
+
+Studentas(Studentas&& other) noexcept; // move constructor
+
+Studentas& operator=(const Studentas& other); // copy assignment
+
+Studentas& operator=(Studentas&& other) noexcept; // move assignment
+
+~Studentas() {} // destructor
 };
 
 #endif
