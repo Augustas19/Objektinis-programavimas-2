@@ -421,9 +421,27 @@ void testavimas(){
     std::vector<double> nd = {8, 9, 5};
     Studentas pradinis("Jonas", "Jonaitis", 10, nd);
 
-    Studentas kopija(pradinis);
+    Studentas kopija(pradinis);  //copy constr.
     check(kopija.vardas()==pradinis.vardas(), "Vardo kopijavimas");
-    check(kopija.pavarde()==pradinis.pavarde(), "Vardo kopijavimas");
-    check(kopija.egzaminas()==pradinis.egzaminas(), "Vardo kopijavimas");
-    check(kopija.nd()==pradinis.nd(), "Vardo kopijavimas");
+    check(kopija.pavarde()==pradinis.pavarde(), "Pavardes kopijavimas");
+    check(kopija.egzaminas()==pradinis.egzaminas(), "Egzamino kopijavimas");
+    check(kopija.nd()==pradinis.nd(), "ND kopijavimas");
+
+    Studentas perkelti("Saulius", "Sauliukas", 5, nd); // move
+    Studentas perkeltas(std::move(perkelti));
+    check(perkeltas.vardas()=="Saulius", "Vardas Perkeltas");
+    check(perkeltas.egzaminas()==5, "Egzaminas Perkeltas");
+    check(perkelti.vardas()=="", "Perkelta");
+
+    Studentas priskyrimas;  // priskyrimo kopijavimo 
+    priskyrimas=pradinis;
+    check(priskyrimas.vardas()==pradinis.vardas(), "Kopijavimo Vardo priskyrimas");
+    check(priskyrimas.egzaminas()==pradinis.egzaminas(), "Kopijavimo egzamino priskyrimas");
+
+    Studentas perkelti2("Ruta", "Rutaite", 8, nd); // perkelimo priskyrimo
+    Studentas perkeltas2(std::move(perkelti2));
+    check(perkeltas2.vardas()=="Ruta", "Vardo perkelimo priskyrimas");
+    check(perkeltas2.egzaminas()==8, "Egzamino perkelimo priskyrimas");
+
+
 }

@@ -51,4 +51,8 @@ void tyrimas2(std::vector<Studentas>& A);
 void tyrimas2_ve(std::vector<Studentas>& A);
 void tyrimas2_li(std::list<Studentas>& A);
 void tyrimas2_de(std::deque<Studentas>& A);
+
+// testas
+void check(bool salyga, const std::string pavad);
+void testavimas();
 #endif

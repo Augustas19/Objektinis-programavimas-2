@@ -49,17 +49,18 @@ while(true){
         << "8 - testas 2 su vector\n"
         << "9 - testas 2 su list\n"
         << "10 - testas 2 su deque\n"
-        << "11 - baigti darbą"<<endl;
+        << "11 - rule of five testavimas\n"
+        << "12 - baigti darbą"<<endl;
     while(true){
             cin>>meniu;
-                if(cin.fail() ||meniu<1 || meniu>11){
+                if(cin.fail() ||meniu<1 || meniu>12){
                     cin.clear();
                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    cout<<"Įvesti galima tik skaičius nuo 1 iki 11"<<endl;
+                    cout<<"Įvesti galima tik skaičius nuo 1 iki 12"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 11"<<endl;
+                    cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 12"<<endl;
                 }
                 else{
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -254,6 +255,10 @@ while(true){
        tyrimas2_de(AD);
     }
     else if(meniu==11){
+       //std::deque<Studentas> AD;
+       testavimas();
+    }
+    else if(meniu==12){
         break;
     }
 }
