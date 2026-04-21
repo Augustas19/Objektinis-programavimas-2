@@ -409,3 +409,21 @@ void tyrimas2_visi(Konteineris& A){
 void tyrimas2_ve(std::vector<Studentas>& A){tyrimas2_visi(A);}
 void tyrimas2_li(std::list<Studentas>& A){tyrimas2_visi(A);}
 void tyrimas2_de(std::deque<Studentas>& A){tyrimas2_visi(A);}
+
+
+// rule of five testavimas
+void check(bool salyga, const string pavad){
+    if(salyga){cout<<pavad<<" - veikia teisingai\n";}
+    else{cout<<pavad<<" - Neveikia teisignai\n";}
+}
+
+void testavimas(){
+    std::vector<double> nd = {8, 9, 5};
+    Studentas pradinis("Jonas", "Jonaitis", 10, nd);
+
+    Studentas kopija(pradinis);
+    check(kopija.vardas()==pradinis.vardas(), "Vardo kopijavimas");
+    check(kopija.pavarde()==pradinis.pavarde(), "Vardo kopijavimas");
+    check(kopija.egzaminas()==pradinis.egzaminas(), "Vardo kopijavimas");
+    check(kopija.nd()==pradinis.nd(), "Vardo kopijavimas");
+}

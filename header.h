@@ -19,6 +19,9 @@ std::vector<double> nd_;
 public:
 Studentas() : egzaminas_(0){ };  // konstr
 Studentas(std::istream& is);
+// konstruktorius su parametrais
+Studentas(const std::string& vardas, const std::string& pavarde, int egzaminas, const std::vector<double>& nd);
+//getters
 inline std::string vardas() const {return vardas_;}
 inline std::string pavarde() const {return pavarde_;}
 inline int egzaminas() const {return egzaminas_;}
@@ -36,7 +39,7 @@ void setNd(double x){nd_.push_back(x);}
 friend std::istream& operator>>(std::istream& is, Studentas& s);
 friend std::ostream& operator<<(std::ostream& os, const Studentas& s);
 
-// five
+// rule of five
 Studentas(const Studentas& other); // copy constructor
 
 Studentas(Studentas&& other) noexcept; // move constructor

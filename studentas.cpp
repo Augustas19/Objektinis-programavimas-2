@@ -18,6 +18,13 @@ double Studentas::galutBalas(double (*f) (std::vector<double>)) const {
   return 0.4*f(nd_) + 0.6*egzaminas_;
 }
 
+Studentas::Studentas(const std::string& vardas, const std::string& pavarde, int egzaminas, const std::vector<double>& nd):
+vardas_(vardas),
+pavarde_(pavarde),
+egzaminas_(egzaminas),
+nd_(nd){}
+
+
 // Studentas::readStudent realizacija
 std::istream& Studentas::readStudent(std::istream& is) {
     nd_.clear();
