@@ -1,6 +1,12 @@
 #include "header.h"
 #include <algorithm>
 #include <sstream>
+#include <iomanip>
+
+using std::left;
+using std::setw;
+using std::fixed;
+using std::setprecision;
 
 // konstruktoriaus realizacija
 Studentas::Studentas(std::istream& is) { 
@@ -32,8 +38,19 @@ std::istream& Studentas::readStudent(std::istream& is) {
     return is;
     
 }
+// ivestis
 std::istream& operator>>(std::istream& is, Studentas& s) {
     return s.readStudent(is);
+}
+// isvestis
+std::ostream& operator<<(std::ostream& os, const Studentas& s) {
+    os<<left<<setw(20)<<s.pavarde_<<left<<setw(20)<<s.vardas_<<" ND: ";
+    for(const auto& x : s.nd_){
+        os<<x<<" ";
+    }
+    os<<"EGZ: "<<s.egzaminas_<<fixed<<setprecision(2)<<" VID: "<<s.galutBalas(vidurkis)<<" MED: "<<s.galutBalas();
+
+    return os;
 }
 
 double mediana(std::vector<double> v){
@@ -54,4 +71,61 @@ double vidurkis(std::vector<double> v){
         s+=x;
     }
     return s / v.size();
+}
+
+//palyginimai
+bool compare(const Studentas& a, const Studentas& b){
+    return a.vardas() < b.vardas();
+}
+bool comparePagalPavarde(const Studentas& a, const Studentas& b){
+    return a.pavarde() < b.pavarde();
+}
+bool comparePagalEgza(const Studentas& a, const Studentas& b){
+    return a.egzaminas() < b.egzaminas();
+}
+
+
+// Rule of five
+
+//copy constructor
+Studentas::Studentas(const Studentas& other):  
+vardas_{other.vardas_},
+pavarde_{other.pavarde_},
+egzaminas_{other.egzaminas_},
+nd_{std::move(other.nd_)}{}
+
+
+//move constructor
+Studentas::Studentas(Studentas&& other) noexcept:   
+vardas_ (std::move(other.vardas_)),
+pavarde_ (std::move(other.pavarde_)),
+egzaminas_ (std::move(other.egzaminas_)),
+nd_ (std::move(other.nd_)){
+    other.egzaminas_=0.0;
+}
+
+
+// priskyrimas
+Studentas& Studentas::operator=(const Studentas& other){ 
+    if(&other == this) return *this;
+
+    vardas_=other.vardas_;
+    pavarde_=other.pavarde_;
+    egzaminas_=other.egzaminas_;
+    nd_=other.nd_;
+
+    return *this;
+}
+
+
+// priskyrimo move
+Studentas& Studentas::operator=(Studentas&& other) noexcept{
+    if(&other == this ) return *this; //saves priskyrimo tikrinimas
+
+    vardas_=std::move(other.vardas_);
+    pavarde_=std::move(other.pavarde_);
+    egzaminas_=other.egzaminas_;
+    nd_=std::move(other.nd_);
+
+    return *this;
 }

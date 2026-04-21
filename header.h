@@ -32,18 +32,25 @@ void setPavarde(std::string p){pavarde_ = p;}
 void setEgz(double egzam){egzaminas_ = egzam;}
 void setNd(double x){nd_.push_back(x);}
 
+// ivestis, isvestis
 friend std::istream& operator>>(std::istream& is, Studentas& s);
+friend std::ostream& operator<<(std::ostream& os, const Studentas& s);
 
 // five
 Studentas(const Studentas& other); // copy constructor
 
 Studentas(Studentas&& other) noexcept; // move constructor
 
-Studentas& operator=(const Studentas& other); // copy assignment
+Studentas& operator=(const Studentas& other); // priskyrimo kopijavimo operatorius
 
-Studentas& operator=(Studentas&& other) noexcept; // move assignment
+Studentas& operator=(Studentas&& other) noexcept; // priskyrimo move operatorius
 
 ~Studentas() {} // destructor
+
 };
+
+bool compare(const Studentas& a, const Studentas& b);
+bool comparePagalPavarde(const Studentas& a, const Studentas& b);
+bool comparePagalEgza(const Studentas& a, const Studentas& b);
 
 #endif
