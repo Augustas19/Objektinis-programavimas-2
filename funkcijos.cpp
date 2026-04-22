@@ -404,6 +404,9 @@ void tyrimas2_visi(Konteineris& A){
     std::chrono::duration<double> diff4=laik::now()-ti4;
     cout<<"Studentų rikiavimas užtruko "<<diff4.count()<<" s\n";
 
+    isvedimas_faila(vargsai, "vargsai.txt");
+    isvedimas_faila(c2,"kietekai.txt");
+
 }
 }
 void tyrimas2_ve(std::vector<Studentas>& A){tyrimas2_visi(A);}

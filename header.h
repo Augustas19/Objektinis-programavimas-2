@@ -34,7 +34,13 @@ void setNd(double x){ nd_.push_back(x);}
 
 friend std::istream& operator>>(std::istream& is, Studentas& s);
 
-~Studentas() {}
+~Studentas() {
+vardas_.clear();
+pavarde_.clear();
+nd_.clear();
+egzaminas_=0;
+}
+
 };
 
 #endif
