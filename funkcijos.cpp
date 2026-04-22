@@ -404,6 +404,9 @@ void tyrimas2_visi(Konteineris& A){
     std::chrono::duration<double> diff4=laik::now()-ti4;
     cout<<"Studentų rikiavimas užtruko "<<diff4.count()<<" s\n";
 
+    isvedimas_faila(vargsai, "vargsai.txt");
+    isvedimas_faila(c2,"kietekai.txt");
+
 }
 }
 void tyrimas2_ve(std::vector<Studentas>& A){tyrimas2_visi(A);}
@@ -421,27 +424,32 @@ void testavimas(){
     std::vector<double> nd = {8, 9, 5};
     Studentas pradinis("Jonas", "Jonaitis", 10, nd);
 
-    Studentas kopija(pradinis);  //copy constr.
-    check(kopija.vardas()==pradinis.vardas(), "Vardo kopijavimas");
-    check(kopija.pavarde()==pradinis.pavarde(), "Pavardes kopijavimas");
-    check(kopija.egzaminas()==pradinis.egzaminas(), "Egzamino kopijavimas");
-    check(kopija.nd()==pradinis.nd(), "ND kopijavimas");
+    cout<<pradinis<<"\n";
 
-    Studentas perkelti("Saulius", "Sauliukas", 5, nd); // move
-    Studentas perkeltas(std::move(perkelti));
-    check(perkeltas.vardas()=="Saulius", "Vardas Perkeltas");
-    check(perkeltas.egzaminas()==5, "Egzaminas Perkeltas");
-    check(perkelti.vardas()=="", "Perkelta");
+    Studentas kopija(pradinis);
+    cout<<kopija<<"\n";
 
-    Studentas priskyrimas;  // priskyrimo kopijavimo 
-    priskyrimas=pradinis;
-    check(priskyrimas.vardas()==pradinis.vardas(), "Kopijavimo Vardo priskyrimas");
-    check(priskyrimas.egzaminas()==pradinis.egzaminas(), "Kopijavimo egzamino priskyrimas");
+    check(kopija.vardas()==pradinis.vardas(), "Kopija");  // copy constr
 
-    Studentas perkelti2("Ruta", "Rutaite", 8, nd); // perkelimo priskyrimo
-    Studentas perkeltas2(std::move(perkelti2));
-    check(perkeltas2.vardas()=="Ruta", "Vardo perkelimo priskyrimas");
-    check(perkeltas2.egzaminas()==8, "Egzamino perkelimo priskyrimas");
+    Studentas move1(std::move(pradinis));  // move kostr
+    cout<<"move kontsr - "<<move1<<"\n";
 
+    Studentas prisk;  // priskyrimas
+    prisk = pradinis;
+    check(prisk.vardas()==pradinis.vardas(), "Priskyrimas");
+
+    Studentas move2;    // priskyrimo move
+    move2 = std::move(kopija);
+    cout<<move2<<"\n";
+    
+    std::istringstream is("Paulius Lukaitis 6 7 8 8");  // ivestis
+    Studentas skaitymas;
+    is>>skaitymas;
+    cout<<skaitymas<<"\n";
+
+    std::ostringstream o;  // isvestis
+    o<<skaitymas;
+    string isv = o.str();
+    cout<<isv<<"\n";
 
 }

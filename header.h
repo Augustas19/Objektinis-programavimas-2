@@ -48,7 +48,12 @@ Studentas& operator=(const Studentas& other); // priskyrimo kopijavimo operatori
 
 Studentas& operator=(Studentas&& other) noexcept; // priskyrimo move operatorius
 
-~Studentas() {} // destructor
+~Studentas() {
+vardas_.clear();
+pavarde_.clear();
+nd_.clear();
+egzaminas_=0;
+}// destructor
 
 };
 
