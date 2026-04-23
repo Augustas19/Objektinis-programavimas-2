@@ -133,3 +133,7 @@ Studentas& Studentas::operator=(Studentas&& other) noexcept{
 
     return *this;
 }
+
+void Studentas::spausdinti() const {
+    std::cout<<vardas_<< " "<<pavarde_<<"\n";
+}

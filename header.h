@@ -69,7 +69,6 @@ public:
     pavarde_.clear();
     nd_.clear();
     egzaminas_=0;
-    std::cout<<"Destruktorius \n";
     }// destructor
 };
 
