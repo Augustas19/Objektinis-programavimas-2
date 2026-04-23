@@ -9,7 +9,7 @@ using std::fixed;
 using std::setprecision;
 
 // konstruktoriaus realizacija
-Studentas::Studentas(std::istream& is) { 
+Studentas::Studentas(std::istream& is):Zmogus(), egzaminas_(0) { 
   readStudent(is);
 }
 
@@ -19,8 +19,7 @@ double Studentas::galutBalas(double (*f) (std::vector<double>)) const {
 }
 
 Studentas::Studentas(const std::string& vardas, const std::string& pavarde, int egzaminas, const std::vector<double>& nd):
-vardas_(vardas),
-pavarde_(pavarde),
+Zmogus(vardas,pavarde),
 egzaminas_(egzaminas),
 nd_(nd){}
 
@@ -96,16 +95,14 @@ bool comparePagalEgza(const Studentas& a, const Studentas& b){
 
 //copy constructor
 Studentas::Studentas(const Studentas& other):  
-vardas_{other.vardas_},
-pavarde_{other.pavarde_},
+Zmogus(other.vardas_, other.pavarde_),
 egzaminas_{other.egzaminas_},
 nd_{std::move(other.nd_)}{}
 
 
 //move constructor
-Studentas::Studentas(Studentas&& other) noexcept:   
-vardas_ (std::move(other.vardas_)),
-pavarde_ (std::move(other.pavarde_)),
+Studentas::Studentas(Studentas&& other) noexcept:
+Zmogus(std::move(other.vardas_), std::move(other.pavarde_)),
 egzaminas_ (std::move(other.egzaminas_)),
 nd_ (std::move(other.nd_)){
     other.egzaminas_=0.0;
