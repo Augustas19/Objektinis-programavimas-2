@@ -22,7 +22,7 @@ public:
     virtual void setVardas(std::string& v){vardas_ = v;}
     virtual void setPavarde(std::string& p){pavarde_ = p;}
 
-    virtual void print() const = 0;
+    virtual void spausdinti() const = 0;
 
     virtual ~Zmogus(){
         vardas_.clear();
@@ -61,6 +61,8 @@ public:
     Studentas& operator=(const Studentas& other); // priskyrimo kopijavimo operatorius
 
     Studentas& operator=(Studentas&& other) noexcept; // priskyrimo move operatorius
+
+    void spausdinti() const override;
 
     ~Studentas() {
     vardas_.clear();
