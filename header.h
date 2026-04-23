@@ -8,7 +8,28 @@
 double mediana(std::vector<double> v);
 double vidurkis(std::vector<double> v);
 
+class Zmogus {
+protected:
+    std::string vardas_;
+    std::string pavarde_;
+public:
+    Zmogus (){}
+    Zmogus(const std::string& vardas, const std::string& pavarde) : vardas_(vardas), pavarde_(pavarde) {}
 
+    virtual std::string vardas() const {return vardas_;}
+    virtual std::string pavarde() const {return pavarde_;}
+
+    virtual void setVardas(std::string& v){vardas_ = v;}
+    virtual void setPavarde(std::string& p){pavarde_ = p;}
+
+    virtual void print() const = 0;
+
+    virtual ~Zmogus(){
+        vardas_.clear();
+        pavarde_.clear();
+    }
+
+};
 class Studentas {
 private:
 std::string vardas_;
