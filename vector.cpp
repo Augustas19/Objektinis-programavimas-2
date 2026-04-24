@@ -68,7 +68,7 @@ while(true){
         }
     
     if(meniu==1){
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        A.clear();
         while(true){
             tmp = Studentas();
             string tvardas;
@@ -97,7 +97,9 @@ while(true){
                         cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
                         continue;
                     }
-                    else if(x==0){break;}
+                    else if(x==0){break;
+                        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    }
 
                     else if(x<1 || x>10){
                         cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 10"<<endl;
@@ -129,6 +131,7 @@ while(true){
     }
 
     else if(meniu==2){
+        A.clear();
        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
        while(true){
             tmp = Studentas();
@@ -170,6 +173,7 @@ while(true){
     }
 
     else if(meniu==3){
+        A.clear();
         skaiciai(n,m);
         A.reserve(m);
         for(int i=0; i<m; i++){
@@ -184,6 +188,7 @@ while(true){
     }
 
     else if (meniu == 4){
+        A.clear();
         try{
             skt(A, "studentai10000.txt");
         }
@@ -238,24 +243,27 @@ while(true){
         tyrimas1();
     }
     else if(meniu==7){
+        A.clear();
         tyrimas2(A);
     }
     else if(meniu==8){
+        A.clear();
         // su vektoriais
         tyrimas2_ve(A);
     }
     else if(meniu==9){
+        A.clear();
         // su list
         std::list<Studentas> AL;
         tyrimas2_li(AL);
     }
     else if(meniu==10){
+        A.clear();
        // su deque
        std::deque<Studentas> AD;
        tyrimas2_de(AD);
     }
     else if(meniu==11){
-       //std::deque<Studentas> AD;
        testavimas();
     }
     else if(meniu==12){
