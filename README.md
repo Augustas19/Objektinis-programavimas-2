@@ -1,36 +1,31 @@
-## Class 
-<img width="499" height="244" alt="Screenshot 2026-04-03 134651" src="https://github.com/user-attachments/assets/24e966e0-4ed9-48aa-b65d-6ee4353b4df7" />
+<img width="481" height="244" alt="image" src="https://github.com/user-attachments/assets/ff398a89-812f-4499-a283-77f9f224aaaa" />
 
-## Struct
-<img width="795" height="303" alt="image" src="https://github.com/user-attachments/assets/bcca31cf-f6d3-458c-bb1f-0adc5e251de6" />
 
 ## Programos aprašymas
 Ši programa turi galimybę nuskaityti duomenis įvestus vartotojo arba nuskaityti tiesiai iš failo bei generuoti savo duomenis.  Programa naudoja klasę - Studentas. Programoje taip pat yra realizuoti visi Rule of five operatoriai: copy constructor, move constructor, copy assignment, move assignment, destructor. Taip pat realizuoti ir įvesties bei išvesties operatoriai.
 
 ## Programos greičio testavimas
-Programa naudojant class veikia truputį lėčiau nei su struct. 
+
 
 ## O1
-| Konteineris | Strategija | 100k įrašų | 1M įrašų |
-|---|---|---|---|
-| Vector | 1 | 0,06 | 0,7 |
-| Vector | 2 | 0,04 | 0,4 | 
-| Vector | 3 | 0,03 | 0,4 | 
+| Konteineris | Strategija | 100k įrašų | 1M įrašų | exe failo dydis |
+|---|---|---|---|---|
+| Vector | 1 | 0,03 | 0,3 | 291 KB |
+| Vector | 2 | 0,04 | 0,4 | 291 KB |
+| Vector | 3 | 0,03 | 0,3 | 291 KB |
 
 ## O2
 
-| Konteineris | Strategija | 100k įrašų | 1M įrašų |
-|---|---|---|---|
-| Vector | 1 | 0,07 | 0,8 |
-| Vector | 2 | 0,06 | 0,4 | 
-| Vector | 3 | 0,04 | 0,3 | 
+| Konteineris | Strategija | 100k įrašų | 1M įrašų | exe failo dydis |
+|---|---|---|---|---|
+| Vector | 1 | 0,03 | 0,3 | 275 KB |
+| Vector | 2 | 0,04 | 0,4 | 275 KB |
+| Vector | 3 | 0,03 | 0,2 | 275 KB |
 
 ## O3
 
-| Konteineris | Strategija | 100k įrašų | 1M įrašų |
-|---|---|---|---|
-| Vector | 1 | 0,03 | 0,5 |
-| Vector | 2 | 0,02 | 0,2 | 
-| Vector | 3 | 0,02 | 0,2 | 
-
-Programa geriausiai dirba su O3 flagu.
+| Konteineris | Strategija | 100k įrašų | 1M įrašų | exe failo dydis |
+|---|---|---|---|---|
+| Vector | 1 | 0,04 | 0,3 | 277 KB |
+| Vector | 2 | 0,04 | 0,4 | 277 KB |
+| Vector | 3 | 0,03 | 0,2 | 277 KB |
