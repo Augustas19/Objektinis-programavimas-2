@@ -4,6 +4,10 @@
 ## Struct
 <img width="795" height="303" alt="image" src="https://github.com/user-attachments/assets/bcca31cf-f6d3-458c-bb1f-0adc5e251de6" />
 
+## Programos aprašymas
+Ši programa turi galimybę nuskaityti duomenis įvestus vartotojo arba nuskaityti tiesiai iš failo bei generuoti savo duomenis.  Programa naudoja klasę - Studentas. Programoje taip pat yra realizuoti visi Rule of five operatoriai: copy constructor, move constructor, copy assignment, move assignment, destructor. Taip pat realizuoti ir įvesties bei išvesties operatoriai.
+
+## Programos greičio testavimas
 Programa naudojant class veikia truputį lėčiau nei su struct. 
 
 ## O1
