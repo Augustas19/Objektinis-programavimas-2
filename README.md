@@ -7,26 +7,26 @@
 Programa naudojant class veikia truputį lėčiau nei su struct. 
 
 ## O1
-| Konteineris | Strategija | 100k įrašų | 1M įrašų |
-|---|---|---|---|
-| Vector | 1 | 0,06 | 0,7 |
-| Vector | 2 | 0,04 | 0,4 | 
-| Vector | 3 | 0,03 | 0,4 | 
+| Konteineris | Strategija | 100k įrašų | 1M įrašų | exe failo dydis |
+|---|---|---|---|---|
+| Vector | 1 | 0,06 | 0,7 | 291 KB |
+| Vector | 2 | 0,04 | 0,4 | 291 KB |
+| Vector | 3 | 0,03 | 0,4 | 291 KB |
 
 ## O2
 
-| Konteineris | Strategija | 100k įrašų | 1M įrašų |
-|---|---|---|---|
-| Vector | 1 | 0,07 | 0,8 |
-| Vector | 2 | 0,06 | 0,4 | 
-| Vector | 3 | 0,04 | 0,3 | 
+| Konteineris | Strategija | 100k įrašų | 1M įrašų | exe failo dydis |
+|---|---|---|---|---|
+| Vector | 1 | 0,07 | 0,8 | 275 KB |
+| Vector | 2 | 0,06 | 0,4 | 275 KB |
+| Vector | 3 | 0,04 | 0,3 | 275 KB |
 
 ## O3
 
-| Konteineris | Strategija | 100k įrašų | 1M įrašų |
-|---|---|---|---|
-| Vector | 1 | 0,03 | 0,5 |
-| Vector | 2 | 0,02 | 0,2 | 
-| Vector | 3 | 0,02 | 0,2 | 
+| Konteineris | Strategija | 100k įrašų | 1M įrašų | exe failo dydis |
+|---|---|---|---|---|
+| Vector | 1 | 0,03 | 0,5 | 277 KB |
+| Vector | 2 | 0,02 | 0,2 | 277 KB |
+| Vector | 3 | 0,02 | 0,2 | 277 KB |
 
 Programa geriausiai dirba su O3 flagu.
