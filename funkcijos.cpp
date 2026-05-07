@@ -433,7 +433,7 @@ void testavimas(){
     check(kopija.pavarde()==pradinis.pavarde(), "Kopija P");  // copy constr
     check(kopija.nd()==pradinis.nd(), "Kopija ND");  // copy constr
     check(kopija.egzaminas()==pradinis.egzaminas(), "Kopija E");  // copy constr
-    // tikrint visus 4 varda, pavarde
+    
 
     Studentas move1(std::move(pradinis));  // move kostr
     cout<<"move kontsr - "<<move1<<"\n";
