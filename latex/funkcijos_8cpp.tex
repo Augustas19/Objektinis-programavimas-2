@@ -1,0 +1,517 @@
+\doxysection{funkcijos.\+cpp File Reference}
+\hypertarget{funkcijos_8cpp}{}\label{funkcijos_8cpp}\index{funkcijos.cpp@{funkcijos.cpp}}
+{\ttfamily \+\#include "{}funkcijos.\+h"{}}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$iomanip$>$}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
+{\ttfamily \+\#include $<$random$>$}\newline
+{\ttfamily \+\#include $<$chrono$>$}\newline
+{\ttfamily \+\#include $<$limits$>$}\newline
+{\ttfamily \+\#include $<$fstream$>$}\newline
+{\ttfamily \+\#include $<$windows.\+h$>$}\newline
+{\ttfamily \+\#include $<$sstream$>$}\newline
+{\ttfamily \+\#include $<$list$>$}\newline
+{\ttfamily \+\#include $<$deque$>$}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \doxymbox{\hyperlink{funkcijos_8cpp_af02dffd96e29e42096dbdd0ea9939316}{laik}} = std::\+chrono::\+high\+\_\+resolution\+\_\+clock
+\item 
+typedef std::\+uniform\+\_\+int\+\_\+distribution$<$ int $>$ \doxymbox{\hyperlink{funkcijos_8cpp_abaf48c7f9bc8f4e385be13da7f3bb794}{int\+\_\+dis}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_studentas}{Studentas}} \doxymbox{\hyperlink{funkcijos_8cpp_a3da7c75f5b12916cfb2ff94bad59c74b}{gen\+\_\+vrd}} ()
+\item 
+int \doxymbox{\hyperlink{funkcijos_8cpp_ad6c0f98c609fe7921a4610fa471f314f}{gen\+\_\+pazym}} ()
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_ac0c3c6b3401ce069e3862ed8038009bf}{skaiciai}} (long \&n, long \&m)
+\item 
+{\footnotesize template$<$typename Konteineris$>$ }\\void \doxymbox{\hyperlink{funkcijos_8cpp_a6623e0974f0b8db59ad32914d1fd18ba}{skt\+\_\+visi}} (Konteineris \&A, const string \&failopav)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a1e01571bd0a7209b250a238a43b91cff}{skt}} (std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, string failopav)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_ab6d6664d24aab7f4a3a290975ef6732c}{skt}} (std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, string failopav)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a09ac5bf8696acbf111da8b18ff157a1e}{skt}} (std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, string failopav)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_af6b463ee7da2ef4b8a00f9753b414144}{isved}} (std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a33e9ad772f70c40daa9fa838a32a0fce}{failu\+\_\+kurimas}} ()
+\item 
+{\footnotesize template$<$typename Konteineris$>$ }\\void \doxymbox{\hyperlink{funkcijos_8cpp_abe91c4c4e50f35e5e8be3668514d273c}{isvedimas\+\_\+faila\+\_\+visi}} (Konteineris \&A, string pav)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_ab2dc79633383713f55fcfd18124810b0}{isvedimas\+\_\+faila}} (std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, string pav)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_ad8b481a691bc72bfad774ae6ce4f5987}{isvedimas\+\_\+faila}} (std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, string pav)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a449b52b604af59e49728d6ebc7dbf8ca}{isvedimas\+\_\+faila}} (std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, string pav)
+\item 
+int \doxymbox{\hyperlink{funkcijos_8cpp_a888cbe1ed260d3ec0edee3f211fa9ce0}{pasirink}} ()
+\item 
+auto \doxymbox{\hyperlink{funkcijos_8cpp_a3b5a873680bcf17cd87386fd27a16b3c}{rikiav\+\_\+visi}} (int rik)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_abf68538c5ebe5b3f5f6a54d6bc50dd4c}{rikiav}} (std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, int rik)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_aed49d7c940de5bdaaf30ea3ccf3e0c54}{rikiav}} (std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, int rik)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_abaf3d7245dc46667ed0cee4254155ce5}{rikiav}} (std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, int rik)
+\item 
+{\footnotesize template$<$typename Konteineris$>$ }\\void \doxymbox{\hyperlink{funkcijos_8cpp_aa5ce9805de176b875d2d1bb90fdbfbea}{rusiavimas\+\_\+visi}} (Konteineris \&A, Konteineris \&vargsai, Konteineris \&kietekai)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_afd1bb012456ee3071038537aff294a0b}{rusiavimas}} (std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&vargsai, std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&kietekai)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_aba923c71dd55268bd760f785a55988f5}{rusiavimas}} (std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&vargsai, std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&kietekai)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a41f8355082626ae3f20b6106c4229d4d}{rusiavimas}} (std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&vargsai, std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&kietekai)
+\item 
+{\footnotesize template$<$typename Konteineris$>$ }\\void \doxymbox{\hyperlink{funkcijos_8cpp_ad0036569c4cc476f277f48748ba6c779}{strat2\+\_\+visi}} (Konteineris \&A, Konteineris \&vargsai)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_af9b1f6d8127f7ac8306643cd9338c659}{strat2}} (std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&vargsai)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_afe797628c662017cb08abc30acd37f42}{strat2}} (std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&vargsai)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_adb7a63511d7f0ea2ad659d96b3a97b8a}{strat2}} (std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&vargsai)
+\item 
+{\footnotesize template$<$typename Konteineris$>$ }\\void \doxymbox{\hyperlink{funkcijos_8cpp_a7f7a9235affe855e0d76698ac2cd5344}{strat3\+\_\+visi}} (Konteineris \&A, Konteineris \&vargsai)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a21ee61e5f7697826cf3d1243662024ce}{strat3}} (std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&vargsai)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a3fc090fed9d3b70028d769f7e86d985d}{strat3}} (std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&vargsai)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a8b727c0c7d84d2db031c3cc9796c0798}{strat3}} (std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A, std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&vargsai)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a040f209a0fbe84ba857d6b66a100d2e1}{tyrimas1}} ()
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a5768853a346bbbfb7665c80797c75aaa}{tyrimas2}} (std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A)
+\item 
+{\footnotesize template$<$typename Konteineris$>$ }\\void \doxymbox{\hyperlink{funkcijos_8cpp_aaee79e3e808c17fabbd79e1dfd33ad56}{tyrimas2\+\_\+visi}} (Konteineris \&A)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_af76f28f3a09ad17be5453ef52aa2191b}{tyrimas2\+\_\+ve}} (std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_aa51602528824ce40c0fdfaaaa48b6a73}{tyrimas2\+\_\+li}} (std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a8428937576bb189a7b00331be9910bc1}{tyrimas2\+\_\+de}} (std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&A)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_ae2e1c6bf889fb27a106bd89affff3269}{check}} (bool salyga, const string pavad)
+\item 
+void \doxymbox{\hyperlink{funkcijos_8cpp_a31a9b8a9c24e8270b70e3ad8352944a4}{testavimas}} ()
+\end{DoxyCompactItemize}
+
+
+\label{funkcijos_8cpp_doc-typedef-members}
+\Hypertarget{funkcijos_8cpp_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{funkcijos_8cpp_abaf48c7f9bc8f4e385be13da7f3bb794}\index{funkcijos.cpp@{funkcijos.cpp}!int\_dis@{int\_dis}}
+\index{int\_dis@{int\_dis}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{int\_dis}{int\_dis}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_abaf48c7f9bc8f4e385be13da7f3bb794} 
+typedef std::\+uniform\+\_\+int\+\_\+distribution$<$int$>$ \doxymbox{\hyperlink{funkcijos_8cpp_abaf48c7f9bc8f4e385be13da7f3bb794}{int\+\_\+dis}}}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00027}{27}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_af02dffd96e29e42096dbdd0ea9939316}\index{funkcijos.cpp@{funkcijos.cpp}!laik@{laik}}
+\index{laik@{laik}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{laik}{laik}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_af02dffd96e29e42096dbdd0ea9939316} 
+using \doxymbox{\hyperlink{funkcijos_8cpp_af02dffd96e29e42096dbdd0ea9939316}{laik}} = std::\+chrono::\+high\+\_\+resolution\+\_\+clock}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00026}{26}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+
+
+\label{funkcijos_8cpp_doc-func-members}
+\Hypertarget{funkcijos_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{funkcijos_8cpp_ae2e1c6bf889fb27a106bd89affff3269}\index{funkcijos.cpp@{funkcijos.cpp}!check@{check}}
+\index{check@{check}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_ae2e1c6bf889fb27a106bd89affff3269} 
+void check (\begin{DoxyParamCaption}\item[{bool}]{salyga}{, }\item[{const string}]{pavad}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00418}{418}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a33e9ad772f70c40daa9fa838a32a0fce}\index{funkcijos.cpp@{funkcijos.cpp}!failu\_kurimas@{failu\_kurimas}}
+\index{failu\_kurimas@{failu\_kurimas}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{failu\_kurimas()}{failu\_kurimas()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a33e9ad772f70c40daa9fa838a32a0fce} 
+void failu\+\_\+kurimas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00147}{147}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_ad6c0f98c609fe7921a4610fa471f314f}\index{funkcijos.cpp@{funkcijos.cpp}!gen\_pazym@{gen\_pazym}}
+\index{gen\_pazym@{gen\_pazym}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{gen\_pazym()}{gen\_pazym()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_ad6c0f98c609fe7921a4610fa471f314f} 
+int gen\+\_\+pazym (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00050}{50}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a3da7c75f5b12916cfb2ff94bad59c74b}\index{funkcijos.cpp@{funkcijos.cpp}!gen\_vrd@{gen\_vrd}}
+\index{gen\_vrd@{gen\_vrd}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{gen\_vrd()}{gen\_vrd()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a3da7c75f5b12916cfb2ff94bad59c74b} 
+\doxymbox{\hyperlink{class_studentas}{Studentas}} gen\+\_\+vrd (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00029}{29}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_af6b463ee7da2ef4b8a00f9753b414144}\index{funkcijos.cpp@{funkcijos.cpp}!isved@{isved}}
+\index{isved@{isved}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{isved()}{isved()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_af6b463ee7da2ef4b8a00f9753b414144} 
+void isved (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00114}{114}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a449b52b604af59e49728d6ebc7dbf8ca}\index{funkcijos.cpp@{funkcijos.cpp}!isvedimas\_faila@{isvedimas\_faila}}
+\index{isvedimas\_faila@{isvedimas\_faila}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{isvedimas\_faila()}{isvedimas\_faila()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a449b52b604af59e49728d6ebc7dbf8ca} 
+void isvedimas\+\_\+faila (\begin{DoxyParamCaption}\item[{std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{string}]{pav}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00188}{188}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_ad8b481a691bc72bfad774ae6ce4f5987}\index{funkcijos.cpp@{funkcijos.cpp}!isvedimas\_faila@{isvedimas\_faila}}
+\index{isvedimas\_faila@{isvedimas\_faila}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{isvedimas\_faila()}{isvedimas\_faila()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_ad8b481a691bc72bfad774ae6ce4f5987} 
+void isvedimas\+\_\+faila (\begin{DoxyParamCaption}\item[{std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{string}]{pav}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00187}{187}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_ab2dc79633383713f55fcfd18124810b0}\index{funkcijos.cpp@{funkcijos.cpp}!isvedimas\_faila@{isvedimas\_faila}}
+\index{isvedimas\_faila@{isvedimas\_faila}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{isvedimas\_faila()}{isvedimas\_faila()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_ab2dc79633383713f55fcfd18124810b0} 
+void isvedimas\+\_\+faila (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{string}]{pav}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00186}{186}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_abe91c4c4e50f35e5e8be3668514d273c}\index{funkcijos.cpp@{funkcijos.cpp}!isvedimas\_faila\_visi@{isvedimas\_faila\_visi}}
+\index{isvedimas\_faila\_visi@{isvedimas\_faila\_visi}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{isvedimas\_faila\_visi()}{isvedimas\_faila\_visi()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_abe91c4c4e50f35e5e8be3668514d273c} 
+template$<$typename Konteineris$>$ \\
+void isvedimas\+\_\+faila\+\_\+visi (\begin{DoxyParamCaption}\item[{Konteineris \&}]{A}{, }\item[{string}]{pav}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00177}{177}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a888cbe1ed260d3ec0edee3f211fa9ce0}\index{funkcijos.cpp@{funkcijos.cpp}!pasirink@{pasirink}}
+\index{pasirink@{pasirink}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{pasirink()}{pasirink()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a888cbe1ed260d3ec0edee3f211fa9ce0} 
+int pasirink (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00190}{190}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_abaf3d7245dc46667ed0cee4254155ce5}\index{funkcijos.cpp@{funkcijos.cpp}!rikiav@{rikiav}}
+\index{rikiav@{rikiav}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{rikiav()}{rikiav()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_abaf3d7245dc46667ed0cee4254155ce5} 
+void rikiav (\begin{DoxyParamCaption}\item[{std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{int}]{rik}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00245}{245}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_aed49d7c940de5bdaaf30ea3ccf3e0c54}\index{funkcijos.cpp@{funkcijos.cpp}!rikiav@{rikiav}}
+\index{rikiav@{rikiav}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{rikiav()}{rikiav()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_aed49d7c940de5bdaaf30ea3ccf3e0c54} 
+void rikiav (\begin{DoxyParamCaption}\item[{std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{int}]{rik}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00244}{244}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_abf68538c5ebe5b3f5f6a54d6bc50dd4c}\index{funkcijos.cpp@{funkcijos.cpp}!rikiav@{rikiav}}
+\index{rikiav@{rikiav}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{rikiav()}{rikiav()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_abf68538c5ebe5b3f5f6a54d6bc50dd4c} 
+void rikiav (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{int}]{rik}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00243}{243}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a3b5a873680bcf17cd87386fd27a16b3c}\index{funkcijos.cpp@{funkcijos.cpp}!rikiav\_visi@{rikiav\_visi}}
+\index{rikiav\_visi@{rikiav\_visi}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{rikiav\_visi()}{rikiav\_visi()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a3b5a873680bcf17cd87386fd27a16b3c} 
+auto rikiav\+\_\+visi (\begin{DoxyParamCaption}\item[{int}]{rik}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00218}{218}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a41f8355082626ae3f20b6106c4229d4d}\index{funkcijos.cpp@{funkcijos.cpp}!rusiavimas@{rusiavimas}}
+\index{rusiavimas@{rusiavimas}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{rusiavimas()}{rusiavimas()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a41f8355082626ae3f20b6106c4229d4d} 
+void rusiavimas (\begin{DoxyParamCaption}\item[{std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{vargsai}{, }\item[{std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{kietekai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00260}{260}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_aba923c71dd55268bd760f785a55988f5}\index{funkcijos.cpp@{funkcijos.cpp}!rusiavimas@{rusiavimas}}
+\index{rusiavimas@{rusiavimas}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{rusiavimas()}{rusiavimas()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_aba923c71dd55268bd760f785a55988f5} 
+void rusiavimas (\begin{DoxyParamCaption}\item[{std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{vargsai}{, }\item[{std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{kietekai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00259}{259}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_afd1bb012456ee3071038537aff294a0b}\index{funkcijos.cpp@{funkcijos.cpp}!rusiavimas@{rusiavimas}}
+\index{rusiavimas@{rusiavimas}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{rusiavimas()}{rusiavimas()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_afd1bb012456ee3071038537aff294a0b} 
+void rusiavimas (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{vargsai}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{kietekai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00258}{258}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_aa5ce9805de176b875d2d1bb90fdbfbea}\index{funkcijos.cpp@{funkcijos.cpp}!rusiavimas\_visi@{rusiavimas\_visi}}
+\index{rusiavimas\_visi@{rusiavimas\_visi}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{rusiavimas\_visi()}{rusiavimas\_visi()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_aa5ce9805de176b875d2d1bb90fdbfbea} 
+template$<$typename Konteineris$>$ \\
+void rusiavimas\+\_\+visi (\begin{DoxyParamCaption}\item[{Konteineris \&}]{A}{, }\item[{Konteineris \&}]{vargsai}{, }\item[{Konteineris \&}]{kietekai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00250}{250}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_ac0c3c6b3401ce069e3862ed8038009bf}\index{funkcijos.cpp@{funkcijos.cpp}!skaiciai@{skaiciai}}
+\index{skaiciai@{skaiciai}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{skaiciai()}{skaiciai()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_ac0c3c6b3401ce069e3862ed8038009bf} 
+void skaiciai (\begin{DoxyParamCaption}\item[{long \&}]{n}{, }\item[{long \&}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00057}{57}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a09ac5bf8696acbf111da8b18ff157a1e}\index{funkcijos.cpp@{funkcijos.cpp}!skt@{skt}}
+\index{skt@{skt}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{skt()}{skt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a09ac5bf8696acbf111da8b18ff157a1e} 
+void skt (\begin{DoxyParamCaption}\item[{std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{string}]{failopav}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00112}{112}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_ab6d6664d24aab7f4a3a290975ef6732c}\index{funkcijos.cpp@{funkcijos.cpp}!skt@{skt}}
+\index{skt@{skt}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{skt()}{skt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_ab6d6664d24aab7f4a3a290975ef6732c} 
+void skt (\begin{DoxyParamCaption}\item[{std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{string}]{failopav}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00111}{111}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a1e01571bd0a7209b250a238a43b91cff}\index{funkcijos.cpp@{funkcijos.cpp}!skt@{skt}}
+\index{skt@{skt}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{skt()}{skt()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a1e01571bd0a7209b250a238a43b91cff} 
+void skt (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{string}]{failopav}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00110}{110}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a6623e0974f0b8db59ad32914d1fd18ba}\index{funkcijos.cpp@{funkcijos.cpp}!skt\_visi@{skt\_visi}}
+\index{skt\_visi@{skt\_visi}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{skt\_visi()}{skt\_visi()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a6623e0974f0b8db59ad32914d1fd18ba} 
+template$<$typename Konteineris$>$ \\
+void skt\+\_\+visi (\begin{DoxyParamCaption}\item[{Konteineris \&}]{A}{, }\item[{const string \&}]{failopav}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00089}{89}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_adb7a63511d7f0ea2ad659d96b3a97b8a}\index{funkcijos.cpp@{funkcijos.cpp}!strat2@{strat2}}
+\index{strat2@{strat2}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{strat2()}{strat2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_adb7a63511d7f0ea2ad659d96b3a97b8a} 
+void strat2 (\begin{DoxyParamCaption}\item[{std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{vargsai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00278}{278}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_afe797628c662017cb08abc30acd37f42}\index{funkcijos.cpp@{funkcijos.cpp}!strat2@{strat2}}
+\index{strat2@{strat2}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{strat2()}{strat2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_afe797628c662017cb08abc30acd37f42} 
+void strat2 (\begin{DoxyParamCaption}\item[{std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{vargsai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00277}{277}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_af9b1f6d8127f7ac8306643cd9338c659}\index{funkcijos.cpp@{funkcijos.cpp}!strat2@{strat2}}
+\index{strat2@{strat2}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{strat2()}{strat2()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_af9b1f6d8127f7ac8306643cd9338c659} 
+void strat2 (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{vargsai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00276}{276}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_ad0036569c4cc476f277f48748ba6c779}\index{funkcijos.cpp@{funkcijos.cpp}!strat2\_visi@{strat2\_visi}}
+\index{strat2\_visi@{strat2\_visi}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{strat2\_visi()}{strat2\_visi()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_ad0036569c4cc476f277f48748ba6c779} 
+template$<$typename Konteineris$>$ \\
+void strat2\+\_\+visi (\begin{DoxyParamCaption}\item[{Konteineris \&}]{A}{, }\item[{Konteineris \&}]{vargsai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00264}{264}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a8b727c0c7d84d2db031c3cc9796c0798}\index{funkcijos.cpp@{funkcijos.cpp}!strat3@{strat3}}
+\index{strat3@{strat3}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{strat3()}{strat3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a8b727c0c7d84d2db031c3cc9796c0798} 
+void strat3 (\begin{DoxyParamCaption}\item[{std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{vargsai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00300}{300}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a3fc090fed9d3b70028d769f7e86d985d}\index{funkcijos.cpp@{funkcijos.cpp}!strat3@{strat3}}
+\index{strat3@{strat3}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{strat3()}{strat3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a3fc090fed9d3b70028d769f7e86d985d} 
+void strat3 (\begin{DoxyParamCaption}\item[{std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{vargsai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00299}{299}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a21ee61e5f7697826cf3d1243662024ce}\index{funkcijos.cpp@{funkcijos.cpp}!strat3@{strat3}}
+\index{strat3@{strat3}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{strat3()}{strat3()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a21ee61e5f7697826cf3d1243662024ce} 
+void strat3 (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{vargsai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00298}{298}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a7f7a9235affe855e0d76698ac2cd5344}\index{funkcijos.cpp@{funkcijos.cpp}!strat3\_visi@{strat3\_visi}}
+\index{strat3\_visi@{strat3\_visi}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{strat3\_visi()}{strat3\_visi()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a7f7a9235affe855e0d76698ac2cd5344} 
+template$<$typename Konteineris$>$ \\
+void strat3\+\_\+visi (\begin{DoxyParamCaption}\item[{Konteineris \&}]{A}{, }\item[{Konteineris \&}]{vargsai}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00282}{282}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a31a9b8a9c24e8270b70e3ad8352944a4}\index{funkcijos.cpp@{funkcijos.cpp}!testavimas@{testavimas}}
+\index{testavimas@{testavimas}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{testavimas()}{testavimas()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a31a9b8a9c24e8270b70e3ad8352944a4} 
+void testavimas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00423}{423}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a040f209a0fbe84ba857d6b66a100d2e1}\index{funkcijos.cpp@{funkcijos.cpp}!tyrimas1@{tyrimas1}}
+\index{tyrimas1@{tyrimas1}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimas1()}{tyrimas1()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a040f209a0fbe84ba857d6b66a100d2e1} 
+void tyrimas1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00302}{302}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a5768853a346bbbfb7665c80797c75aaa}\index{funkcijos.cpp@{funkcijos.cpp}!tyrimas2@{tyrimas2}}
+\index{tyrimas2@{tyrimas2}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimas2()}{tyrimas2()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a5768853a346bbbfb7665c80797c75aaa} 
+void tyrimas2 (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00310}{310}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_a8428937576bb189a7b00331be9910bc1}\index{funkcijos.cpp@{funkcijos.cpp}!tyrimas2\_de@{tyrimas2\_de}}
+\index{tyrimas2\_de@{tyrimas2\_de}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimas2\_de()}{tyrimas2\_de()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_a8428937576bb189a7b00331be9910bc1} 
+void tyrimas2\+\_\+de (\begin{DoxyParamCaption}\item[{std::\+deque$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00414}{414}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_aa51602528824ce40c0fdfaaaa48b6a73}\index{funkcijos.cpp@{funkcijos.cpp}!tyrimas2\_li@{tyrimas2\_li}}
+\index{tyrimas2\_li@{tyrimas2\_li}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimas2\_li()}{tyrimas2\_li()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_aa51602528824ce40c0fdfaaaa48b6a73} 
+void tyrimas2\+\_\+li (\begin{DoxyParamCaption}\item[{std::\+list$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00413}{413}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_af76f28f3a09ad17be5453ef52aa2191b}\index{funkcijos.cpp@{funkcijos.cpp}!tyrimas2\_ve@{tyrimas2\_ve}}
+\index{tyrimas2\_ve@{tyrimas2\_ve}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimas2\_ve()}{tyrimas2\_ve()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_af76f28f3a09ad17be5453ef52aa2191b} 
+void tyrimas2\+\_\+ve (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00412}{412}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
+\Hypertarget{funkcijos_8cpp_aaee79e3e808c17fabbd79e1dfd33ad56}\index{funkcijos.cpp@{funkcijos.cpp}!tyrimas2\_visi@{tyrimas2\_visi}}
+\index{tyrimas2\_visi@{tyrimas2\_visi}!funkcijos.cpp@{funkcijos.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimas2\_visi()}{tyrimas2\_visi()}}
+{\footnotesize\ttfamily \label{funkcijos_8cpp_aaee79e3e808c17fabbd79e1dfd33ad56} 
+template$<$typename Konteineris$>$ \\
+void tyrimas2\+\_\+visi (\begin{DoxyParamCaption}\item[{Konteineris \&}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{funkcijos_8cpp_source_l00355}{355}} of file \doxymbox{\hyperlink{funkcijos_8cpp_source}{funkcijos.\+cpp}}.
+
