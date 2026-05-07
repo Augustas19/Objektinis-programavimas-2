@@ -1,32 +1,30 @@
 ## Class 
-<img width="499" height="244" alt="Screenshot 2026-04-03 134651" src="https://github.com/user-attachments/assets/24e966e0-4ed9-48aa-b65d-6ee4353b4df7" />
+<img width="470" height="243" alt="image" src="https://github.com/user-attachments/assets/aded8f90-b106-4260-ad94-29de478fbcd7" />
 
-## Struct
-<img width="795" height="303" alt="image" src="https://github.com/user-attachments/assets/bcca31cf-f6d3-458c-bb1f-0adc5e251de6" />
 
-Programa naudojant class veikia truputį lėčiau nei su struct. 
+## Programos aprašymas
+Ši programa turi galimybę nuskaityti duomenis įvestus vartotojo arba nuskaityti tiesiai iš failo bei generuoti savo duomenis.  Programoje yra realizuoti visi Rule of five operatoriai: copy constructor, move constructor, copy assignment, move assignment, destructor. Taip pat realizuoti ir įvesties bei išvesties operatoriai. Šioje programos versijoje programa jau naudoja klasę - **Žmogus** ir jos išvestinę klasę - **Studentas**.
 
 ## O1
-| Konteineris | Strategija | 100k įrašų | 1M įrašų |
-|---|---|---|---|
-| Vector | 1 | 0,06 | 0,7 |
-| Vector | 2 | 0,04 | 0,4 | 
-| Vector | 3 | 0,03 | 0,4 | 
+| Konteineris | Strategija | 100k įrašų | 1M įrašų | exe failo dydis |
+|---|---|---|---|---|
+| Vector | 1 | 0,04 | 0,3 | 294 KB |
+| Vector | 2 | 0,05 | 0,4 | 294 KB |
+| Vector | 3 | 0,03 | 0,3 | 294 KB |
 
 ## O2
 
-| Konteineris | Strategija | 100k įrašų | 1M įrašų |
-|---|---|---|---|
-| Vector | 1 | 0,07 | 0,8 |
-| Vector | 2 | 0,06 | 0,4 | 
-| Vector | 3 | 0,04 | 0,3 | 
+| Konteineris | Strategija | 100k įrašų | 1M įrašų | exe failo dydis |
+|---|---|---|---|---|
+| Vector | 1 | 0,03 | 0,3 | 280 KB |
+| Vector | 2 | 0,03 | 0,3 | 280 KB |
+| Vector | 3 | 0,03 | 0,2 | 280 KB |
 
 ## O3
 
-| Konteineris | Strategija | 100k įrašų | 1M įrašų |
-|---|---|---|---|
-| Vector | 1 | 0,03 | 0,5 |
-| Vector | 2 | 0,02 | 0,2 | 
-| Vector | 3 | 0,02 | 0,2 | 
+| Konteineris | Strategija | 100k įrašų | 1M įrašų | exe failo dydis |
+|---|---|---|---|---|
+| Vector | 1 | 0,04 | 0,5 | 289 KB |
+| Vector | 2 | 0,05 | 0,5 | 289 KB |
+| Vector | 3 | 0,03 | 0,4 | 289 KB |
 
-Programa geriausiai dirba su O3 flagu.
