@@ -128,7 +128,7 @@ Studentas& Studentas::operator=(Studentas&& other) noexcept{
 
     vardas_=std::move(other.vardas_);
     pavarde_=std::move(other.pavarde_);
-    egzaminas_=other.egzaminas_;
+    egzaminas_=std::move(other.egzaminas_);
     nd_=std::move(other.nd_);
 
     return *this;

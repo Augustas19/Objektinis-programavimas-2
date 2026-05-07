@@ -429,14 +429,21 @@ void testavimas(){
     Studentas kopija(pradinis);
     cout<<kopija<<"\n";
 
-    check(kopija.vardas()==pradinis.vardas(), "Kopija");  // copy constr
+    check(kopija.vardas()==pradinis.vardas(), "Kopija V");  // copy constr
+    check(kopija.pavarde()==pradinis.pavarde(), "Kopija P");  // copy constr
+    check(kopija.nd()==pradinis.nd(), "Kopija ND");  // copy constr
+    check(kopija.egzaminas()==pradinis.egzaminas(), "Kopija E");  // copy constr
+    // tikrint visus 4 varda, pavarde
 
     Studentas move1(std::move(pradinis));  // move kostr
     cout<<"move kontsr - "<<move1<<"\n";
 
     Studentas prisk;  // priskyrimas
     prisk = pradinis;
-    check(prisk.vardas()==pradinis.vardas(), "Priskyrimas");
+    check(prisk.vardas()==pradinis.vardas(), "Priskyrimas V");
+    check(prisk.pavarde()==pradinis.pavarde(), "Priskyrimas P");
+    check(prisk.nd()==pradinis.nd(), "Priskyrimas ND");
+    check(prisk.egzaminas()==pradinis.egzaminas(), "Priskyrimas E");
 
     Studentas move2;    // priskyrimo move
     move2 = std::move(kopija);
@@ -444,7 +451,7 @@ void testavimas(){
     
     std::istringstream is("Paulius Lukaitis 6 7 8 8");  // ivestis
     Studentas skaitymas;
-    is>>skaitymas;
+    is>>skaitymas; 
     cout<<skaitymas<<"\n";
 
     std::ostringstream o;  // isvestis
