@@ -51,10 +51,11 @@ std::istream& operator>>(std::istream& is, Studentas& s) {
 // isvestis
 std::ostream& operator<<(std::ostream& os, const Studentas& s) {
     os<<left<<setw(20)<<s.pavarde_<<left<<setw(20)<<s.vardas_<<" ND: ";
+    os<<fixed<<setprecision(2);
     for(const auto& x : s.nd_){
         os<<x<<" ";
     }
-    os<<"EGZ: "<<s.egzaminas_<<fixed<<setprecision(2)<<" VID: "<<s.galutBalas(vidurkis)<<" MED: "<<s.galutBalas();
+    os<<"EGZ: "<<s.egzaminas_<<" VID: "<<s.galutBalas(vidurkis)<<" MED: "<<s.galutBalas();
 
     return os;
 }
@@ -97,7 +98,7 @@ bool comparePagalEgza(const Studentas& a, const Studentas& b){
 Studentas::Studentas(const Studentas& other):  
 Zmogus(other.vardas_, other.pavarde_),
 egzaminas_{other.egzaminas_},
-nd_{std::move(other.nd_)}{}
+nd_{other.nd_}{}
 
 
 //move constructor
@@ -106,6 +107,9 @@ Zmogus(std::move(other.vardas_), std::move(other.pavarde_)),
 egzaminas_ (std::move(other.egzaminas_)),
 nd_ (std::move(other.nd_)){
     other.egzaminas_=0.0;
+    other.vardas_.clear();
+    other.pavarde_.clear();
+    other.nd_.clear();
 }
 
 
