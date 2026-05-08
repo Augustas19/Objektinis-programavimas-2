@@ -1,10 +1,18 @@
 # Naudojimosi instrukcija 
 Norint pasileisti šią programą reikia turėti `g++` kompiliatorių, `make` programą, terminalą.
-
+1. Klonuokite repozitoriją `git clone https://github.com/Augustas19/Objektinis-programavimas-2.git`
+2. `mingw32-make programa`
+3. `./programa` - bus paleista programa
+4. `mingw32-make testas`
+5. `./testai` - bus paleistas programos testavimas
+6. `mingw32-make clean` - projekto išvalymas
 
 # V2.0
 <img width="884" height="99" alt="image" src="https://github.com/user-attachments/assets/bd06bec0-6f97-4582-8033-ecc84f05a472" />
 
+## Pakeitimai šioje versijoje
+1. Sukurtas testas programai
+2. Sukurta programos dokumentacija
 
 # V1.5
 
