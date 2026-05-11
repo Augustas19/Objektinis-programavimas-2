@@ -51,6 +51,7 @@ std::istream& operator>>(std::istream& is, Studentas& s) {
 // isvestis
 std::ostream& operator<<(std::ostream& os, const Studentas& s) {
     os<<left<<setw(20)<<s.pavarde_<<left<<setw(20)<<s.vardas_<<" ND: ";
+    os<<fixed<<setprecision(2);
     for(const auto& x : s.nd_){
         os<<x<<" ";
     }
