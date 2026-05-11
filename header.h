@@ -77,6 +77,7 @@ bool comparePagalPavarde(const Studentas& a, const Studentas& b);
 bool comparePagalEgza(const Studentas& a, const Studentas& b);
 
 
+
 template<class T, class Allocator=std::allocator<T>>
 class Vector {
 public:
@@ -89,14 +90,78 @@ public:
     using const_reference = const value_type&;
     using pointer = typename std::allocator_traits<Allocator>::pointer;
     using const_pointer = typename std::allocator_traits<Allocator>::const_pointer;
-
-    //iterators
-    //??
-    //----
-    
+    using iterator = T*;
+    using const_iterator = const T*;    
+    using reverse_iterator = std::reverse_iterator<iterator>;
+    using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 private:
+    T* data_;
+    size_type size_;
+    size_type capacity_;
 
+    void reallocate(size_type new_cap){
+        T* new_data =new T[new_cap];
+        for(size_type i =0; i<size_; i++){
+            new_data[i] = std::move(data_[i]);
+        } 
+        delete[] data_;
+        data_ = new_data;
+        capacity_ = new_cap;    
+    }
 public:
+// constr 
+Vector() : data_(nullptr), size_(0), capacity_(0) {}
 
+explicit Vector(size_type n, const T& value = T()):data_(new T[n]), size_(n), capacity_(n){
+    for(size_type i=0; i<n; i++){
+        data_[i]=value;
+    }
+}
+Vector(std::initializer_list<T> init):data_(new T[init.size()]), size_(init.size()), capacity_(init.size()){
+size_type i = 0;
+for(const auto& v: init){
+    data_[i++] = v;
+}
+}
+// RULE OF FIVE ---------------
+~Vector() {delete[] data_;}
+
+Vector(const Vector& orther):
+data_(new T[other.capacity_]),
+size_(other.size_),
+capacity_(other.capacity_){
+    std::copy(other.data_, other.data_+ size_, data_);
+}
+
+Vector(Vector&& other) noexcept
+:data_(other.data_), size_(other.size_), capacity_(other.capacity_) {
+    other.data_ = nullptr;
+    other.size_ = 0;
+    other.capacity_ = 0;
+}
+
+Vector& operator=(const Vector& other){
+    if(this != &other){
+        delete[] data_;
+        size_ = other.size_;
+        capacity_ = other.capacity_;
+        data_ = new T[capacity_];
+        std::copy(other.data_, other.data_ + size_, data_);
+    }
+    return *this;
+}
+
+Vector& operator=(Vector&& other) noexcept{
+    if(this != &other){
+        delete[] data_;
+        data_ = other.data_;
+        size_=other.size_;
+        capacity_=other.capacity_;
+        other.data_=nullptr;
+        other.size_=0;
+        other.capacity_=0;
+    }
+    return *this;
+}
 };
 #endif
