@@ -452,21 +452,44 @@ void testavimas(){
     check(kopija.nd()==pradinis.nd(), "Kopija ND");  // copy constr
     check(kopija.egzaminas()==pradinis.egzaminas(), "Kopija E");  // copy constr
     
+    cout<<"----------------\n";
+
 
     Studentas move1(std::move(pradinis));  // move kostr
-    cout<<"move kontsr - "<<move1<<"\n";
+    //cout<<"move kontsr - "<<move1<<"\n";
+    check(move1.vardas()=="Jonas", "Move V");
+    check(move1.pavarde()=="Jonaitis", "Move P");
+    check(move1.nd()==std::vector<double>({8, 9, 5}), "Move ND");
+    check(move1.egzaminas()==10, "Move E");
 
+    check(pradinis.vardas().empty(), "Move isvalymas V");
+    check(pradinis.pavarde().empty(), "Move isvalymas P");
+    check(pradinis.nd().empty(), "Move isvalymas ND");
+
+    cout<<"----------------\n";
+    Studentas org("Jonas", "Jonaitis", 10, nd);
     Studentas prisk;  // priskyrimas
-    prisk = pradinis;
-    check(prisk.vardas()==pradinis.vardas(), "Priskyrimas V");
-    check(prisk.pavarde()==pradinis.pavarde(), "Priskyrimas P");
-    check(prisk.nd()==pradinis.nd(), "Priskyrimas ND");
-    check(prisk.egzaminas()==pradinis.egzaminas(), "Priskyrimas E");
+    prisk = org;
+    check(prisk.vardas()==org.vardas(), "Priskyrimas V");
+    check(prisk.pavarde()==org.pavarde(), "Priskyrimas P");
+    check(prisk.nd()==org.nd(), "Priskyrimas ND");
+    check(prisk.egzaminas()==org.egzaminas(), "Priskyrimas E");
+
+    cout<<"----------------\n";
 
     Studentas move2;    // priskyrimo move
     move2 = std::move(kopija);
-    cout<<move2<<"\n";
+    check(move2.vardas() == "Jonas", "Priskyrimo V move");
+    check(move2.pavarde() == "Jonaitis", "Priskyrimo P move");
+    check(move2.nd() == std::vector<double>({8, 9, 5}), "Priskyrimo ND move");
+    check(move2.egzaminas() == 10, "Priskyrimo E move");
+
+    check(kopija.vardas().empty(), "Priskyrimo move isvalymas V");
+    check(kopija.pavarde().empty(), "Priskyrimo move isvalymas P");
+    check(kopija.nd().empty(), "Priskyrimo move isvalymas ND");
     
+    cout<<"----------------\n";
+
     std::istringstream is("Paulius Lukaitis 6 7 8 8");  // ivestis
     Studentas skaitymas;
     is>>skaitymas; 
