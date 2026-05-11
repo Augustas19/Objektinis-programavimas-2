@@ -262,17 +262,31 @@ void rusiavimas(std::deque<Studentas>& A, std::deque<Studentas>& vargsai, std::d
 // 2 STRATEGIJA 
 template <typename Konteineris>
 void strat2_visi(Konteineris& A, Konteineris& vargsai){
-  for(const auto& s: A){
-    if(s.galutBalas(vidurkis)<5.0){
-        vargsai.push_back(s);
+    if constexpr(std::is_same_v<Konteineris, std::vector<Studentas>> || std::is_same_v<Konteineris,std::deque<Studentas>>){
+        size_t i = 0;
+        while(i < A.size()){
+            if(A[i].galutBalas() < 5.0){
+                vargsai.push_back(A[i]);
+                A[i] = A.back();
+                A.pop_back();
+            }
+            else{++i;}
+        }
     }
+    else{
+        vargsai.clear();
+        for (auto it = A.begin(); it != A.end(); ) {
+        if (it->galutBalas() < 5.0) {
+            vargsai.push_back(*it);
+            it = A.erase(it);   
+        } else {
+            ++it;
+        }
+    }
+    }
+
 }
-   A.erase(std::remove_if(A.begin(), A.end(), [](const Studentas& s){
-    return s.galutBalas(vidurkis) < 5.0;
-   }),
-   A.end()
-);
-}
+
 void strat2(std::vector<Studentas>& A, std::vector<Studentas>& vargsai){strat2_visi(A,vargsai);}
 void strat2(std::list<Studentas>& A, std::list<Studentas>& vargsai){strat2_visi(A,vargsai);}
 void strat2(std::deque<Studentas>& A, std::deque<Studentas>& vargsai){strat2_visi(A,vargsai);}
@@ -282,17 +296,21 @@ template <typename Konteineris>
 void strat3_visi(Konteineris& A, Konteineris& vargsai){
     vargsai.clear();
     if constexpr(std::is_same_v<Konteineris, std::list<Studentas>>){
-        std::remove_copy_if(A.begin(), A.end(), std::back_inserter(vargsai), [](const Studentas& s){
-        return s.galutBalas(vidurkis) >=5.0;});
-    A.remove_if([](const Studentas& s){
-        return s.galutBalas(vidurkis) < 5.0;});
+        A.remove_if([&](const Studentas& s){
+            if(s.galutBalas() < 5.0){
+                vargsai.push_back(s);
+                return true;
+            }
+            return false;
+        });
     }
 
-    else {auto i = std::partition(A.begin(), A.end(), [](const Studentas& s){
-        return s.galutBalas(vidurkis) >=5.0;
+    else {auto it = std::partition(A.begin(), A.end(), [](const Studentas& s){
+        return s.galutBalas()>=5.0;
     });
-    vargsai.insert(vargsai.end(), i, A.end());
-    A.erase(i, A.end());
+    for(auto i = it; i != A.end(); ++i){
+        vargsai.push_back(std::move(*i));}
+        A.erase(it, A.end());
     }   
 }
 void strat3(std::vector<Studentas>& A, std::vector<Studentas>& vargsai){strat3_visi(A,vargsai);}
