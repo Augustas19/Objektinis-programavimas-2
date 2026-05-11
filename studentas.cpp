@@ -52,6 +52,7 @@ std::istream& operator>>(std::istream& is, Studentas& s) {
 // isvestis
 std::ostream& operator<<(std::ostream& os, const Studentas& s) {
     os<<left<<setw(20)<<s.pavarde_<<left<<setw(20)<<s.vardas_<<" ND: ";
+    os<<fixed<<setprecision(2);
     for(const auto& x : s.nd_){
         os<<x<<" ";
     }
@@ -131,7 +132,7 @@ Studentas& Studentas::operator=(Studentas&& other) noexcept{
 
     vardas_=std::move(other.vardas_);
     pavarde_=std::move(other.pavarde_);
-    egzaminas_=other.egzaminas_;
+    egzaminas_=std::move(other.egzaminas_);
     nd_=std::move(other.nd_);
 
     return *this;
