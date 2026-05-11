@@ -76,4 +76,27 @@ bool compare(const Studentas& a, const Studentas& b);
 bool comparePagalPavarde(const Studentas& a, const Studentas& b);
 bool comparePagalEgza(const Studentas& a, const Studentas& b);
 
+
+template<class T, class Allocator=std::allocator<T>>
+class Vector {
+public:
+    // member types
+    using value_type = T;
+    using allocator_type = Allocator;
+    using size_type = std::size_t;
+    using difference_type = std::ptrdiff_t;
+    using reference = value_type&;
+    using const_reference = const value_type&;
+    using pointer = typename std::allocator_traits<Allocator>::pointer;
+    using const_pointer = typename std::allocator_traits<Allocator>::const_pointer;
+
+    //iterators
+    //??
+    //----
+    
+private:
+
+public:
+
+};
 #endif
