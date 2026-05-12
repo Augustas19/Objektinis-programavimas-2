@@ -163,5 +163,20 @@ Vector& operator=(Vector&& other) noexcept{
     }
     return *this;
 }
+// element access
+
+T& operator[](size_type i){ return data_[i]; }
+const T& operator[](size_type i) const {return data_[i];}
+
+T& at(size_type i ){
+    if(i >= size_) throw std::out_of_range("Vector::at");
+    return data_[i];
+}
+const T& at(size_type i) const {
+    if(i >= size_) throw std::out_of_range("Vector::at");
+    return data_[i];
+}
+T& front() {return data_[0];}
+T& back() {return data_[size_ -1];}
 };
 #endif
