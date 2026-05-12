@@ -178,5 +178,38 @@ const T& at(size_type i) const {
 }
 T& front() {return data_[0];}
 T& back() {return data_[size_ -1];}
+
+// iterators
+
+iterator begin() { return data_; }
+iterator end() { return data_ + size_; }
+
+const_iterator begin() const { return data_; }
+const_iterator end() const { return data_ + size_; }
+
+const_iterator cbegin() const { return data_; }
+const_iterator cend() const { return data_ + size_; }
+
+// capacity
+
+size_type size() const { return size_; }
+size_type capacity() const { return capacity_; }
+bool empty() const { return size_ == 0; }
+
+void reserve(size_type new_cap){
+    if(new_cap > capacity_)
+        reallocate(new_cap);
+}
+
+void resize(size_type new_size){
+    if(new_size > capacity_)
+        reallocate(new_size);
+    
+    for(size_type i = size_; i < new_size; ++i)
+        data_[i]=T();
+
+    size_ = new_size;
+}
+
 };
 #endif
