@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <sstream>
 #include <iomanip>
+#include "vec.h"
 
 using std::left;
 using std::setw;

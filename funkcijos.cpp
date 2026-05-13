@@ -1,4 +1,5 @@
 #include "funkcijos.h"
+#include "vec.h"
 #include <vector>
 #include <iomanip>
 #include <iostream>
@@ -11,6 +12,7 @@
 #include <sstream>
 #include <list>
 #include <deque>
+
 
 using std::cout;
 using std::cin;

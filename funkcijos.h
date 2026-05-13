@@ -6,6 +6,8 @@
 #include <list>
 #include <deque>
 #include "header.h"
+#include "vec.h"
+
 
 // generavimas
 Studentas gen_vrd();
@@ -55,4 +57,5 @@ void tyrimas2_de(std::deque<Studentas>& A);
 // testas
 void check(bool salyga, const std::string pavad);
 void testavimas();
+
 #endif
