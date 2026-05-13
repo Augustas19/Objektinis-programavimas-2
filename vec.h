@@ -91,6 +91,26 @@ Vector& operator=(Vector&& other) noexcept{
     }
     return *this;
 }
+
+// assign 
+void assign(size_type count, const T& value){
+    if(count > capacity_){
+        reserve(count);
+    }
+    for(size_type i = 0; i<count; i++){
+        data_[i] = value;
+    }
+    size_ = count;
+}
+
+template<typename InputIt>
+void assign(InputIt first, InputIt last){
+    clear();
+    for(; first != last; ++first){
+        push_back(*first);
+    }
+}
+
 // element access
 
 T& operator[](size_type i){ return data_[i]; }
