@@ -110,6 +110,9 @@ pavarde_ (std::move(other.pavarde_)),
 egzaminas_ (std::move(other.egzaminas_)),
 nd_ (std::move(other.nd_)){
     other.egzaminas_=0.0;
+    other.vardas_.clear();
+    other.pavarde_.clear();
+    other.nd_.clear();
 }
 
 
