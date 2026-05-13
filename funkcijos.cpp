@@ -445,6 +445,7 @@ void testavimas(){
 
     check(pradinis.vardas().empty(), "Move isvalymas V");
     check(pradinis.pavarde().empty(), "Move isvalymas P");
+    check(pradinis.egzaminas() == 0, "Move isvalymas P");
     check(pradinis.nd().empty(), "Move isvalymas ND");
 
     cout<<"----------------\n";
