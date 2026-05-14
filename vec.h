@@ -92,7 +92,9 @@ Vector& operator=(Vector&& other) noexcept{
     return *this;
 }
 
+
 // assign 
+
 void assign(size_type count, const T& value){
     if(count > capacity_){
         reserve(count);
@@ -125,7 +127,6 @@ std::allocator<T> get_allocator() const{
 
 // element access
 
-
 reference at(size_type i ){
     if(i >= size_) throw std::out_of_range("Vector::at");
     return data_[i];
@@ -151,7 +152,6 @@ const T* data() const {return data_;}
 
 // iterators
 
-
 iterator begin() { return data_; }
 const_iterator begin() const { return data_; }
 
@@ -170,14 +170,56 @@ const_reverse_iterator crend() const { return const_reverse_iterator(begin());}
 
 // capacity
 
+bool empty() const { return size_ == 0; }
 
 size_type size() const { return size_; }
 size_type capacity() const { return capacity_; }
-bool empty() const { return size_ == 0; }
+size_type max_size() const { return std::numeric_limits<size_type>::max(); }
 
 void reserve(size_type new_cap){
     if(new_cap > capacity_)
         reallocate(new_cap);
+}
+
+size_type capacity() const { return capacity_; }
+
+void shrink_to_fit(){
+    if(size_ < capacity_){
+        reallocate(size_);
+    }
+}
+
+
+// modifiers
+
+void clear() { size_ = 0; }
+
+iterator insert(iterator pos, const T& value){
+    size_type index = pos - begin();
+    if(size_ == capacity_){
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
+    }
+    for(size_type i = size_; i > index; i--){
+        data_[i] = std::move(data_[i-1]);
+    }
+    data_[index] = value;
+    ++size_;
+    return begin() + index;
+}
+
+iterator insert(iterator pos, size_type count, const T& value){
+    size_type index = pos - begin();
+    while(size_ +count > capacity_){
+        reserve(capacity == 0 ?count : capacity_ * 2);
+    }
+    for(size_type i = size_; i>index; i--){
+        data_[i+count-1] = std::move(data_[i-1]);
+    }
+    for(size_type i=0; i< count; i++){
+        data[index+i]=value;
+    }
+    size_ += count;
+    return begin() + index;
 }
 
 void resize(size_type new_size){
