@@ -245,6 +245,32 @@ iterator erase(iterator pos){
     return begin() + index;
 }
 
+iterator erase(iterator first, iterator last){
+    size_type start = first - begin();
+    size_type count = last - first;
+    for(size_type i = start; i +count < size_; i++){
+        data_[i] = std::move(data_[i+count]);
+    }
+    size_ -= count;
+    return begin() + start;
+}
+
+void push_back(const T& value){
+    if(size_ == capacity_){
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
+    }
+    data_[size_++] = value;
+}
+
+template<typename... Args>
+reference emplace_back(Args&&... args){
+    if(size_== capacity_){
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
+    }
+    data_[size_] = T(std::forward<Args>(args)...);
+    return data_[size_++];
+}
+
 void resize(size_type new_size){
     if(new_size > capacity_)
         reallocate(new_size);
