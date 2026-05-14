@@ -115,34 +115,61 @@ template<typename Range>
 void assign_range(const Range& r){
     assign(r.begin(), r.end());
 }
+
+// - get allocator
+
+std::allocator<T> get_allocator() const{
+    return std::allocator<T>();
+}
+
+
 // element access
 
-T& operator[](size_type i){ return data_[i]; }
-const T& operator[](size_type i) const {return data_[i];}
 
-T& at(size_type i ){
+reference at(size_type i ){
     if(i >= size_) throw std::out_of_range("Vector::at");
     return data_[i];
 }
-const T& at(size_type i) const {
+
+const_reference at(size_type i) const {
     if(i >= size_) throw std::out_of_range("Vector::at");
     return data_[i];
 }
-T& front() {return data_[0];}
-T& back() {return data_[size_ -1];}
+
+reference operator[](size_type i){ return data_[i]; }
+const_reference operator[](size_type i) const {return data_[i];}
+
+reference front() {return data_[0];}
+const_reference front() const {return data_[0];}
+
+reference back() {return data_[size_ -1];}
+const_reference back() const {return data_[size_ -1];}
+
+T* data() {return data_;}
+const T* data() const {return data_;}
+
 
 // iterators
 
-iterator begin() { return data_; }
-iterator end() { return data_ + size_; }
 
+iterator begin() { return data_; }
 const_iterator begin() const { return data_; }
+
+iterator end() { return data_ + size_; }
 const_iterator end() const { return data_ + size_; }
 
 const_iterator cbegin() const { return data_; }
 const_iterator cend() const { return data_ + size_; }
 
+reverse_iterator rbegin() { return reverse_iterator(end());}
+reverse_iterator rend() { return reverse_iterator(begin());}
+
+const_reverse_iterator crbegin() const { return const_reverse_iterator(end());}
+const_reverse_iterator crend() const { return const_reverse_iterator(begin());}
+
+
 // capacity
+
 
 size_type size() const { return size_; }
 size_type capacity() const { return capacity_; }
