@@ -300,6 +300,45 @@ void swap(Vector& other) noexcept {
     std::swap(capacity_, other.capacity_);
 }
 
-};
 
+// non-member 
+template<Typename T>
+bool operator==(const Vector<T>& a, const Vector<T>& b){
+    if(a.size() != b.size()) return false;
+    for(std::size_t i=0; i < a. size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+template<Typename T>
+bool opertor!=(const Vector<T>& a, const Vector<T>& b){
+    return !(a==b);
+}
+
+template<typename T>
+bool operator<(const Vector<T>& a, const Vector<T>& b){
+    return std::lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
+}
+
+template<typename T>
+bool operator>(const Vector<T>& a, const Vector<T>& b){
+    return b < a;
+}
+
+template<typename T>
+bool operator<=(const Vector<T>& a, const Vector<T>& b){
+    return !(b < a);
+}
+template<typename T>
+bool operator>=(const Vector<T>& a, const Vector<T>& b){
+    return !(a < b);
+}
+
+template<typename T>
+void swap(Vector<T>& a, Vector& b) noexcept {
+    a.swap(b);
+}
+
+};
 #endif
