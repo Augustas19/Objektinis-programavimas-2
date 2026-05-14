@@ -271,6 +271,19 @@ reference emplace_back(Args&&... args){
     return data_[size_++];
 }
 
+template<typename Range>
+void append_range(const Range& r){
+    for(const auto& elem : r ){
+        push_back(elem);
+    }
+}
+
+void pop_back(){
+    if(size_>0){
+        --size_;
+    }
+}
+
 void resize(size_type new_size){
     if(new_size > capacity_)
         reallocate(new_size);
@@ -279,6 +292,12 @@ void resize(size_type new_size){
         data_[i]=T();
 
     size_ = new_size;
+}
+
+void swap(Vector& other) noexcept {
+    std::swap(data_, other.data_);
+    std::swap(size_, other.size_);
+    std::swap(capacity_, other.capacity_);
 }
 
 };
