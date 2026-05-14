@@ -111,6 +111,10 @@ void assign(InputIt first, InputIt last){
     }
 }
 
+template<typename Range>
+void assign_range(const Range& r){
+    assign(r.begin(), r.end());
+}
 // element access
 
 T& operator[](size_type i){ return data_[i]; }
