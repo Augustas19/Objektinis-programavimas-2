@@ -222,6 +222,29 @@ iterator insert(iterator pos, size_type count, const T& value){
     return begin() + index;
 }
 
+template<typename... Args>
+iterator emplace(iterator pos, Args&&... args){
+    size_type index = pos - begin();
+    if(size_ == capacity_){
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
+    }
+    for(size_type i = size_; i > index; i--){
+        data_[i] = std::move(data_[i-1]);
+    }
+    data_[index] = T(std::forward<Args>(args)...);
+    ++size_;
+    return begin() + index;
+}
+
+iterator erase(iterator pos){
+    size_type index = pos - begin();
+    for(size_type i = index; i<size_-1; i++){
+        data_[i] = std::move(data_[i+1]);
+    }
+    --size_;
+    return begin() + index;
+}
+
 void resize(size_type new_size){
     if(new_size > capacity_)
         reallocate(new_size);
