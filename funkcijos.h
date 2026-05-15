@@ -57,5 +57,6 @@ void tyrimas2_de(std::deque<Studentas>& A);
 // testas
 void check(bool salyga, const std::string pavad);
 void testavimas();
+void laiko_test();
 
 #endif

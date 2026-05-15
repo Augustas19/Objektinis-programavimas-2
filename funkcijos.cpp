@@ -1,6 +1,6 @@
 #include "funkcijos.h"
 #include "vec.h"
-//#include <vector>
+#include <vector>
 #include <iomanip>
 #include <iostream>
 #include <algorithm>
@@ -502,4 +502,27 @@ void testavimas(){
     string isv = o.str();
     cout<<isv<<"\n";
 
+}
+void laiko_test(){
+    std::vector<int> size{10000, 100000, 1000000, 10000000, 100000000};
+    std::vector<int> v1;
+    Vector<int> v2;
+
+    for(int sz : size){
+    auto startas = std::chrono::high_resolution_clock::now();
+    for(int i = 1; i <= sz; i++){
+        v1.push_back(i);
+    }
+    auto pabaiga = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> laikas = pabaiga - startas;
+    cout<<sz<<" Su std::vector uztruko - "<<laikas.count()<<" s\n";
+
+    auto startas2 = std::chrono::high_resolution_clock::now();
+    for(int i = 1; i <= sz; i++){
+        v2.push_back(i);
+    }
+    auto pabaiga2 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> laikas2 = pabaiga2 - startas2;
+    cout<<sz<<" Su Vector uztruko      - "<<laikas2.count()<<" s\n";
+}
 }

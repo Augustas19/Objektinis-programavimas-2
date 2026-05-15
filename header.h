@@ -1,7 +1,7 @@
 #ifndef header_H
 #define header_H
 
-//#include <vector>
+#include <vector>
 #include <string>
 #include <iostream>
 #include "vec.h"

@@ -1,4 +1,4 @@
-//#include <vector>
+#include <vector>
 #include <iomanip>
 #include <iostream>
 #include <algorithm>
@@ -51,17 +51,18 @@ while(true){
         << "9 - testas 2 su list\n"
         << "10 - testas 2 su deque\n"
         << "11 - rule of five testavimas\n"
-        << "12 - baigti darbą"<<endl;
+        << "12 - vector laiko testavimas\n"
+        << "13 - baigti darbą"<<endl;
     while(true){
             cin>>meniu;
-                if(cin.fail() ||meniu<1 || meniu>12){
+                if(cin.fail() ||meniu<1 || meniu>13){
                     cin.clear();
                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    cout<<"Įvesti galima tik skaičius nuo 1 iki 12"<<endl;
+                    cout<<"Įvesti galima tik skaičius nuo 1 iki 13"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 12"<<endl;
+                    cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 13"<<endl;
                 }
                 else{
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -268,6 +269,9 @@ while(true){
        testavimas();
     }
     else if(meniu==12){
+        laiko_test();
+    }
+    else if(meniu==13){
         break;
     }
 }
