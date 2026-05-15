@@ -1,0 +1,112 @@
+\doxysection{vec.\+h File Reference}
+\hypertarget{vec_8h}{}\label{vec_8h}\index{vec.h@{vec.h}}
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include $<$limits$>$}\newline
+{\ttfamily \+\#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \+\#include $<$iterator$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_vector}{Vector$<$ T, Allocator $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename U$>$ }\\bool \doxymbox{\hyperlink{vec_8h_a471377d759aa1d50c0bdec61afbd64cb}{operator==}} (const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&a, const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&b)
+\item 
+{\footnotesize template$<$typename U$>$ }\\bool \doxymbox{\hyperlink{vec_8h_a8b8bd857ace076bafdd229220ac77bb9}{operator!=}} (const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&a, const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&b)
+\item 
+{\footnotesize template$<$typename U$>$ }\\bool \doxymbox{\hyperlink{vec_8h_a8a4523e73dd03cb144422feedce16f1e}{operator$<$}} (const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&a, const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&b)
+\item 
+{\footnotesize template$<$typename U$>$ }\\bool \doxymbox{\hyperlink{vec_8h_a250ee9c184ee03ca288bdeb8bd014ca1}{operator$>$}} (const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&a, const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&b)
+\item 
+{\footnotesize template$<$typename U$>$ }\\bool \doxymbox{\hyperlink{vec_8h_aaf676c8febaa3b4893258763cf659693}{operator$<$=}} (const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&a, const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&b)
+\item 
+{\footnotesize template$<$typename U$>$ }\\bool \doxymbox{\hyperlink{vec_8h_a763ada2c7d937c051acb9d40e013f2c3}{operator$>$=}} (const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&a, const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&b)
+\item 
+{\footnotesize template$<$typename U$>$ }\\void \doxymbox{\hyperlink{vec_8h_a47f991701e0b5149c3a3daaff10f5953}{swap}} (\doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&a, \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&b) noexcept
+\end{DoxyCompactItemize}
+
+
+\label{vec_8h_doc-func-members}
+\Hypertarget{vec_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{vec_8h_a8b8bd857ace076bafdd229220ac77bb9}\index{vec.h@{vec.h}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!vec.h@{vec.h}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \label{vec_8h_a8b8bd857ace076bafdd229220ac77bb9} 
+template$<$typename U$>$ \\
+bool operator!= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{a}{, }\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{vec_8h_source_l00320}{320}} of file \doxymbox{\hyperlink{vec_8h_source}{vec.\+h}}.
+
+\Hypertarget{vec_8h_a8a4523e73dd03cb144422feedce16f1e}\index{vec.h@{vec.h}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!vec.h@{vec.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \label{vec_8h_a8a4523e73dd03cb144422feedce16f1e} 
+template$<$typename U$>$ \\
+bool operator$<$ (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{a}{, }\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{vec_8h_source_l00325}{325}} of file \doxymbox{\hyperlink{vec_8h_source}{vec.\+h}}.
+
+\Hypertarget{vec_8h_aaf676c8febaa3b4893258763cf659693}\index{vec.h@{vec.h}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!vec.h@{vec.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily \label{vec_8h_aaf676c8febaa3b4893258763cf659693} 
+template$<$typename U$>$ \\
+bool operator$<$= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{a}{, }\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{vec_8h_source_l00335}{335}} of file \doxymbox{\hyperlink{vec_8h_source}{vec.\+h}}.
+
+\Hypertarget{vec_8h_a471377d759aa1d50c0bdec61afbd64cb}\index{vec.h@{vec.h}!operator==@{operator==}}
+\index{operator==@{operator==}!vec.h@{vec.h}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{vec_8h_a471377d759aa1d50c0bdec61afbd64cb} 
+template$<$typename U$>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{a}{, }\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{vec_8h_source_l00311}{311}} of file \doxymbox{\hyperlink{vec_8h_source}{vec.\+h}}.
+
+\Hypertarget{vec_8h_a250ee9c184ee03ca288bdeb8bd014ca1}\index{vec.h@{vec.h}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!vec.h@{vec.h}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily \label{vec_8h_a250ee9c184ee03ca288bdeb8bd014ca1} 
+template$<$typename U$>$ \\
+bool operator$>$ (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{a}{, }\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{vec_8h_source_l00330}{330}} of file \doxymbox{\hyperlink{vec_8h_source}{vec.\+h}}.
+
+\Hypertarget{vec_8h_a763ada2c7d937c051acb9d40e013f2c3}\index{vec.h@{vec.h}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!vec.h@{vec.h}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily \label{vec_8h_a763ada2c7d937c051acb9d40e013f2c3} 
+template$<$typename U$>$ \\
+bool operator$>$= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{a}{, }\item[{const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{vec_8h_source_l00339}{339}} of file \doxymbox{\hyperlink{vec_8h_source}{vec.\+h}}.
+
+\Hypertarget{vec_8h_a47f991701e0b5149c3a3daaff10f5953}\index{vec.h@{vec.h}!swap@{swap}}
+\index{swap@{swap}!vec.h@{vec.h}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily \label{vec_8h_a47f991701e0b5149c3a3daaff10f5953} 
+template$<$typename U$>$ \\
+void swap (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{a}{, }\item[{\doxymbox{\hyperlink{class_vector}{Vector}}$<$ U $>$ \&}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{vec_8h_source_l00344}{344}} of file \doxymbox{\hyperlink{vec_8h_source}{vec.\+h}}.
+
