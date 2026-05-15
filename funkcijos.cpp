@@ -373,7 +373,7 @@ void tyrimas2(Vector<Studentas>& A){
 }
 template <typename Konteineris>
 void tyrimas2_visi(Konteineris& A){
-    Vector<long> kiekiai = {1000, 10000, 100000, 1000000, 10000000};
+    Vector<long> kiekiai = {100000, 1000000, 10000000};
     int rik = pasirink(); 
     auto startas = std::chrono::high_resolution_clock::now();
 
