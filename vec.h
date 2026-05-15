@@ -215,7 +215,7 @@ iterator insert(iterator pos, size_type count, const T& value){
         data_[i+count-1] = std::move(data_[i-1]);
     }
     for(size_type i=0; i< count; i++){
-        data[index+i]=value;
+        data_[index+i]=value;
     }
     size_ += count;
     return begin() + index;
