@@ -5,6 +5,8 @@
 #include <string>
 #include <iostream>
 #include <limits>
+#include <type_traits>
+#include <iterator>
 
 template<class T, class Allocator=std::allocator<T>>
 class Vector {
@@ -106,7 +108,8 @@ void assign(size_type count, const T& value){
 }
 
 template<typename InputIt>
-void assign(InputIt first, InputIt last){
+std::enable_if_t<!std::is_integral<InputIt>::value, void>
+assign(InputIt first, InputIt last){
     clear();
     for(; first != last; ++first){
         push_back(*first);
