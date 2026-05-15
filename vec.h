@@ -1,10 +1,10 @@
-#ifndef vec.h
-#define vec.h
+#ifndef vec_H
+#define vec_H
 
 #include <vector>
 #include <string>
 #include <iostream>
-
+#include <limits>
 
 template<class T, class Allocator=std::allocator<T>>
 class Vector {
@@ -54,7 +54,7 @@ for(const auto& v: init){
 // RULE OF FIVE ---------------
 ~Vector() {delete[] data_;}
 
-Vector(const Vector& orther):
+Vector(const Vector& other):
 data_(new T[other.capacity_]),
 size_(other.size_),
 capacity_(other.capacity_){
@@ -173,7 +173,6 @@ const_reverse_iterator crend() const { return const_reverse_iterator(begin());}
 bool empty() const { return size_ == 0; }
 
 size_type size() const { return size_; }
-size_type capacity() const { return capacity_; }
 size_type max_size() const { return std::numeric_limits<size_type>::max(); }
 
 void reserve(size_type new_cap){
@@ -210,7 +209,7 @@ iterator insert(iterator pos, const T& value){
 iterator insert(iterator pos, size_type count, const T& value){
     size_type index = pos - begin();
     while(size_ +count > capacity_){
-        reserve(capacity == 0 ?count : capacity_ * 2);
+        reserve(capacity_ == 0 ?count : capacity_ * 2);
     }
     for(size_type i = size_; i>index; i--){
         data_[i+count-1] = std::move(data_[i-1]);
@@ -300,10 +299,13 @@ void swap(Vector& other) noexcept {
     std::swap(capacity_, other.capacity_);
 }
 
+};
+
 
 // non-member 
-template<Typename T>
-bool operator==(const Vector<T>& a, const Vector<T>& b){
+
+template<typename U>
+bool operator==(const Vector<U>& a, const Vector<U>& b){
     if(a.size() != b.size()) return false;
     for(std::size_t i=0; i < a. size(); i++){
         if(a[i] != b[i]) return false;
@@ -311,34 +313,33 @@ bool operator==(const Vector<T>& a, const Vector<T>& b){
     return true;
 }
 
-template<Typename T>
-bool opertor!=(const Vector<T>& a, const Vector<T>& b){
+template<typename U>
+bool operator!=(const Vector<U>& a, const Vector<U>& b){
     return !(a==b);
 }
 
-template<typename T>
-bool operator<(const Vector<T>& a, const Vector<T>& b){
+template<typename U>
+bool operator<(const Vector<U>& a, const Vector<U>& b){
     return std::lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
 }
 
-template<typename T>
-bool operator>(const Vector<T>& a, const Vector<T>& b){
+template<typename U>
+bool operator>(const Vector<U>& a, const Vector<U>& b){
     return b < a;
 }
 
-template<typename T>
-bool operator<=(const Vector<T>& a, const Vector<T>& b){
+template<typename U>
+bool operator<=(const Vector<U>& a, const Vector<U>& b){
     return !(b < a);
 }
-template<typename T>
-bool operator>=(const Vector<T>& a, const Vector<T>& b){
+template<typename U>
+bool operator>=(const Vector<U>& a, const Vector<U>& b){
     return !(a < b);
 }
 
-template<typename T>
-void swap(Vector<T>& a, Vector& b) noexcept {
+template<typename U>
+void swap(Vector<U>& a, Vector<U>& b) noexcept {
     a.swap(b);
 }
 
-};
 #endif

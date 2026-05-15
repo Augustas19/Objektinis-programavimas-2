@@ -1,4 +1,4 @@
-#include <vector>
+//#include <vector>
 #include <iomanip>
 #include <iostream>
 #include <algorithm>
@@ -10,6 +10,7 @@
 #include <list>
 #include <deque>
 #include "funkcijos.h"
+#include "vec.h"
 
 using std::cout;
 using std::cin;
@@ -33,7 +34,7 @@ int main(){
     long n; 
     long m; 
     int meniu; 
-    std::vector<Studentas> A;
+    Vector<Studentas> A;
     std::list<Studentas> L;
     std::deque<Studentas> D;
   

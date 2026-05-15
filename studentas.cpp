@@ -15,11 +15,11 @@ Studentas::Studentas(std::istream& is):Zmogus(), egzaminas_(0) {
 }
 
 // Studentas::galBalas realizacija
-double Studentas::galutBalas(double (*f) (std::vector<double>)) const {
+double Studentas::galutBalas(double (*f) (Vector<double>)) const {
   return 0.4*f(nd_) + 0.6*egzaminas_;
 }
 
-Studentas::Studentas(const std::string& vardas, const std::string& pavarde, int egzaminas, const std::vector<double>& nd):
+Studentas::Studentas(const std::string& vardas, const std::string& pavarde, int egzaminas, const Vector<double>& nd):
 Zmogus(vardas,pavarde),
 egzaminas_(egzaminas),
 nd_(nd){}
@@ -33,7 +33,7 @@ std::istream& Studentas::readStudent(std::istream& is) {
     std::string eilute;
     std::getline(is, eilute);
     std::istringstream buf(eilute);
-    std::vector<double> sk;
+    Vector<double> sk;
     int paz;
     while(buf>>paz) sk.push_back(paz);
 
@@ -61,7 +61,7 @@ std::ostream& operator<<(std::ostream& os, const Studentas& s) {
     return os;
 }
 
-double mediana(std::vector<double> v){
+double mediana(Vector<double> v){
     std::sort(v.begin(), v.end());
     int n = v.size();
 
@@ -73,7 +73,7 @@ double mediana(std::vector<double> v){
     }
 }
 
-double vidurkis(std::vector<double> v){
+double vidurkis(Vector<double> v){
     double s=0;
     for(auto x:v){
         s+=x;
