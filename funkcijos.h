@@ -58,5 +58,6 @@ void tyrimas2_de(std::deque<Studentas>& A);
 void check(bool salyga, const std::string pavad);
 void testavimas();
 void laiko_test();
+void atminties_testas();
 
 #endif

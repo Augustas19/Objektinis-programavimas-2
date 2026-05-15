@@ -52,17 +52,18 @@ while(true){
         << "10 - testas 2 su deque\n"
         << "11 - rule of five testavimas\n"
         << "12 - vector laiko testavimas\n"
-        << "13 - baigti darbą"<<endl;
+        << "13 - perskirstymų testavimas\n"
+        << "14 - baigti darbą"<<endl;
     while(true){
             cin>>meniu;
-                if(cin.fail() ||meniu<1 || meniu>13){
+                if(cin.fail() ||meniu<1 || meniu>14){
                     cin.clear();
                    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    cout<<"Įvesti galima tik skaičius nuo 1 iki 13"<<endl;
+                    cout<<"Įvesti galima tik skaičius nuo 1 iki 14"<<endl;
                 }
                 else if(cin.peek() !=' ' && cin.peek() != '\n'){
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 13"<<endl;
+                    cout<<"Įvesti galima tik sveikuosius skaičius nuo 1 iki 14"<<endl;
                 }
                 else{
                     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -272,6 +273,9 @@ while(true){
         laiko_test();
     }
     else if(meniu==13){
+        atminties_testas();
+    }
+    else if(meniu==14){
         break;
     }
 }

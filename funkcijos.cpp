@@ -526,3 +526,30 @@ void laiko_test(){
     cout<<sz<<" Su Vector uztruko      - "<<laikas2.count()<<" s\n";
 }
 }
+
+void atminties_testas(){
+    int kiekis = 100000000;
+{
+    std::vector<int> v;
+    int perskirstymai = 0;
+
+    for (int i = 0; i < kiekis; ++i) {
+        if (v.size() == v.capacity())
+            ++perskirstymai;
+        v.push_back(i);
+    }
+    cout<<"Perskirstymai std::vector- "<<perskirstymai<<endl;
+}
+{
+    Vector<int> v;
+    int perskirstymai = 0;
+
+    for (int i = 0; i < kiekis; ++i) {
+        if (v.size() == v.capacity())
+            ++perskirstymai;
+        v.push_back(i);
+    }
+    cout<<"Perskirstymai Vector- "<<perskirstymai<<endl;
+}
+
+}
